@@ -1,0 +1,27 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "description": "A digital media format for purchasing and renting television shows and movies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apollack0722/capstone.git"
+  },
+  "keywords": [
+    "ecommerce"
+  ],
+  "author": "Leslie Guan, Stephen Timphony, Aaron P",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apollack0722/capstone/issues"
+  },
+  "homepage": "https://github.com/apollack0722/capstone#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1"
+  }
+}
