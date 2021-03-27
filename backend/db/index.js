@@ -1,8 +1,15 @@
-const client = require ('./client')
-const { createUser } = require ('./users')
+// require and re-export all files in this db directory
+const {
+    getUserById,
+    createUser,
+    getUser,
+    getAllUsers
+} = require('./users');
 //add other exports
 
 module.exports = {
-    client,
+    getUserById,
     createUser,
+    getUser,
+    getAllUsers
 };

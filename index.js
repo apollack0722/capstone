@@ -18,10 +18,12 @@ server.use(cors());
 
 server.use(bodyParser.json());
 
-const apiRouter = require("./api");
+const apiRouter = require("./backend/api");
 server.use("/api", apiRouter);
+const userRouter = require("./backend/api");
+server.use("/user", userRouter);
 
-const client = require("./db/client");
+const client = require("./backend/db/client");
 
 
 server.listen(PORT, () => {
