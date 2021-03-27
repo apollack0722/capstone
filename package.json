@@ -4,7 +4,12 @@
   "description": "A digital media format for purchasing and renting television shows and movies.",
   "main": "index.js",
   "scripts": {
-    "test": "test:watch"
+    "seed:dev": "nodemon ./db/seed.js",
+    "seed": "node ./db/seed.js",
+    "start:dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "jest",
+    "test:watch": "jest --watchAll --runInBand"
   },
   "repository": {
     "type": "git",

@@ -1,74 +1,60 @@
 // require in the database adapter functions as you write them (createUser, createActivity...)
 // const { } = require('./');
-
 const { createUser } = require('./users')
-
 const client = require('./client');
-
-
 async function dropTables() {
     console.log('Dropping All Tables...');
-    // drop all tables, in the correct order
-    await client.query(`DROP TABLE IF EXISTS users`); 
+    await client.query(`
+        DROP TABLE IF EXISTS users, media, orders;`); 
   }
   async function createTables() {
     console.log("Starting to build tables...");
     try {
       await client.query(`
         CREATE TABLE users (
-        id SERIAL PRIMARY KEY,
+        id SERIAL PRIMARY KEY
         username VARCHAR(255) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL,
         "userEmail" VARCHAR(255) UNIQUE NOT NULL,      
       );
     `)
-    //   await client.query(`
-    //     CREATE TABLE activities (
-    //     id SERIAL PRIMARY KEY, 
-    //     name VARCHAR(255) UNIQUE NOT NULL,
-    //     description TEXT NOT NULL
-    //   );
-    // `)
-    //   await client.query(`
-    //     CREATE TABLE routines (
-    //     id SERIAL PRIMARY KEY,
-    //     "creatorId" INTEGER REFERENCES users(id),
-    //     "isPublic" BOOLEAN DEFAULT false,
-    //     name VARCHAR(255) UNIQUE NOT NULL,
-    //     goal TEXT NOT NULL
-    //   );
-    // `)
-    //   await client.query(`
-    //     CREATE TABLE routine_activities (
-    //     id SERIAL PRIMARY KEY,
-    //     "routineId" INTEGER REFERENCES routines(id),
-    //     "activityId" INTEGER REFERENCES activities(id),
-    //     duration INTEGER, 
-    //     count INTEGER
-    //   );
-    // `)
+      await client.query(`
+        CREATE TABLE media (
+        id SERIAL PRIMARY KEY, 
+        title VARCHAR(255) UNIQUE NOT NULL,
+        description TEXT,
+        genre VARCHAR(255),
+        "rentalPrice" MONEY NOT NULL,
+        "buyPrice" MONEY NOT NULL,
+        rating VARCHAR(255),
+      );
+    `)
+      await client.query(`
+        CREATE TABLE orders (
+        id SERIAL PRIMARY KEY,
+        "userId" INTEGER REFERENCES users(id),
+        "mediaId" INTEGER REFERENCES media(id),
+        date CURRENT_DATE, 
+        count INTEGER,
+        purchased BOOLEAN DEFAULT false,
+        rental BOOLEAN DEFAULT true,
+      );
+    `)
     }
     catch(error){
       throw error
     }
-    // create all tables, in the correct order
   }
-  
-  /* 
-  DO NOT CHANGE ANYTHING BELOW. This is default seed data, and will help you start testing, before getting to the tests. 
-  */
-  
+
   async function createInitialUsers() {
     console.log('Starting to create users...');
     try {
-  
       const usersToCreate = [
         { username: 'Stephen', password: 'st', userEmail: 'st@g.com' },
         { username: 'Aaron', password: 'ap', userEmail: 'ap@g.com' },
         { username: 'Leslie', password: 'lg', userEmail: 'lg@g.com' },
       ]
       const users = await Promise.all(usersToCreate.map(createUser));
-  
       console.log('Users created:');
       console.log(users);
       console.log('Finished creating users!');
@@ -77,135 +63,115 @@ async function dropTables() {
       throw error;
     }
   }
-//   async function createInitialActivities() {
-//     try {
-//       console.log('Starting to create activities...');
-  
-//       const activitiesToCreate = [
-//         { name: 'wide-grip standing barbell curl', description: 'Lift that barbell!' },
-//         { name: 'Incline Dumbbell Hammer Curl', description: 'Lie down face up on an incline bench and lift thee barbells slowly upward toward chest' },
-//         { name: 'bench press', description: 'Lift a safe amount, but push yourself!' },
-//         { name: 'Push Ups', description: 'Pretty sure you know what to do!' },
-//         { name: 'squats', description: 'Heavy lifting.' },
-//         { name: 'treadmill', description: 'running' },
-//         { name: 'stairs', description: 'climb those stairs' },
-//       ]
-//       const activities = await Promise.all(activitiesToCreate.map(createActivity));
-  
-//       console.log('activities created:');
-//       console.log(activities);
-  
-//       console.log('Finished creating activities!');
-//     } catch (error) {
-//       console.error('Error creating activities!');
-//       throw error;
-//     }
-//   }
-  
-  
-//   async function createInitialRoutines() {
-//     try {
-//       console.log('starting to create routines...');
-  
-//       const routinesToCreate = [
-//         {creatorId: 2, isPublic: false, name: 'Bicep Day', goal: 'Work the Back and Biceps.'},
-//         {creatorId: 1, isPublic: true, name: 'Chest Day', goal: 'To beef up the Chest and Triceps!'},
-//         {creatorId: 1, isPublic: false, name: 'Leg Day', goal: 'Running, stairs, squats'},
-//         {creatorId: 2, isPublic: true, name: 'Cardio Day', goal: 'Running, stairs. Stuff that gets your heart pumping!'},
-//       ]
-//       const routines = await Promise.all(routinesToCreate.map(routine => createRoutine(routine)));
-//       console.log('Routines Created: ', routines)
-//       console.log('Finished creating routines.')
-//     } catch (error) {
-//       throw error;
-//     }
-//   }
-  
-//   async function createInitialRoutineActivities() {
-//     try {
-//       console.log('starting to create routine_activities...');
-//       const [bicepRoutine, chestRoutine, legRoutine, cardioRoutine] = await getRoutinesWithoutActivities();
-//       const [bicep1, bicep2, chest1, chest2, leg1, leg2, leg3] = await getAllActivities();
-      
-//       const routineActivitiesToCreate = [
-//         {
-//           routineId: bicepRoutine.id,
-//           activityId: bicep1.id,
-//           count: 10,
-//           duration: 5 
-//         },
-//         {
-//           routineId: bicepRoutine.id,
-//           activityId: bicep2.id,
-//           count: 10,
-//           duration: 8 
-//         },
-//         {
-//           routineId: chestRoutine.id,
-//           activityId: chest1.id,
-//           count: 10,
-//           duration: 8 
-//         },
-//         {
-//           routineId: chestRoutine.id,
-//           activityId: chest2.id,
-//           count: 10,
-//           duration: 7 
-//         },
-//         {
-//           routineId: legRoutine.id,
-//           activityId: leg1.id,
-//           count: 10,
-//           duration: 9 
-//         },
-//         {
-//           routineId: legRoutine.id,
-//           activityId: leg2.id,
-//           count: 10,
-//           duration: 10 
-//         },
-//         {
-//           routineId: legRoutine.id,
-//           activityId: leg3.id,
-//           count: 10,
-//           duration: 7 
-//         },
-//         {
-//           routineId: cardioRoutine.id,
-//           activityId: leg2.id,
-//           count: 10,
-//           duration: 10 
-//         },
-//         {
-//           routineId: cardioRoutine.id,
-//           activityId: leg3.id,
-//           count: 10,
-//           duration: 15 
-//         },
-//       ]
-//       const routineActivities = await Promise.all(routineActivitiesToCreate.map(addActivityToRoutine));
-//       console.log('routine_activities created: ', routineActivities)
-//       console.log('Finished creating routine_activities!')
-//     } catch (error) {
-//       throw error;
-//     }
-//   }
-  
+  async function createInitialMedia() {
+    try {
+      console.log('Starting to create media...');
+      const mediaToCreate = [
+        { title: 'Adult Normal Samuri Lizards', description: '4 lizards adopted by a rat like pizza', genre: 'Family Friendly', 'rentalPrice': 7.99 , 'buyPrice': 29.99, rating: 'PG-13' },
+        { title: 'Spy Kids', description: 'kids that are spys', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'PG'},
+        { title: 'Boss Baby', description: 'kids that are bosses', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 15.99, rating: 'PG'},
+        { title: 'Mary Poppins', description: 'Like Mrs Doubtfire but without the drag', genre: 'Classic', 'rentalPrice': 7.99, 'buyPrice': 13.99, rating: 'G'},
+        { title: 'Fight Club', description: '...refer to rule #1', genre: 'Suspense/Action', 'rentalPrice': 7.99, 'buyPrice': 22.99, rating: 'R'},
+        { title: 'The Big Lebowski', description: 'the dude abides', genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'R'},
+        { title: 'Star Wars', description: 'One of the good ones', genre: 'Sci-Fi', 'rentalPrice': 7.99, 'buyPrice': 26.99, rating: 'PG-13'},
+      ]
+      const media = await Promise.all(mediaToCreate.map(createMedia));
+      console.log('media created:');
+      console.log(media);
+      console.log('Finished creating media!');
+    } catch (error) {
+      console.error('Error creating media!');
+      throw error;
+    }
+  }
+  async function createInitialOrders() {
+    try {
+      console.log('starting to create orders');
+      const ordersToCreate = [
+        {
+          userId: 3,
+          mediaId: 7,
+          date: Date(),
+          purchased: true,
+          rental: false
+        },
+        {
+          userId: 3,
+          mediaId: 1,
+          date: Date(),
+          purchased: false,
+          rental: true
+        },
+        {
+          userId: 1,
+          mediaId: 1,
+          date: Date(),
+          purchased: false,
+          rental: true 
+        },
+        {
+          userId: 3,
+          mediaId: 3,
+          date: Date(),
+          purchased: false,
+          rental: true 
+        },
+        {
+          userId: 2,
+          mediaId: 5,
+          date: Date(),
+          purchased: true,
+          rental: false
+        },
+        {
+          userId: 2,
+          mediaId: 6,
+          date: Date() ,
+          purchased: false,
+          rental: true 
+        },
+        {
+          userId: 3,
+          mediaId: 1,
+          date: Date(),
+          purchased: false,
+          rental: true 
+        },
+        {
+          userId: 3,
+          mediaId: 4,
+          date: Date(),
+          purchased: false,
+          rental: true 
+        },
+        {
+          userId: 1,
+          mediaId: 2,
+          date: Date(),
+          purchased: false,
+          rental: false 
+        },
+      ]
+      const orders = await Promise.all(ordersToCreate.map(createdOrders));
+      console.log('orders created: ', orders)
+      console.log('Finished creating orders')
+    } catch (error) {
+      throw error;
+    }
+  }
   async function rebuildDB() {
     try {
       client.connect();
       await dropTables();
       await createTables();
       await createInitialUsers();
-    //   await createInitialActivities();
-    //   await createInitialRoutines();
-    //   await createInitialRoutineActivities();
+      await createInitialMedia();
+      await createInitialOrders();
     } catch (error) {
       console.log('Error during rebuildDB')
       throw error;
     }
   }
-  
   module.exports = {
     rebuildDB
   };
