@@ -20,6 +20,8 @@ server.use(bodyParser.json());
 
 const apiRouter = require("./backend/api");
 server.use("/api", apiRouter);
+const userRouter = require("./backend/api");
+server.use("/user", userRouter);
 
 const client = require("./backend/db/client");
 
