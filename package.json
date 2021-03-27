@@ -4,13 +4,14 @@
   "description": "A digital media format for purchasing and renting television shows and movies.",
   "main": "index.js",
   "scripts": {
-    "seed:dev": "nodemon ./db/seed.js",
-    "seed": "node ./db/seed.js",
+    "seed:dev": "nodemon ./backend/db/seed.js",
+    "seed": "node ./backend/db/seed.js",
     "start:dev": "nodemon index.js",
     "start": "node index.js",
     "test": "jest",
     "test:watch": "jest --watchAll --runInBand"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/apollack0722/capstone.git"
