@@ -22,16 +22,16 @@ async function getUserById(id) {
   }
 }
 
-async function createUser({username, password}){
+async function createUser({username, password, userEmail}){
   const hashedPassword = await bcrypt.hash(
       password, SALT_COUNT);
   try{
       const {rows:[user]} = await client.query(`
-       INSERT INTO users (username, password)
-       VALUES ($1, $2)
+       INSERT INTO users (username, password, "userEmail")
+       VALUES ($1, $2, $3)
        ON CONFLICT (username) DO NOTHING
        RETURNING *;
-      `,[username, hashedPassword]);
+      `,[username, hashedPassword, userEmail]);
 
       delete user.password;
 
