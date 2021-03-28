@@ -37,8 +37,8 @@ async function dropTables() {
         id SERIAL PRIMARY KEY,
         "userId" INTEGER REFERENCES users(id),
         "mediaId" INTEGER REFERENCES media(id),
-        date CURRENT_DATE(),
-        count INTEGER,
+        date TEXT,
+        count INTEGER DEFAULT 1,
         purchased BOOLEAN DEFAULT false,
         rental BOOLEAN DEFAULT true
       );
