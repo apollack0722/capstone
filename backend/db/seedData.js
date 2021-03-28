@@ -38,7 +38,6 @@ async function dropTables() {
         "userId" INTEGER REFERENCES users(id),
         "mediaId" INTEGER REFERENCES media(id),
         date TEXT,
-        count INTEGER DEFAULT 1,
         purchased BOOLEAN DEFAULT false,
         rental BOOLEAN DEFAULT true
       );
@@ -96,7 +95,8 @@ async function dropTables() {
           mediaId: 7,
           date: Date(),
           purchased: true,
-          rental: false
+          rental: false,
+    
         },
         {
           userId: 3,
