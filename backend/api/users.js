@@ -13,7 +13,7 @@ usersRouter.use((req, res, next) => {
 })
 
 
-usersRouter.get('/me', requireUser, async (req, res, next) => {
+usersRouter.get('/users', requireUser, async (req, res, next) => {
 
     try {        
         res.send(req.user)
