@@ -1,6 +1,8 @@
 // require in the database adapter functions as you write them (createUser, createActivity...)
 // const { } = require('./');
 const { createUser } = require('./users')
+const { createMedia } = require('./media')
+const { createOrder } = require('./orders')
 const client = require('./client');
 async function dropTables() {
     console.log('Dropping All Tables...');
@@ -35,7 +37,7 @@ async function dropTables() {
         id SERIAL PRIMARY KEY,
         "userId" INTEGER REFERENCES users(id),
         "mediaId" INTEGER REFERENCES media(id),
-        date INTEGER,
+        date CURRENT_DATE(),
         count INTEGER,
         purchased BOOLEAN DEFAULT false,
         rental BOOLEAN DEFAULT true
@@ -153,7 +155,7 @@ async function dropTables() {
           rental: false 
         },
       ]
-      const orders = await Promise.all(ordersToCreate.map(createdOrders));
+      const orders = await Promise.all(ordersToCreate.map(createOrder));
       console.log('orders created: ', orders)
       console.log('Finished creating orders')
     } catch (error) {
