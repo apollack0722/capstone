@@ -7,17 +7,18 @@ async function dropTables() {
     await client.query(`
         DROP TABLE IF EXISTS users, media, orders;`); 
   }
+  // syntax err near username line 17
   async function createTables() {
     console.log("Starting to build tables...");
     try {
       await client.query(`
         CREATE TABLE users (
-        id SERIAL PRIMARY KEY
-        username VARCHAR(255) UNIQUE NOT NULL,
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(255) UNIQUE NOT NULL, 
         password VARCHAR(255) NOT NULL,
-        "userEmail" VARCHAR(255) UNIQUE NOT NULL,      
-      );
-    `)
+        "userEmail" VARCHAR(255) UNIQUE     
+      )
+    `);
       await client.query(`
         CREATE TABLE media (
         id SERIAL PRIMARY KEY, 
@@ -26,7 +27,7 @@ async function dropTables() {
         genre VARCHAR(255),
         "rentalPrice" MONEY NOT NULL,
         "buyPrice" MONEY NOT NULL,
-        rating VARCHAR(255),
+        rating VARCHAR(255)
       );
     `)
       await client.query(`
@@ -34,13 +35,13 @@ async function dropTables() {
         id SERIAL PRIMARY KEY,
         "userId" INTEGER REFERENCES users(id),
         "mediaId" INTEGER REFERENCES media(id),
-        date CURRENT_DATE, 
+        date INTEGER,
         count INTEGER,
         purchased BOOLEAN DEFAULT false,
-        rental BOOLEAN DEFAULT true,
+        rental BOOLEAN DEFAULT true
       );
     `)
-    }
+     }
     catch(error){
       throw error
     }
