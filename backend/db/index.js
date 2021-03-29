@@ -8,7 +8,8 @@ const {
 //add other exports
 
 const {
-    createMedia
+    createMedia,
+    getAllMedia
 } = require('./media')
 
 const {
@@ -21,5 +22,6 @@ module.exports = {
     getUser,
     getAllUsers,
     createMedia,
-    createOrder
+    createOrder,
+    getAllMedia
 };

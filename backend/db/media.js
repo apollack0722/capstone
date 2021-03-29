@@ -12,7 +12,18 @@ async function createMedia({title, description, genre, rentalPrice, buyPrice, ra
         throw error;
     }
 }
-
+async function getAllMedia() {
+    try {
+        const { rows } = await client.query(`
+          SELECT * 
+          FROM media;
+        `);
+        return rows;
+      } catch (error) {
+        throw error;
+      }
+}
 module.exports = {
-    createMedia
+    createMedia,
+    getAllMedia,
 }
