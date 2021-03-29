@@ -9,11 +9,13 @@ usersRouter.use((req, res, next) => {
     console.log("A request is being made to /users");
     next();
 })
-usersRouter.get('/me', requireUser, async (req, res, next) => {
-    try {  
-        console.log('flag2')      
-        res.send({message: "howdy"
-    })
+
+// route works, no one is logged in to hit this route because there is no user in this req
+usersRouter.get('/', async (req, res, next) => {
+
+    try { 
+        //console.log(req.user);
+        res.send(req.user)
     } catch (error) {
         console.log(error)
         next(error);

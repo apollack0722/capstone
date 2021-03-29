@@ -16,6 +16,7 @@ server.use(bodyParser.json());
 
 const apiRouter = require("./backend/api");
 server.use("/api", apiRouter);
+
 const userRouter = require("./backend/api");
 server.use("/users", userRouter);
 
