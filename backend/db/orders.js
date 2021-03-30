@@ -24,7 +24,17 @@ async function getAllOrders() {
       } catch (error) {
         throw error;
       }
-}
+};
+
+        // Needs work
+// async function getOrdersByUserId({userId}) {
+//     try {
+     
+//     return routines;
+//     } catch (error) {
+//         throw error;
+//     }
+// }
 
 
 module.exports = {
