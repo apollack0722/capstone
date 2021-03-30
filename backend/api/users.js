@@ -2,7 +2,7 @@ const express = require("express");
 const usersRouter = express.Router();
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET} = process.env;
-const { getAllUsers } = require("../db");
+const { getAllUsers, createUser, getUserByUsername } = require("../db");
 const { requireUser } = require("./utils");
 
 usersRouter.use((req, res, next) => {
@@ -32,5 +32,34 @@ usersRouter.get(('/home', async (req, res, next) => {
         }
     )
 );
+
+// can't get api working all the way 404
+usersRouter.post('/register', async (req, res, next) => {
+    const { username, password } = req.body
+    const _user = await getUserByUsername(username);
+    try{
+        if(password.length < 8){
+            next({
+                message: "Password is too short"
+            });
+        }else if(_user){
+            next({
+                message: "A user by that username already exists"
+            });
+        }else {
+            const user =  await createUser(req.body);
+        res.send({user})
+        }
+    }catch ({message}){
+        next ({message});
+    }
+});
+
+
+
+
+
+
+
 
 module.exports = usersRouter;

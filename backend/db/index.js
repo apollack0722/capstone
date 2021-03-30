@@ -3,7 +3,8 @@ const {
     getUserById,
     createUser,
     getUser,
-    getAllUsers
+    getAllUsers,
+    getUserByUsername
 } = require('./users');
 //add other exports
 
@@ -13,7 +14,7 @@ const {
 } = require('./media')
 
 const {
-    createOrder
+    createOrder,
 } = require('./orders')
 
 module.exports = {
@@ -23,5 +24,6 @@ module.exports = {
     getAllUsers,
     createMedia,
     createOrder,
-    getAllMedia
+    getAllMedia,
+    getUserByUsername,
 };

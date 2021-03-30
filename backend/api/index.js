@@ -52,4 +52,7 @@ apiRouter.use("/users", usersRouter);
 const mediaRouter = require("./media");
 apiRouter.use("/media", mediaRouter);
 
+const ordersRouter = require("./orders");
+apiRouter.use("/orders", ordersRouter);
+
 module.exports = apiRouter;

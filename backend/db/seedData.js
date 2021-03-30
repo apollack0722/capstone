@@ -40,8 +40,9 @@ async function dropTables() {
         date TEXT,
         purchased BOOLEAN DEFAULT false,
         rental BOOLEAN DEFAULT true
-      );
+          );
     `)
+
      }
     catch(error){
       throw error
