@@ -15,6 +15,7 @@ const {
 
 const {
     createOrder,
+    getAllOrders
 } = require('./orders')
 
 module.exports = {
@@ -26,4 +27,5 @@ module.exports = {
     createOrder,
     getAllMedia,
     getUserByUsername,
+    getAllOrders
 };
