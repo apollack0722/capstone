@@ -16,7 +16,7 @@ ordersRouter.get('/', async (req, res, next) => {
 
     try { 
         const orders = await getAllOrders();
-        res.send(onvrdisplaypointerunrestricted)
+        res.send(orders)
     } catch ({name, message}) {
         next({
             name: "getAllOrders",
