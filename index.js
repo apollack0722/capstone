@@ -3,7 +3,6 @@ const server = express();
 const client = require("./backend/db/client");
 require("dotenv").config();
 const { PORT = 3001 } = process.env;
-
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");

@@ -1,4 +1,4 @@
-import React from 'react';
+import Home  from './Components'
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -6,15 +6,17 @@ import {
   Route
 } from "react-router-dom";
 
-
 import './App.css';
 
 function App() {
-  
   return (
     <Router>
     <div className="App">
       <Switch>
+        <Route path="/">
+          <Home/>
+          Home
+        </Route>
         <Route path="/Library">
          Library
         </Route>
@@ -27,9 +29,7 @@ function App() {
         <Route path="/Profile">
          Profile
         </Route>
-        <Route path="/">
-          Home
-        </Route>
+        
       </Switch>
     </div>
     </Router>

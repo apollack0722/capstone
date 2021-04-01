@@ -26,19 +26,22 @@ async function getAllOrders() {
       }
 };
 
-        // Needs work
-// async function getOrdersByUserId({userId}) {
-//     try {
-     
-//     return routines;
-//     } catch (error) {
-//         throw error;
-//     }
-// }
+async function getOrdersByUserId(userId) {
+    try {
+      const { rows } = await client.query(`
+      SELECT * 
+      FROM orders
+      WHERE "userId" = $1;
+    `,[userId]);
+    return rows;
+    } catch (error) {
+        throw error;
+    }
+}
 
 
 module.exports = {
     createOrder,
-    getAllOrders
-
+    getAllOrders,
+    getOrdersByUserId
 }

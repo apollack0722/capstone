@@ -32,9 +32,7 @@ async function createUser({username, password, userEmail}){
        ON CONFLICT (username) DO NOTHING
        RETURNING *;
       `,[username, hashedPassword, userEmail]);
-
       delete user.password;
-
       return user;
   }catch (error){
       throw error;

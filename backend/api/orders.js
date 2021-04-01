@@ -24,6 +24,18 @@ ordersRouter.get('/', async (req, res, next) => {
         })
     }  
 })
+ordersRouter.get('/:username/cart', async (req, res, next) => {
+    const { userId } = req.params;
+    try { 
+        const myOrders = await getOrdersByUserId(userId);
+        res.send(myOrders)
+    } catch ({name, message}) {
+        next({
+            name: "My Orders",
+            message: "There was an error getting orders"
+        })
+    }  
+})
 
 
 
