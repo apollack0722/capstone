@@ -1,11 +1,11 @@
-import Home  from './Components'
-import ReactDOM from 'react-dom';
+import Home  from './Pages/Home'
+// import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
@@ -14,14 +14,10 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/">
-          <Home/>
-          Home
+         <Home />
         </Route>
         <Route path="/Library">
          Library
-        </Route>
-        <Route path="/Login">
-          Login/Register
         </Route>
         <Route path="/Cart">
           Cart

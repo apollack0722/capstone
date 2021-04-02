@@ -15,9 +15,11 @@ usersRouter.get('/', async (req, res, next) => {
 
     try { 
         //console.log(req.user);
-        res.send(req.user)
+        const users = await getAllUsers();
+        console.log(users)
+        res.send(users)
     } catch (error) {
-        console.log(error)
+        console.log({error: "error getting"})
         next(error);
     }   
 })

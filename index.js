@@ -9,9 +9,10 @@ const cors = require("cors");
 
 server.use(express.json());
 server.use(express.urlencoded({extended: true})) //browser comp?. 
+server.use(bodyParser.json());
 server.use(morgan("dev"));
 server.use(cors());
-server.use(bodyParser.json());
+
 
 const apiRouter = require("./backend/api");
 server.use("/api", apiRouter);

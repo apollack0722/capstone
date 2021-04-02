@@ -1,9 +1,7 @@
-const apiRouter = require('express').Router();
+const express = require('express')
+const apiRouter = express.Router();
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = process.env;
-
-const bcrypt = require("bcrypt");
-
 const { getUserById } = require("../db/users");
 
 apiRouter.get("/checkIn", async (req, res, next) => {
