@@ -33,6 +33,7 @@ async function createUser({username, password, userEmail}){
        RETURNING *;
       `,[username, hashedPassword, userEmail]);
       delete user.password;
+      console.log(user)
       return user;
   }catch (error){
       throw error;
@@ -61,11 +62,11 @@ async function getUser({username, password}){
 }
 async function getAllUsers(){
   try{
-      const {rows: [user]} = await client.query(`
+      const {rows} = await client.query(`
       SELECT *
       FROM users
       `);
-      return user //rows?
+      return rows //rows?
   }catch (error){
       throw error;
   }

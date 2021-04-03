@@ -2,7 +2,7 @@ const express = require("express");
 const usersRouter = express.Router();
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET} = process.env;
-const { getAllUsers, createUser, getUserByUsername } = require("../db");
+const { getAllUsers, createUser, getUserByUsername, getUser } = require("../db");
 const { requireUser } = require("./utils");
 
 usersRouter.use((req, res, next) => {
@@ -23,7 +23,7 @@ usersRouter.get('/', async (req, res, next) => {
         next(error);
     }   
 })
-usersRouter.get(('/home', async (req, res, next) => {
+usersRouter.get('/home', async (req, res, next) => {
     try{
         const users = await getAllUsers();
         console.log(users)
@@ -32,10 +32,9 @@ usersRouter.get(('/home', async (req, res, next) => {
         next(error)
     }
         }
-    )
+    
 );
 
-// can't get api working all the way 404
 usersRouter.post('/register', async (req, res, next) => {
     const { username, password } = req.body
     const _user = await getUserByUsername(username);
@@ -58,7 +57,22 @@ usersRouter.post('/register', async (req, res, next) => {
 });
 
 
-
+// usersRouter.post('/login', async (req, res, next) => {
+//     const {username, password} = req.body
+//     const user = await getUser(username, password)
+//     try {
+        
+//         if (user) {     
+//             const token = jwt.sign({
+//                  username: user.username 
+//                 }, 
+//                 JWT_SECRET );
+//             res.send({ token: token, message: "Signed in"});
+//           }
+//     } catch (error) {
+//         next (error)
+//     }
+// })
 
 
 

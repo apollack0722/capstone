@@ -12,7 +12,7 @@ const Register = () => {
    /// issues registering 
     function registerUser(event) {
         
-        fetch('https://localhost:3001/api/users/register', {
+        fetch('http://localhost:3001/api/users/register', {
             method: "POST",
             headers: {
               'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ const Register = () => {
           <Button 
             variant="primary" 
             type="submit"
-            onClick={() => {password !== confirmPassword? alert('Passwords do not match') : registerUser()}}> 
+            onClick={(event) => {password !== confirmPassword? alert('Passwords do not match') : registerUser(event)}}> 
           Submit
         </Button>
           
