@@ -2,14 +2,11 @@ import {Modal, Button, Form} from 'react-bootstrap';
 import {React, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-
-   /// issues registering 
     function registerUser(event) {
         
         fetch('http://localhost:3001/api/users/register', {
@@ -20,36 +17,25 @@ const Register = () => {
             body: JSON.stringify({
               username: username,
               password: password
-              // need to add email to all functionality
             })
           }).then(response => response.json())
             .then(result => {
               console.log(result);
-          
             })
             .catch(console.error);
-    
-    
             event.preventDefault()
         }
-
-
-
-
-
-
-
     return (
           <div className="register">
-                  <Form>
-        <Form.Group controlId="Username">
-          <Form.Label>Username</Form.Label>
-          <Form.Control 
-            type="username" 
-            placeholder="Username" 
-            onChange={(event)=>setUsername(event.target.value)}
-                      />
-        </Form.Group>
+            <Form>
+              <Form.Group controlId="Username">
+                <Form.Label>Username</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  placeholder="Username" 
+                  onChange={ (event) => { setUsername(event.target.value) }}
+                />
+              </Form.Group>
       
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
