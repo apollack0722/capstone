@@ -12,8 +12,6 @@ async function createOrder({userId, mediaId, date, purchased, rental}){
         throw error;
     }
 }
-
-
 async function getAllOrders() {
     try {
         const { rows } = await client.query(`
@@ -25,7 +23,6 @@ async function getAllOrders() {
         throw error;
       }
 };
-
 async function getOrdersByUserId(userId) {
     try {
       const { rows } = await client.query(`
@@ -38,8 +35,6 @@ async function getOrdersByUserId(userId) {
         throw error;
     }
 }
-
-
 module.exports = {
     createOrder,
     getAllOrders,

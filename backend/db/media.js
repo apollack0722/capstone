@@ -23,6 +23,7 @@ async function getAllMedia() {
         throw error;
       }
 }
+async function getMediaById()
 module.exports = {
     createMedia,
     getAllMedia,
