@@ -8,59 +8,58 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     function registerUser(event) {
-      fetch('https://localhost:3001/api/users/register', {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password
-        })
-      }).then(response => response.json())
-        .then(result => {
-          console.log(result);
-        })
-        .catch(console.error);
-        event.preventDefault()
-    }
+        fetch('http://localhost:3001/api/users/register', {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              username: username,
+              password: password
+            })
+          }).then(response => response.json())
+            .then(result => {
+              console.log(result);
+            })
+            .catch(console.error);
+            event.preventDefault()
+        }
     return (
-      <div className="register">
-        <Form>
-          <Form.Group controlId="Username">
-            <Form.Label>Username</Form.Label>
-            <Form.Control 
-              type="text" 
-              placeholder="Username" 
-              onChange={ (event) => { setUsername(event.target.value) }}
-            />
-          </Form.Group>
-  
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control 
-              type="text" 
-              placeholder="Password"
-              onChange={ (event) => {setPassword(event.target.value) }} 
-          />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              type="text" 
-              placeholder="Password"
-              onChange={ (event) => {setConfirmPassword(event.target.value)}} 
-
-            />
-          </Form.Group>
+          <div className="register">
+            <Form>
+              <Form.Group controlId="Username">
+                <Form.Label>Username</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  placeholder="Username" 
+                  onChange={ (event) => { setUsername(event.target.value) }}
+                />
+              </Form.Group>
+      
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control 
+            type="username" 
+            placeholder="Password"
+            onChange={(event)=>setPassword(event.target.value)} />
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control
+            type="username" 
+            placeholder="Password"
+            onChange={(event)=>setConfirmPassword(event.target.value)} />
+        </Form.Group>
           <Button 
             variant="primary" 
             type="submit"
-            onClick={() => {password !== confirmPassword? alert('Passwords do not match') : registerUser()}}> 
-            Submit
-          </Button>
-        </Form>
-      </div>
+            onClick={(event) => {password !== confirmPassword? alert('Passwords do not match') : registerUser(event)}}> 
+          Submit
+        </Button>
+          
+      </Form>
+              
+              </div>
     )
   };
 

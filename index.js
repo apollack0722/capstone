@@ -6,12 +6,12 @@ const { PORT = 3001 } = process.env;
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({extended: true})) //browser comp?. 
 server.use(bodyParser.json());
 server.use(morgan("dev"));
-server.use(cors());
+
 
 
 const apiRouter = require("./backend/api");
