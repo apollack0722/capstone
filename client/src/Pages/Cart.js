@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 const [cartMedia, setCartMedia] = useState('')
 function viewCart(event) {
+  event.preventDefault()
   fetch('https://localhost:3001/:username/cart', {
       method: "GET",
       headers: {
@@ -14,7 +15,7 @@ function viewCart(event) {
       .then(
         fetch('https://localhost:3001/:username/cart'
       )
-      .catch(console.error);
-      event.preventDefault()
+      .catch(console.error)
+
   }
 
