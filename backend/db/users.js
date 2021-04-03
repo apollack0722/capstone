@@ -60,6 +60,27 @@ async function getUser({username, password}){
       throw error;
   }
 }
+
+// async function getUser({ username, password }) {
+//   try {
+//       const user = await getUserByUsername(username);
+//       const hashedPassword = user.password;
+//       const passwordsMatch = await bcrypt.compareSync(password, hashedPassword);
+//       if (passwordsMatch) {
+//           delete user.password;
+//           return user;
+//       } else {
+//           return;
+//       }
+      
+//   } catch (error) {
+//      throw error; 
+//   }
+// }
+
+
+
+
 async function getAllUsers(){
   try{
       const {rows} = await client.query(`
