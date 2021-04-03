@@ -13,9 +13,7 @@ function viewCart(event) {
         setCartMedia(result.mediaId)
       })
       .then(
-        fetch('https://localhost:3001/:username/cart'
-      )
+        fetch('https://localhost:3001') //where does this route to
       .catch(console.error)
-
   }
 
