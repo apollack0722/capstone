@@ -1,8 +1,5 @@
 import React from 'react';
-
 import {RegisterModal} from '../Components/index';
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const  Home = () => {
@@ -10,11 +7,8 @@ const  Home = () => {
     <div>
       <div>
         <RegisterModal />
-        </div>
-      <div>
-        
-        </div>
-            </div>
+      </div>
+    </div>
   )
 }
 export default Home;

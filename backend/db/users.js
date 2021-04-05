@@ -21,7 +21,6 @@ async function getUserById(id) {
     throw error;
   }
 }
-
 async function createUser({username, password, userEmail}){
   const hashedPassword = await bcrypt.hash(
       password, SALT_COUNT);
@@ -40,7 +39,6 @@ async function createUser({username, password, userEmail}){
   }
 
 }
-
 async function getUser({username, password}){
   try{
       const {rows: [user]} = await client.query(`

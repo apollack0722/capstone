@@ -9,17 +9,15 @@ usersRouter.use((req, res, next) => {
     console.log("A request is being made to /users");
     next();
 })
-
 // route works, no one is logged in to hit this route because there is no user in this req
 usersRouter.get('/', async (req, res, next) => {
-
     try { 
         //console.log(req.user);
         const users = await getAllUsers();
         console.log(users)
         res.send(users)
     } catch (error) {
-        console.log({error: "error getting"})
+        console.log({error: "error getting user"})
         next(error);
     }   
 })
@@ -34,7 +32,6 @@ usersRouter.get('/home', async (req, res, next) => {
         }
     
 );
-
 usersRouter.post('/register', async (req, res, next) => {
     const { username, password } = req.body
     const _user = await getUserByUsername(username);
