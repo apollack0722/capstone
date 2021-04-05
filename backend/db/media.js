@@ -23,8 +23,33 @@ async function getAllMedia() {
         throw error;
       }
 }
-async function getMediaById()
+
+async function getMediaById(id) {
+    try {
+      const {
+        rows: [media],
+      } = await client.query(
+        `
+        SELECT *
+        FROM media
+        WHERE id=$1;
+      `,
+        [id]
+      );
+  
+      return media;
+    } catch (error) {
+      throw error;
+    }
+  }
+  
+
+  
+
+
+
 module.exports = {
     createMedia,
     getAllMedia,
+    getMediaById,
 }

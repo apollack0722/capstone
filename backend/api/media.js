@@ -1,7 +1,8 @@
 const express = require("express");
 const mediaRouter = express.Router();
 const jwt = require("jsonwebtoken"); // not sure if needed or not
-const { getAllMedia } = require("../db");
+const { getAllMedia, getMediaById, updateMediaId } = require("../db");
+
 
 
 
@@ -18,7 +19,19 @@ mediaRouter.get('/', async (req, res, next) => {
     }  
 })
 
+mediaRouter.get("/:mediaId", async (req, res, next) => {
+  try {
+    const { mediaId } = req.params;
+    const media = await getMediaById(mediaId);
+      res.send(media);
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
 
+
+
+module.exports = mediaRouter;
 
 
 

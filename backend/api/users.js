@@ -56,23 +56,27 @@ usersRouter.post('/register', async (req, res, next) => {
     }
 });
 
-
-// usersRouter.post('/login', async (req, res, next) => {
-//     const {username, password} = req.body
-//     const user = await getUser(username, password)
-//     try {
+//token in local storage
+// jwt signing it here, make sure to sign with id & username
+//jwt use it for register component so new user gets assign to then
+usersRouter.post('/login', async (req, res, next) => {
+    const {username, password} = req.body
+    const user = await getUser({username, password}) //in right format from db bc its passed in as obj
+    try {
         
-//         if (user) {     
-//             const token = jwt.sign({
-//                  username: user.username 
-//                 }, 
-//                 JWT_SECRET );
-//             res.send({ token: token, message: "Signed in"});
-//           }
-//     } catch (error) {
-//         next (error)
-//     }
-// })
+        if (user) {     
+            // const token = jwt.sign({
+            //      username: user.username 
+            //     }, 
+            //     JWT_SECRET );
+            // res.send({ token: token, message: "Signed in", user});
+        res.send({message: "Signed in", user});
+
+          }
+    } catch (error) {
+        next (error)
+    }
+})
 
 
 
