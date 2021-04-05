@@ -1,5 +1,5 @@
 import React from 'react';
-import {RegisterModal} from '../Components/index';
+import {RegisterModal, LoginModal} from '../Components/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const  Home = () => {
@@ -8,6 +8,10 @@ const  Home = () => {
       <div>
         <RegisterModal />
       </div>
+      <div>
+       <LoginModal />
+      </div>
+
     </div>
   )
 }
