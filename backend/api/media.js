@@ -6,7 +6,6 @@ const { getAllMedia } = require("../db");
 
 
 mediaRouter.get('/', async (req, res, next) => {
-
     try { 
         const media = await getAllMedia();
         res.send(media)

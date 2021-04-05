@@ -29,7 +29,8 @@ async function dropTables() {
         genre VARCHAR(255),
         "rentalPrice" MONEY NOT NULL,
         "buyPrice" MONEY NOT NULL,
-        rating VARCHAR(255)
+        rating VARCHAR(255),
+        "imgUrl" TEXT
       );
     `)
       await client.query(`
@@ -70,13 +71,13 @@ async function dropTables() {
     try {
       console.log('Starting to create media...');
       const mediaToCreate = [
-        { title: 'Adult Normal Samuri Lizards', description: '4 lizards adopted by a rat like pizza', genre: 'Family Friendly', 'rentalPrice': 7.99 , 'buyPrice': 29.99, rating: 'PG-13' },
-        { title: 'Spy Kids', description: 'kids that are spys', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'PG'},
-        { title: 'Boss Baby', description: 'kids that are bosses', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 15.99, rating: 'PG'},
-        { title: 'Mary Poppins', description: 'Like Mrs Doubtfire but without the drag', genre: 'Classic', 'rentalPrice': 7.99, 'buyPrice': 13.99, rating: 'G'},
-        { title: 'Fight Club', description: '...refer to rule #1', genre: 'Suspense/Action', 'rentalPrice': 7.99, 'buyPrice': 22.99, rating: 'R'},
-        { title: 'The Big Lebowski', description: 'the dude abides', genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'R'},
-        { title: 'Star Wars', description: 'One of the good ones', genre: 'Sci-Fi', 'rentalPrice': 7.99, 'buyPrice': 26.99, rating: 'PG-13'},
+        { title: 'Adult Normal Samuri Lizards', description: '4 lizards adopted by a rat like pizza', genre: 'Family Friendly', 'rentalPrice': 7.99 , 'buyPrice': 29.99, rating: 'PG-13', 'imgUrl': 'https://imgur.com/BuqOEHR'},
+        { title: 'Spy Kids', description: 'kids that are spys', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'PG', 'imgUrl': 'https://imgur.com/3gSKGjs'},
+        { title: 'Boss Baby', description: 'kids that are bosses', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 15.99, rating: 'PG', 'imgUrl': 'https://imgur.com/cnE6SnU'},
+        { title: 'Mary Poppins', description: 'Like Mrs Doubtfire but without the drag', genre: 'Classic', 'rentalPrice': 7.99, 'buyPrice': 13.99, rating: 'G', 'imgUrl': 'https://imgur.com/aA7buWq'},
+        { title: 'Fight Club', description: '...refer to rule #1', genre: 'Suspense/Action', 'rentalPrice': 7.99, 'buyPrice': 22.99, rating: 'R', 'imgUrl': 'https://imgur.com/36hBHSV'},
+        { title: 'The Big Lebowski', description: 'the dude abides', genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'R', 'imgUrl': 'https://imgur.com/pdiD6TN'},
+        { title: 'Star Wars', description: 'One of the good ones', genre: 'Sci-Fi', 'rentalPrice': 7.99, 'buyPrice': 26.99, rating: 'PG-13', 'imgUrl': 'https://imgur.com/k1oadL5'},
       ]
       const media = await Promise.all(mediaToCreate.map(createMedia));
       console.log('media created:');
