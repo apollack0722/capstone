@@ -1,6 +1,7 @@
 import {useState} from 'react';
 
 const [cartMedia, setCartMedia] = useState('')
+
 function viewCart(event) {
   event.preventDefault()
   fetch('https://localhost:3001/:username/cart', {

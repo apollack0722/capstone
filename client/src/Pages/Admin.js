@@ -1,4 +1,3 @@
-import React from 'react';
 import {RegisterModal} from '../Components/index';
 
 const  Home = () => {

@@ -52,20 +52,28 @@ usersRouter.post('/register', async (req, res, next) => {
         next ({message});
     }
 });
+
+
+
+
 usersRouter.post('/login', async (req, res, next) => {
-    const {username, password} = req.body
-    const user = await getUser(username, password)
+    const user = await getUser(req.body)
     try {
         
         if (user) {     
-            const token = jwt.sign({
-                 username: user.username 
-                }, 
-                JWT_SECRET );
-            res.send({ token: token, message: "Signed in"});
+            const token = jwt.sign({ 
+                id: user.id, 
+                username: user.username 
+            }, process.env.JWT_SECRET );
+            res.send({ token: token});
           }
     } catch (error) {
+        console.error(error)
         next (error)
     }
 })
+
+
+
+
 module.exports = usersRouter;
