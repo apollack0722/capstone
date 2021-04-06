@@ -1,10 +1,11 @@
 import {useState} from 'react';
+const BASE_URL = 'https://localhost:3000'
 
 const [cartMedia, setCartMedia] = useState('')
 
-function viewCart(event) {
-  event.preventDefault()
-  fetch('https://localhost:3001/:username/cart', {
+const viewCart = async (event) => {
+  event.preventDefault();
+  await fetch(`${BASE_URL}/:username/cart`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
@@ -13,8 +14,6 @@ function viewCart(event) {
       .then(result => {
         setCartMedia(result.mediaId)
       })
-      .then(
-        fetch('https://localhost:3001') //where does this route to
       .catch(console.error)
-  }
+}
 

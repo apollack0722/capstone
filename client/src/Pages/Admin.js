@@ -1,12 +1,12 @@
-import {RegisterModal} from '../Components/index';
 
-const  Home = () => {
+
+const  Admin = () => {
   return (
     <div>
       <div>
-        <RegisterModal />
+        ADMIN PANEL GOES HERE
       </div>
     </div>
   )
 }
-export default Home;
+export default Admin;

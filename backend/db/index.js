@@ -1,4 +1,4 @@
-// require and re-export all files in this db directory
+
 const {
     getUserById,
     createUser,
@@ -6,7 +6,7 @@ const {
     getAllUsers,
     getUserByUsername
 } = require('./users');
-//add other exports
+
 
 const {
     createMedia,

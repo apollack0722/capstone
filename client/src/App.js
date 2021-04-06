@@ -1,5 +1,7 @@
 import Home  from './Pages/Home'
-// import ReactDOM from 'react-dom';
+import Library from './Pages/Library'
+import Admin from './Pages/Admin'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,9 +15,8 @@ function App() {
     <Router>
     <div className="App">
       <Switch>
-       
         <Route path="/Library">
-         Library
+         <Library />
         </Route>
         <Route path="/Cart">
           Cart
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/">
          <Home />
+        </Route>
+        <Route path="/Admin">
+         <Admin />
         </Route>
       </Switch>
     </div>
