@@ -10,7 +10,8 @@ const {
 
 const {
     createMedia,
-    getAllMedia
+    getAllMedia,
+    getMediaById,
 } = require('./media')
 
 const {
@@ -29,5 +30,6 @@ module.exports = {
     getAllMedia,
     getUserByUsername,
     getAllOrders,
-    getOrdersByUserId
+    getOrdersByUserId,
+    getMediaById,
 };
