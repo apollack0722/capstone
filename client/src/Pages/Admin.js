@@ -1,12 +1,13 @@
-import {RegisterModal} from '../Components/index';
+import {CreateMediaModal} from '../Components/index';
 
-const  Home = () => {
+const Admin= () => {
   return (
     <div>
       <div>
-        <RegisterModal />
+       <CreateMediaModal />
       </div>
+
     </div>
   )
 }
-export default Home;
+export default Admin;

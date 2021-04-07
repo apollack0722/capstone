@@ -71,15 +71,6 @@ async function dropTables() {
     try {
       console.log('Starting to create media...');
       const mediaToCreate = [
-<<<<<<< HEAD
-        { title: 'Adult Normal Samuri Lizards', description: '4 lizards adopted by a rat like pizza', genre: 'Family Friendly', 'rentalPrice': 7.99 , 'buyPrice': 29.99, rating: 'PG-13', 'imgUrl': 'https://imgur.com/BuqOEHR'},
-        { title: 'Spy Kids', description: 'kids that are spys', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'PG', 'imgUrl': 'https://imgur.com/3gSKGjs'},
-        { title: 'Boss Baby', description: 'kids that are bosses', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 15.99, rating: 'PG', 'imgUrl': 'https://imgur.com/cnE6SnU'},
-        { title: 'Mary Poppins', description: 'Like Mrs Doubtfire but without the drag', genre: 'Classic', 'rentalPrice': 7.99, 'buyPrice': 13.99, rating: 'G', 'imgUrl': 'https://imgur.com/aA7buWq'},
-        { title: 'Fight Club', description: '...refer to rule #1', genre: 'Suspense/Action', 'rentalPrice': 7.99, 'buyPrice': 22.99, rating: 'R', 'imgUrl': 'https://imgur.com/36hBHSV'},
-        { title: 'The Big Lebowski', description: 'the dude abides', genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'R', 'imgUrl': 'https://imgur.com/pdiD6TN'},
-        { title: 'Star Wars', description: 'One of the good ones', genre: 'Sci-Fi', 'rentalPrice': 7.99, 'buyPrice': 26.99, rating: 'PG-13', 'imgUrl': 'https://imgur.com/k1oadL5'},
-=======
         { title: 'Adult Normal Samuri Lizards', description: '4 lizards adopted by a rat like pizza', genre: 'Family Friendly', 'rentalPrice': 7.99 , 'buyPrice': 29.99, rating: 'PG-13' },
         { title: 'Spy Kids', description: 'kids that are spys', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'PG'},
         { title: 'Boss Baby', description: 'kids that are bosses', genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 15.99, rating: 'PG'},
@@ -101,7 +92,6 @@ async function dropTables() {
         { title: "Star Trek V: The Final Frontier", description: "The crew of the Federation starship Enterprise is called to Nimbus III, the Planet of Intergalactic Peace. They are to negotiate in a case of kidnapping only to find out that the kidnapper is a relative of Spock. This man is possessed by his life long search for the planet Shaka-Ri which is supposed to be the source of all life. Together they begin to search for this mysterious planet.", genre: 'Sci-Fi', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'PG-13'},
         { title: "28 Days Later", description: "Twenty-eight days after a killer virus was accidentally unleashed from a British research facility, a small group of London survivors are caught in a desperate struggle to protect themselves from the infected. Carried by animals and humans, the virus turns those it infects into homicidal maniacs -- and it's absolutely impossible to contain.", genre: 'Sci-Fi', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'R'},
         { title: 'Knockin on Heavens Door', description: 'Two young men, Martin and Rudi, both suffering from terminal cancer, get to know each other in a hospital room. They drown their desperation in tequila and decide to take one last trip to the sea. Drunk and still in pajamas they steal the first fancy car they find, a 60s Mercedes convertible. The car happens to belong to a bunch of gangsters, which immediately start to chase it, since it contains more than the pistol Martin finds in the glove box.', genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'PG-13'},
->>>>>>> 6ba6cc4f01dad9a1ec721d07c23491defbbb4822
       ]
       const media = await Promise.all(mediaToCreate.map(createMedia));
       console.log('media created:');
