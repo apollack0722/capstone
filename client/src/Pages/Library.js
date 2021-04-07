@@ -1,49 +1,45 @@
-//blocker: returnedMedia is undefined. Maybe this is from my fetch call failing? 
-//check this code for reference https://github.com/Cawde/FitnessTrackerFE/blob/main/fitness-tracker-fe/src/Components/Activity.js
-
-
-import {useState, useEffect} from 'react';
-const BASE_URL = 'https://localhost:3000'
+import { useEffect, useState } from 'react';
+//make the posters responsive with class="img-fluid"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Library = () => {
-  const [mediaResults, setMediaResults] = useState('')
-  const [searchTerm, setSearchTerm] = useState(null)
+  const [media, setMedia] = useState([])
+  const getMedia = async() => {await fetch('http://localhost:3001/api/media', {
+    headers: {
+        'Content-Type': 'application/json',
+    },
+  })
+    .then(response => response.json())
+    .then(result => {
+
+        setMedia(result)
+        
+    })
+    .catch(console.error);
+  }
   
-  const fetchLibrary = async (event) => {
-    event.preventDefault()
-    await fetch(`${BASE_URL}/media`, {
-        method: "GET",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      }).then(response => response.json())
-        .then(result => {
-          setMediaResults(result)
-          console.log(result)} 
-          )
-        .catch(console.error)
-    }
-    useEffect(() => {
-      fetchLibrary();
-    }, [setMediaResults]);
-    console.log(mediaResults)
+  useEffect(() => {
+    getMedia();
     
-    let returnedMedia = mediaResults.values; //only use if mediaResults returns as an object. 
-    returnedMedia.filter((media) => {
-      if (searchTerm === '') {
-        return media;
-      } else if (media.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-        return media }
-      }).map((media, index) => {
-        return (
-          <div className="mediaCard" key={index} > 
-            <h2>media.title</h2>
-            <h3>media.desctiption</h3>
-          </div> 
-        )
-      }
-    )
+  }, []);
+  console.log(media)
+  return (
+    <div>
+         {
+             media.map((media, index) => 
+                <div className ="media-page"
+                    key = {index}>
+                    <h3>{media.title}</h3>
+                    <p>{media.description}</p>
+                    <p>{media.genre}</p>
+                    <p>Rental Price: {media.rentalPrice}</p>
+                    <p>Purchase Price: {media.buyPrice}</p>
+                    <p>{media.rating}</p>
+                    <img src={media.imgUrl} />
+                    </div>
+             )
+         }
+    </div>
+  )
 }
-
 export default Library;
-

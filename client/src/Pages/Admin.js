@@ -6,6 +6,7 @@ const  Admin = () => {
       <div>
         ADMIN PANEL GOES HERE
       </div>
+
     </div>
   )
 }

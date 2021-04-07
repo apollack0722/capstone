@@ -53,21 +53,6 @@ usersRouter.post('/register', async (req, res, next) => {
     }
 });
 
-<<<<<<< HEAD
-
-
-
-usersRouter.post('/login', async (req, res, next) => {
-    const user = await getUser(req.body)
-    try {
-        
-        if (user) {     
-            const token = jwt.sign({ 
-                id: user.id, 
-                username: user.username 
-            }, process.env.JWT_SECRET );
-            res.send({ token: token});
-=======
 //token in local storage
 // jwt signing it here, make sure to sign with id & username
 //jwt use it for register component so new user gets assign to then
@@ -84,7 +69,6 @@ usersRouter.post('/login', async (req, res, next) => {
             // res.send({ token: token, message: "Signed in", user});
         res.send({message: "Signed in", user});
 
->>>>>>> 6ba6cc4f01dad9a1ec721d07c23491defbbb4822
           }
     } catch (error) {
         console.error(error)
@@ -95,8 +79,4 @@ usersRouter.post('/login', async (req, res, next) => {
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ba6cc4f01dad9a1ec721d07c23491defbbb4822
 module.exports = usersRouter;

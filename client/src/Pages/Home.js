@@ -11,7 +11,7 @@ const  Home = () => {
       <div>
         <LoginModal />
       </div>
-
+     
     </div>
   )
 }

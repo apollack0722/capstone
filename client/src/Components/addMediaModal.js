@@ -2,18 +2,17 @@ import {Modal, Button, Form} from 'react-bootstrap';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const addMedia = () => {
-  const title = ''
-  const description = ''
-  const genre = ''
-  const rentalPrice = ''
-  const buyPrice = ''
-  const rating = ''
-  const imgUrl = ''
+const CreateMedia = () => {
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [genre, setGenre] = useState('')
+  const [rentalPrice, setRentalPrice] = useState('')
+  const [buyPrice, setBuyPrice] = useState('')
+  const [rating, setRating] = useState('')
+  const [imgUrl, setImgUrl] = useState('')
 
-  function addMediaModal(event) { 
-    event.preventDefault()  
-    fetch('http://localhost:3001/api/admin/create', { //need to add this route
+  function submitMedia(event) {   
+    fetch('http://localhost:3001/api/admin/create', {
       method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -31,99 +30,97 @@ const addMedia = () => {
         .then(result => {
           console.log(result);
         })
-        .catch(console.error);   
-  }
+        .catch(console.error);
+        event.preventDefault()
+    }
   return (
-    <div className="addMedia">
+    <div className="CreateMedia">
       <Form>
-        <Form.Group controlId="mediaTitle">
-          <Form.Label>Media Title</Form.Label>
+        <Form.Group controlId="Username">
+          <Form.Label>Title</Form.Label>
           <Form.Control 
             type="text" 
-            placeholder="Media Title" 
+            placeholder="Title" 
             onChange={ 
-              (event) => {title = (event.target.value) 
+              (event) => {setTitle(event.target.value) 
               }}
           />
         </Form.Group>
-        <Form.Group controlId="mediaDescription">
-          <Form.Label>Media Description</Form.Label>
+        <Form.Group controlId="Username">
+          <Form.Label>Description</Form.Label>
           <Form.Control 
             type="text" 
-            placeholder="Media Description" 
+            placeholder="Description" 
             onChange={ 
-              (event) => {description = (event.target.value) 
+              (event) => {setDescription(event.target.value) 
               }}
           />
         </Form.Group>
-        <Form.Group controlId="mediaGenre">
+        <Form.Group controlId="Username">
           <Form.Label>Genre</Form.Label>
           <Form.Control 
             type="text" 
-            placeholder="Genre"
-            onChange={
-              (event) => {genre = (event.target.value)
-              }} 
+            placeholder="Genre" 
+            onChange={ 
+              (event) => {setGenre(event.target.value) 
+              }}
           />
         </Form.Group>
-        <Form.Group controlId="rentalPrice">
+        <Form.Group controlId="Username">
           <Form.Label>Rental Price</Form.Label>
           <Form.Control 
             type="number" 
-            placeholder="Rental Price"
-            onChange={
-              (event) => {rentalPrice = (event.target.value)
-              }} 
+            placeholder="$" 
+            onChange={ 
+              (event) => {setRentalPrice(event.target.value) 
+              }}
           />
         </Form.Group>
-        <Form.Group controlId="buyPrice">
+        <Form.Group controlId="Username">
           <Form.Label>Purchase Price</Form.Label>
           <Form.Control 
             type="number" 
-            placeholder="Purchase Price"
-            onChange={
-              (event) => {purchasePrice = (event.target.value)
-              }} 
+            placeholder="$" 
+            onChange={ 
+              (event) => {setBuyPrice(event.target.value) 
+              }}
           />
         </Form.Group>
-        <Form.Group controlId="rating">
+        <Form.Group controlId="Username">
           <Form.Label>Rating</Form.Label>
           <Form.Control 
             type="text" 
-            placeholder="Rating"
-            onChange={
-              (event) => {rating = (event.target.value)
-              }} 
+            placeholder="G, PG-13, R " 
+            onChange={ 
+              (event) => {setRating(event.target.value) 
+              }}
           />
         </Form.Group>
-        <Form.Group controlId="imgUrl">
-          <Form.Label>Image Url</Form.Label>
+        <Form.Group controlId="Username">
+          <Form.Label>Img Url</Form.Label>
           <Form.Control 
             type="text" 
-            placeholder="Image Url"
-            onChange={
-              (event) => {imgUrl = (event.target.value)
-              }} 
+            placeholder="ImgUrl" 
+            onChange={ 
+              (event) => {setImgUrl(event.target.value) 
+              }}
           />
         </Form.Group>
+
           <Button 
             variant="primary" 
             type="submit"
             onClick={
-              (event) => {
-                if(!title || !description || !genre || !rentalPrice || !buyPrice || !rating || !imgUrl ){
-                  alert("please fill all fields")
-                }else{/*create media here*/}
-              }}
-            > 
+              (event) => {!title || !description || !genre || !rentalPrice || !buyPrice || !rating || !imgUrl ? 
+                alert('Please fill out the entire form. Thank you!') : submitMedia(event)}}> 
             Submit
           </Button>   
       </Form>
-  </div>
+    </div>
   )
 };
 
-const AddMediaModal = (props) => {
+const MediaModal = (props) => {
   return (
     <Modal
       {...props}
@@ -133,11 +130,11 @@ const AddMediaModal = (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Fill out the form to add new Media to the store
+          Fill out the form to Create Media
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Register />
+        <CreateMedia />
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
@@ -145,19 +142,19 @@ const AddMediaModal = (props) => {
     </Modal>
   );
 }
-const createMediaModal = () => {
+const CreateMediaModal = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
     <div>
-      <Button variant="danger" onClick={() => setModalShow(true)}>
-        Register
+      <Button variant="outline-success" onClick={() => setModalShow(true)}>
+        Create Media
       </Button>
-      <AddmediaModal 
+      <MediaModal
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
     </div>
   );
 }
-export default RegisterModal;
+export default CreateMediaModal;

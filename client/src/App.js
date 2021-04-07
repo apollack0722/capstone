@@ -1,7 +1,5 @@
-import Home  from './Pages/Home'
-import Library from './Pages/Library'
-import Admin from './Pages/Admin'
-
+import {Home, Library, Admin, Profile} from './Pages/Index'
+// import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,7 +20,10 @@ function App() {
           Cart
         </Route>
         <Route path="/Profile">
-         Profile
+         <Profile />
+        </Route>
+        <Route path="/Admin">
+         <Admin />
         </Route>
         <Route path="/">
          <Home />
