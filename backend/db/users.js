@@ -76,9 +76,6 @@ async function getUser({username, password}){
 //   }
 // }
 
-
-
-
 async function getAllUsers(){
   try{
       const {rows} = await client.query(`
@@ -90,7 +87,6 @@ async function getAllUsers(){
       throw error;
   }
 }
-
 
 async function getUserByUsername(username){
   try{

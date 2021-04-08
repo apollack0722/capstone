@@ -1,4 +1,4 @@
-import Home  from './Pages/Home'
+import {Home, Library, Admin, Profile} from './Pages/Index'
 // import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -13,18 +13,23 @@ function App() {
     <Router>
     <div className="App">
       <Switch>
-       
         <Route path="/Library">
-         Library
+         <Library />
         </Route>
         <Route path="/Cart">
           Cart
         </Route>
         <Route path="/Profile">
-         Profile
+         <Profile />
+        </Route>
+        <Route path="/Admin">
+         <Admin />
         </Route>
         <Route path="/">
          <Home />
+        </Route>
+        <Route path="/Admin">
+         <Admin />
         </Route>
       </Switch>
     </div>
