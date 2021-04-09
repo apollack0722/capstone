@@ -25,7 +25,7 @@ const Library = () => {
   console.log(media)
   return (
     <div>
-         {
+         { 
              media.map((media, index) => 
                 <div className ="media-page"
                     key = {index}>
@@ -35,10 +35,12 @@ const Library = () => {
                     <p>Rental Price: {media.rentalPrice}</p>
                     <p>Purchase Price: {media.buyPrice}</p>
                     <p>{media.rating}</p>
-                    <img src={media.imgUrl} />
+                    <img src={media.imgUrl} alt = ''/>
                     </div>
              )
          }
+
+        
     </div>
   )
 }

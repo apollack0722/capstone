@@ -1,6 +1,6 @@
 const express = require("express");
 const ordersRouter = express.Router();
-const { getAllOrders } = require("../db");
+const { getAllOrders, getOrdersByUserId } = require("../db");
 
 ordersRouter.use((req, res, next) => {
   console.log("A request is being made to /orders");
@@ -18,7 +18,7 @@ ordersRouter.get('/', async (req, res, next) => {
         })
     }  
 })
-ordersRouter.get('/:username/cart', async (req, res, next) => {
+ordersRouter.get('/:userId/cart', async (req, res, next) => {
     const { userId } = req.params;
     try { 
         const myOrders = await getOrdersByUserId(userId);
