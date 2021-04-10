@@ -20,6 +20,7 @@ const Register = () => {
       }).then(response => response.json())
         .then(result => {
           console.log(result);
+          console.log(result.token)
         })
         .catch(console.error);
         event.preventDefault()

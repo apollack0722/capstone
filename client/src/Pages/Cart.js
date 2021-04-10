@@ -1,5 +1,5 @@
-import {useState} from 'react';
-const BASE_URL = 'https://localhost:3000'
+import {React, useState} from 'react';
+const BASE_URL = 'https://localhost:3001';
 
 const [cartMedia, setCartMedia] = useState('')
 const userId = localStorage.getItem("userId")
@@ -16,7 +16,36 @@ const viewCart = async (event) => {
         setCartMedia(result.mediaId)
       })
       .catch(console.error)
+
+let pageCart = [];
+return (
+  <div>
+    {
+      cartMedia.filter((media) => {
+        if(!media.isPurchased){
+          pageCart.push(media)
+        }
+        return pageCart
+    }
+      )}
+      {
+      pageCart.map((media, index) => {
+        return (
+        <div className ="cart"
+          key = {index}>
+          <h3>{media.title}</h3>
+          <p>Purchase Price: {media.buyPrice}</p>
+          <img src={media.imgUrl} alt= ''/>  
+        </div>)
+      })
+    }
+    <p>Testing cart</p>
+  </div>
+  )
 }
+export default Cart;
+
+
 
 const startCart = async (event) => {
   event.preventDefault();
