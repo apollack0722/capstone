@@ -1,4 +1,4 @@
-import {Home, Library, Admin, Profile} from './Pages/Index'
+import {Home, Library, Admin, Profile, Cart} from './Pages/Index'
 // import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -17,7 +17,7 @@ function App() {
          <Library />
         </Route>
         <Route path="/Cart">
-          Cart
+          <Cart />
         </Route>
         <Route path="/Profile">
          <Profile />
