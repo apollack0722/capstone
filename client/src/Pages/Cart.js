@@ -1,49 +1,50 @@
 import {React, useState} from 'react';
 const BASE_URL = 'https://localhost:3001';
 
-const [cartMedia, setCartMedia] = useState('')
+
 const userId = localStorage.getItem("userId")
 
-const viewCart = async (event) => {
-  event.preventDefault();
-  await fetch(`${BASE_URL}/${userId}/cart`, {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    }).then(response => response.json())
-      .then(result => {
-        setCartMedia(result.mediaId)
-      })
-      .catch(console.error)
+// const ViewCart = async (event) => {
+//   const [cartMedia, setCartMedia] = useState('')
+//   event.preventDefault();
+//   await fetch(`${BASE_URL}/${userId}/cart`, {
+//       method: "GET",
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//     }).then(response => response.json())
+//       .then(result => {
+//         console.log(result)
+//       })
+//       .catch(console.error)
 
-let pageCart = [];
-return (
-  <div>
-    {
-      cartMedia.filter((media) => {
-        if(!media.isPurchased){
-          pageCart.push(media)
-        }
-        return pageCart
-    }
-      )}
-      {
-      pageCart.map((media, index) => {
-        return (
-        <div className ="cart"
-          key = {index}>
-          <h3>{media.title}</h3>
-          <p>Purchase Price: {media.buyPrice}</p>
-          <img src={media.imgUrl} alt= ''/>  
-        </div>)
-      })
-    }
-    <p>Testing cart</p>
-  </div>
-  )
-}
-export default Cart;
+// let pageCart = [];
+// return (
+//   <div>
+//     {
+//       cartMedia.filter((media) => {
+//         if(!media.isPurchased){
+//           pageCart.push(media)
+//         }
+//         return pageCart
+//     }
+//       )}
+//       {
+//       pageCart.map((media, index) => {
+//         return (
+//         <div className ="cart"
+//           key = {index}>
+//           <h3>{media.title}</h3>
+//           <p>Purchase Price: {media.buyPrice}</p>
+//           <img src={media.imgUrl} alt= ''/>  
+//         </div>)
+//       })
+//     }
+//     <p>Testing cart</p>
+//   </div>
+//   )
+// }
+
 
 
 
@@ -77,7 +78,7 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default Cart;
 
 
 //looking at a movie. 

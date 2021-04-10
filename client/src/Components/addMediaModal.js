@@ -11,8 +11,8 @@ const CreateMedia = () => {
   const [rating, setRating] = useState('')
   const [imgUrl, setImgUrl] = useState('')
 
-  function submitMedia(event) {   
-    fetch('http://localhost:3001/api/admin/create', {
+  const SubmitMedia = async (event) => {   
+    await fetch('http://localhost:3001/api/admin/create', {
       method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -112,7 +112,7 @@ const CreateMedia = () => {
             type="submit"
             onClick={
               (event) => {!title || !description || !genre || !rentalPrice || !buyPrice || !rating || !imgUrl ? 
-                alert('Please fill out the entire form. Thank you!') : submitMedia(event)}}> 
+                alert('Please fill out the entire form. Thank you!') : SubmitMedia(event)}}> 
             Submit
           </Button>   
       </Form>

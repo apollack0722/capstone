@@ -35,6 +35,19 @@ async function getOrdersByUserId(userId) {
         throw error;
     }
 }
+async function updateOrder ({userId, mediaId, date, purchased}){
+  try{
+  const {rows: [order]} = await client.query(`
+   UPDATE orders
+   SET mediaId = $2, date = $3, purchased = $4
+   WHERE id=$1
+   RETURNING*;   
+  `,[id, name, description]);
+  return order;
+}catch (error){
+  throw error;
+}
+}
 module.exports = {
     createOrder,
     getAllOrders,

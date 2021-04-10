@@ -37,9 +37,9 @@ async function dropTables() {
         CREATE TABLE orders (
         id SERIAL PRIMARY KEY,
         "userId" INTEGER REFERENCES users(id),
-        "mediaId" INTEGER [],
+        "mediaId" INTEGER REFERENCES media(id),
         date TEXT,
-        purchased BOOLEAN DEFAULT false
+        purchased BOOLEAN DEFAULT false,
           );
     `)
 
