@@ -1,4 +1,5 @@
 import {Home, Library, Admin, Profile, Cart} from './Pages/Index'
+import {useState} from 'react'
 // import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -9,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
+  currentUser = useState(localStorage.getItem('userId'))
   return (
     <Router>
     <div className="App">
@@ -17,7 +19,7 @@ function App() {
          <Library />
         </Route>
         <Route path="/Cart">
-          <Cart />
+          <Cart currentUser={currentUser}/>
         </Route>
         <Route path="/Profile">
          <Profile />

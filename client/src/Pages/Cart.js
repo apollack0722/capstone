@@ -1,7 +1,6 @@
 import {React, useState} from 'react';
 const BASE_URL = 'https://localhost:3001';
 
-
 const userId = localStorage.getItem("userId")
 
 // const ViewCart = async (event) => {
@@ -48,23 +47,23 @@ const userId = localStorage.getItem("userId")
 
 
 
-const startCart = async (event) => {
-  event.preventDefault();
-  await fetch (`${BASE_URL}/orders/add_to_cart`, {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  }).then(response => response.json())
-  .then(result => {
-    console.log(result)
-  })
-  .catch(console.error)
-}
-//write a helper function that getsUsersOrders and determines if there is an order with isPurchased False (no fresh orders)
-//if no fresh orders we create a fresh order
-//if a isPurchased false exists, (an unfresh order) we patch it to add the new movies. 
-//this helper function runs when a user adds to cart. 
+// const addToCart = async (event, mediaId, currentUser) => {
+//   event.preventDefault();
+//   await fetch (`${BASE_URL}/orders/add_to_cart`, {
+//     method: "POST",
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: {
+//       mediaId: mediaId,
+//       currentUser: currentUser 
+//     }
+//   }).then(response => response.json())
+//   .then(result => {
+//     console.log(result)
+//   })
+//   .catch(console.error)
+// }
 
 const Cart = () => {
   return (

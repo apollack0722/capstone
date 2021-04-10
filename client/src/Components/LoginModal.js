@@ -22,8 +22,6 @@ const Login = () => {
               localStorage.setItem('token', result.token)
               console.log(result.user.id)
                 localStorage.setItem('userId', result.user.id)
-              
-
             })
             .catch(console.error);
             event.preventDefault()
@@ -39,7 +37,6 @@ const Login = () => {
                   onChange={ (event) => { setUsername(event.target.value) }}
                 />
               </Form.Group>
-      
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control 
@@ -53,7 +50,6 @@ const Login = () => {
             onClick={LoginUser}> 
           Submit
         </Button>
-          
       </Form>
               
               </div>
