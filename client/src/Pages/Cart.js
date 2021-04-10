@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 const BASE_URL = 'https://localhost:3001';
 
-const userId = localStorage.getItem("userId")
+const currentUser = localStorage.getItem("userId")
 
 // const ViewCart = async (event) => {
 //   const [cartMedia, setCartMedia] = useState('')
@@ -45,25 +45,23 @@ const userId = localStorage.getItem("userId")
 // }
 
 
-
-
-// const addToCart = async (event, mediaId, currentUser) => {
-//   event.preventDefault();
-//   await fetch (`${BASE_URL}/orders/add_to_cart`, {
-//     method: "POST",
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: {
-//       mediaId: mediaId,
-//       currentUser: currentUser 
-//     }
-//   }).then(response => response.json())
-//   .then(result => {
-//     console.log(result)
-//   })
-//   .catch(console.error)
-// }
+const addToCart = async (event, mediaId, currentUser) => {
+  event.preventDefault();
+  await fetch (`${BASE_URL}/orders/add_to_cart`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: {
+      mediaId: mediaId,
+      currentUser: currentUser 
+    }
+  }).then(response => response.json())
+  .then(result => {
+    console.log(result)
+  })
+  .catch(console.error)
+}
 
 const Cart = () => {
   return (
