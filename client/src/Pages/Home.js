@@ -15,6 +15,7 @@ const  Home = () => {
 
   return (
     <div>
+      <h1>Testing testing</h1>
       <div>
         <RegisterModal />
       </div>

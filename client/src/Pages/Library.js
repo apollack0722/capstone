@@ -54,7 +54,7 @@ const Library = () => {
           <button
             mediaId = {media.id}
             onClick = {() => {
-              addToCart(mediaId, currentUser)
+             // addToCart(mediaId, currentUser)
             }}
             >Add to Cart
           </button>

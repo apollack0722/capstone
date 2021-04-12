@@ -44,7 +44,7 @@ const Login = () => {
             placeholder="Password"
             onChange={(event)=>setPassword(event.target.value)} />
         </Form.Group>
-          <Button 
+        <Button 
             variant="primary" 
             type="submit"
             onClick={LoginUser}> 
