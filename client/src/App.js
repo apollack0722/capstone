@@ -51,19 +51,23 @@ function App() {
       <Switch>
         <Route path="/Library">
          <Library />
+         <h1>Library page</h1>
         </Route>
         <Route path="/Cart">
+          <h1>Cart page</h1>
         </Route>
         <Route path="/Profile">
          <Profile />
+         <h1>profile page</h1>
         </Route>
         <Route path="/Admin">
          <Admin />
         </Route>
+        <Route path="/Login">
+          <h1>Log in page</h1>
+        </Route>
         <Route path="/">
          <Home />
-        </Route>
-        <Route path="/Login">
         </Route>
       </Switch>
     </div>
