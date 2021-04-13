@@ -28,9 +28,6 @@ function App() {
         <Route path="/">
          <Home />
         </Route>
-        <Route path="/Admin">
-         <Admin />
-        </Route>
       </Switch>
     </div>
     </Router>

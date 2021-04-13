@@ -1,6 +1,6 @@
-
-import {RegisterModal, LoginModal} from '../Components/index';
+import {RegisterModal, LoginModal, DemoCarousel} from '../Components/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 const userId = localStorage.getItem('userId')
 const  Home = () => {
 
@@ -27,6 +27,7 @@ const  Home = () => {
             Sign Out
         </button>
       </div>
+      <DemoCarousel />
      
     </div>
   )

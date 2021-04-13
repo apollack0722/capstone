@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  padding: 20px 55px;
+  margin-bottom: 10px;
+  overflow: scroll;
+  
+}
+
+.item {
+  flex: 0 0 19.7%;
+  text-align: center;
+  margin: 5px 20px;
+  transition: transform 300ms ease 100ms;
+  height: 300px;
+
+}
+.container:hover .item {
+  transform: translateX(-25%);
+}
+.item:hover ~ .item {
+  transform: translateX(25%);
+}
+.item:hover {
+  transform: scale(1.5) !important;
+}
+.slider-img{
+  max-width:100%;
+  max-height: 100%;
+}

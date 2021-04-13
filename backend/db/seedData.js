@@ -40,6 +40,7 @@ async function dropTables() {
         "mediaId" INTEGER REFERENCES media(id),
         date TEXT,
         purchased BOOLEAN DEFAULT false,
+        rental BOOLEAN DEFAULT true
           );
     `)
 

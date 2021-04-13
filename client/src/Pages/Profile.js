@@ -24,7 +24,8 @@ const Profile = () => {
     getMedia();
     
   }, []);
-
+  
+    
   return (
     <div>
          {
