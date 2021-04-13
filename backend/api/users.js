@@ -29,8 +29,7 @@ usersRouter.get('/home', async (req, res, next) => {
     } catch(error){
         next(error)
     }
-        }
-    
+        } 
 );
 usersRouter.post('/register', async (req, res, next) => {
     const { username, password } = req.body
@@ -60,7 +59,6 @@ usersRouter.post('/login', async (req, res, next) => {
     const {username, password} = req.body
     const user = await getUser({username, password}) 
     try {
-        
         if (user) {     
             const token = jwt.sign({
                  username: user.username 

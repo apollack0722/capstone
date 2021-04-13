@@ -11,7 +11,6 @@ async function getUserById(id) {
       FROM users
       WHERE id=${id};
     `);
-
     if (!user) {
       return null;
     }
