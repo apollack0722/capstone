@@ -28,7 +28,7 @@ async function getOrdersByUserId(userId) {
       const { rows } = await client.query(`
       SELECT * 
       FROM orders
-      WHERE "userId" = $1;
+      WHERE "userId" = $1 AND "isPurchased" = false;
     `,[userId]);
     return rows;
     } catch (error) {

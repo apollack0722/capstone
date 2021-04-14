@@ -86,10 +86,9 @@ async function getUserByUsername(username){
 async function updateUser(userId, isAdmin){
   try{
     const {rows:[user]} = await client.query(`
-      SELECT * 
-      FROM users
+      UPDATE users 
       WHERE "userId" = $1
-      UPDATE "isAdmin" = $2; 
+      SET "isAdmin" = $2; 
     `, [userId, isAdmin])
     return user;
   } catch (error) {
