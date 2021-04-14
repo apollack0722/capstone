@@ -1,7 +1,9 @@
 const express = require("express");
 const { createMedia, getAllMedia } = require("../db");
 const adminRouter = express.Router();
-
+const { requireAdmin } = require("./utils")
+const { updateUser } = require("./index")
+//how do I use require admin here
 
 adminRouter.use((req, res, next) => {
   console.log("A request is being made to /admin");
@@ -21,7 +23,6 @@ adminRouter.get('/', async (req, res, next) => {
 })
 
 adminRouter.post('/create', async (req, res, next) => {
-  
   try{
     const media = await createMedia(req.body)
      console.log(media)
@@ -31,8 +32,14 @@ adminRouter.post('/create', async (req, res, next) => {
   }
 });
 
-
-
-
+adminRouter.patch('/update', async(req, res, next) => {
+  try{
+    const updateUser = await updateUser(req.body)
+      console.log(updateUser)
+      res.send(updateUser)
+  }catch ({message}){
+    next ({message});
+  }
+})
 
 module.exports = adminRouter;

@@ -12,34 +12,27 @@ const Profile = () => {
   })
     .then(response => response.json())
     .then(result => {
-
         setMyMedia(result)
-        console.log(result)
-        
+        console.log(result)   
     })
     .catch(console.error);
   }
-  
   useEffect(() => {
     getMedia();
     
-  }, []);
-  
-    
+  }, []);   
   return (
     <div>
-         {
-             myMedia.map((media, index) => 
-                <div className ="media-page"
-                    key = {index}>
-                    <h3>MediaId:{media.mediaId}</h3>
-                    <p>{media.date}</p>
-                    </div>
-             )
-         }
+      {
+      myMedia.map((media, index) => 
+      <div className ="media-page"
+        key = {index}>
+        <h3>MediaId:{media.mediaId}</h3>
+        <p>{media.date}</p>
+        </div>
+        )
+      }
     </div>
-
-    
   )
 }
 export default Profile;

@@ -2,8 +2,8 @@ import './slider.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react'
 import { Modal , Button} from 'react-bootstrap';
-const Slider = () => {
 
+const Slider = () => {
   const [media, setMedia] = useState([])
   const getMedia = async() => {await fetch('http://localhost:3001/api/media', {
     headers: {
@@ -13,13 +13,10 @@ const Slider = () => {
     .then(response => response.json())
     .then(result => {
 
-        setMedia(result)
-
-        
+        setMedia(result)   
     })
     .catch(console.error);
   }
-  
   useEffect(() => {
     getMedia();
     

@@ -41,13 +41,10 @@ usersRouter.post('/register', async (req, res, next) => {
             });
         }else if(_user){
             next({
-                message: "A user by that username already exists"
-                
+                message: "A user by that username already exists" 
             });
-
         }else {
             const user =  await createUser(req.body);
-       
         res.send({user})
         }
     }catch ({message}){
@@ -63,18 +60,13 @@ usersRouter.post('/login', async (req, res, next) => {
             const token = jwt.sign({
                  username: user.username 
                 }, 
-                JWT_SECRET );
-            res.send({ token: token, message: "Signed in", user});
+                 JWT_SECRET );
+        res.send({ token: token, message: "Signed in", user});
         res.send({message: "Signed in", user});
-
           }
     } catch (error) {
         console.error(error)
         next (error)
     }
 })
-
-
-
-
 module.exports = usersRouter;

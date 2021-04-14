@@ -20,16 +20,16 @@ async function getUserById(id) {
     throw error;
   }
 }
-async function createUser({username, password, userEmail}){
+async function createUser({username, password, userEmail, isAdmin = false}){
   const hashedPassword = await bcrypt.hash(
       password, SALT_COUNT);
   try{
       const {rows:[user]} = await client.query(`
-       INSERT INTO users (username, password, "userEmail")
-       VALUES ($1, $2, $3)
+       INSERT INTO users (username, password, "userEmail", "isAdmin")
+       VALUES ($1, $2, $3, $4)
        ON CONFLICT (username) DO NOTHING
        RETURNING *;
-      `,[username, hashedPassword, userEmail]);
+      `,[username, hashedPassword, userEmail, isAdmin]);
       delete user.password;
       console.log(user)
       return user;
@@ -58,23 +58,6 @@ async function getUser({username, password}){
   }
 }
 
-// async function getUser({ username, password }) {
-//   try {
-//       const user = await getUserByUsername(username);
-//       const hashedPassword = user.password;
-//       const passwordsMatch = await bcrypt.compareSync(password, hashedPassword);
-//       if (passwordsMatch) {
-//           delete user.password;
-//           return user;
-//       } else {
-//           return;
-//       }
-      
-//   } catch (error) {
-//      throw error; 
-//   }
-// }
-
 async function getAllUsers(){
   try{
       const {rows} = await client.query(`
@@ -100,10 +83,25 @@ async function getUserByUsername(username){
   }
 }
 
+async function updateUser(userId, isAdmin){
+  try{
+    const {rows:[user]} = await client.query(`
+      SELECT * 
+      FROM users
+      WHERE "userId" = $1
+      UPDATE "isAdmin" = $2; 
+    `, [userId, isAdmin])
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   getUserById,
   createUser,
   getUser,
   getAllUsers,
-  getUserByUsername
+  getUserByUsername,
+  updateUser,
 };

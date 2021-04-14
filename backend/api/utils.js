@@ -7,6 +7,18 @@ function requireUser(req, res, next) {
   }
   next();
 }
+function requireAdmin(req, res, next) {
+  if (!req.user.isAdmin) {
+    next({
+      name: "AdminAcessError",
+      message: "You must be an admin to access this area",
+    })
+  }
+  next();
+}
 module.exports = {
-  requireUser
+  requireUser,
+  requireAdmin
 };
+
+

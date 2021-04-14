@@ -4,7 +4,8 @@ const {
     createUser,
     getUser,
     getAllUsers,
-    getUserByUsername
+    getUserByUsername,
+    updateUser
 } = require('./users');
 
 
@@ -32,4 +33,5 @@ module.exports = {
     getAllOrders,
     getOrdersByUserId,
     getMediaById,
+    updateUser
 };

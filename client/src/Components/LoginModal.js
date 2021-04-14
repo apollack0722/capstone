@@ -21,7 +21,7 @@ const Login = () => {
               console.log(result);
               localStorage.setItem('token', result.token)
               console.log(result.user.id)
-                localStorage.setItem('userId', result.user.id)
+                localStorage.setItem('userId', result.user.id)//is this showing their password? user is stored as ap
             })
             .catch(console.error);
             event.preventDefault()
@@ -50,12 +50,10 @@ const Login = () => {
             onClick={LoginUser}> 
           Submit
         </Button>
-      </Form>
-              
+      </Form>      
               </div>
     )
   };
-
 function MyVerticallyCenteredModal(props) {
   return (
     <Modal

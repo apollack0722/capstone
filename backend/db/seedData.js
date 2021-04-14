@@ -18,7 +18,8 @@ async function dropTables() {
         id SERIAL PRIMARY KEY,
         username VARCHAR(255) UNIQUE NOT NULL, 
         password VARCHAR(255) NOT NULL,
-        "userEmail" VARCHAR(255) UNIQUE   
+        "userEmail" VARCHAR(255) UNIQUE,
+        "isAdmin" BOOLEAN NOT NULL,   
       )
     `);
       await client.query(`
@@ -49,14 +50,13 @@ async function dropTables() {
       throw error
     }
   }
-
   async function createInitialUsers() {
     console.log('Starting to create users...');
     try {
       const usersToCreate = [
-        { username: 'Stephen', password: 'st', userEmail: 'st@g.com' },
-        { username: 'Aaron', password: 'ap', userEmail: 'ap@g.com' },
-        { username: 'Leslie', password: 'lg', userEmail: 'lg@g.com' },
+        { username: 'Stephen', password: 'st', userEmail: 'st@g.com', isAdmin: true},
+        { username: 'Aaron', password: 'ap', userEmail: 'ap@g.com', isAdmin: true},
+        { username: 'Leslie', password: 'lg', userEmail: 'lg@g.com', isAdmin: true },
       ]
       const users = await Promise.all(usersToCreate.map(createUser));
       console.log('Users created:');
@@ -112,7 +112,6 @@ async function dropTables() {
           date: Date(),
           purchased: true,
           rental: false,
-    
         },
         {
           userId: 3,
