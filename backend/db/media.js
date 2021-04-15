@@ -36,7 +36,7 @@ async function getMediaById(id) {
       `,
         [id]
       );
-  
+        console.log(media.title)
       return media;
     } catch (error) {
       throw error;

@@ -27,7 +27,9 @@ async function getOrdersByUserId(userId) {
     try {
       const { rows } = await client.query(`
       SELECT * 
-      FROM orders
+      FROM media
+      INNER JOIN orders 
+      ON media.Id = orders.mediaId
       WHERE "userId" = $1;
     `,[userId]);
     return rows;
@@ -53,3 +55,18 @@ module.exports = {
     getAllOrders,
     getOrdersByUserId
 }
+
+
+// Join media onto orders where orders.mediaId = media.id
+    //
+
+    // SELECT * 
+    // FROM order
+    // INNER JOIN media
+    // ON media.Id = orders.mediaId
+
+
+    // SELECT * 
+    // FROM media
+    // INNER JOIN orders 
+    // ON media.Id = orders.mediaId
