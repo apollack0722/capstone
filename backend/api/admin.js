@@ -34,9 +34,9 @@ adminRouter.post('/create', async (req, res, next) => {
 
 adminRouter.patch('/update', async(req, res, next) => {
   try{
-    const updateUser = await updateUser(req.body)
-      console.log(updateUser)
-      res.send(updateUser)
+    const newUpdateUser = await updateUser(req.body)
+      console.log(newUpdateUser)
+      res.send(newUpdateUser)
   }catch ({message}){
     next ({message});
   }
