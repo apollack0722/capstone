@@ -27,11 +27,12 @@ async function getOrdersByUserId(userId) {
     try {
       const { rows } = await client.query(`
       SELECT * 
-      FROM media
-      INNER JOIN orders 
-      ON media.Id = orders.mediaId
+      FROM orders
+      JOIN media
+      ON orders."mediaId" = media.id 
       WHERE "userId" = $1;
     `,[userId]);
+    console.log(rows)
     return rows;
     } catch (error) {
         throw error;
