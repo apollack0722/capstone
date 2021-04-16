@@ -1,69 +1,28 @@
 import { useState} from 'react';
-const BASE_URL = 'https://localhost:3001';
-
+const BASE_URL = 'https://localhost:3001/api';
 const currentUser = localStorage.getItem("userId")
 
-
-const ViewCart = async (event) => {
-  const [cartMedia, setCartMedia] = useState('')
-  event.preventDefault();
-  await fetch(`${BASE_URL}/${userId}/cart`, {
+const Cart =  () => {  //dont forget to re-add async
+  console.log(currentUser)
+  const [cartMedia, setCartMedia] = useState([])
+  fetch(`${BASE_URL}/orders`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
       },
     }).then(response => response.json())
-      .then(result => {
-       setCartMedia(result)
-      })
+      .then(result => setCartMedia(result) )
       .catch(console.error)
-
-
-return (
-  <div>
-      {
-      catMedia.map((media, index) => {
-        return (
-        <div className ="cart"
-          key = {index}>
-          <h3>{media.title}</h3>
-          <p>Purchase Price: {media.buyPrice}</p>
-          <img src={media.imgUrl} alt= ''/>  
-        </div>)
-      })
-    }
-    <p>Testing cart</p>
-  </div>
-  )
-}
-
-
-const addToCart = async (event, mediaId, currentUser) => {
-  event.preventDefault();
-  await fetch (`${BASE_URL}/orders/add_to_cart`, {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: {
-      mediaId: mediaId,
-      currentUser: currentUser 
-    }
-  }).then(response => response.json())
-  .then(result => {
-    console.log(result)
-  })
-  .catch(console.error)
-}
-
-const Cart = () => {
+      const myCart = cartMedia.filter( cartMedia => cartMedia.userId === currentUser && !cartMedia.isPurchased)
   return (
+    
+
     <div>
-      <button
-        onClick={addToCart}
-      >
-        Add to Cart
-      </button>
+      <div>
+      "HOWDY"
+        <p>Testing cart</p>
+        <h3>{myCart[0].id}</h3>
+      </div>
     </div>
   )
 }

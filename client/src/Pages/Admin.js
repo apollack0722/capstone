@@ -1,12 +1,13 @@
 import { CreateMediaModal } from '../Components' //should this be exported differently? 
 import {useState, useEffect} from 'react'
-
+const BASE_URL = 'http://localhost:3001/api/media'
 
 const  Admin = () => {
   const [media, setMedia] = useState([])
   const [users, setUsers] = useState([])
-
-  const getMedia = async() => {await fetch('http://localhost:3001/api/media', {
+  let allUsers = users;
+  let allMedia = media;
+  const getMedia = async() => {await fetch(BASE_URL, {
     headers: {
         'Content-Type': 'application/json',
     },
@@ -18,7 +19,7 @@ const  Admin = () => {
     })
     .catch(console.error);
   }
-  const getUsers = async() => {await fetch('http://localhost:3001/api/home', {
+  const getUsers = async() => {await fetch('http://localhost:3001/api/users', {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -31,13 +32,11 @@ const  Admin = () => {
     .catch(console.error);
 }
 useEffect(() => {
+  getUsers()
   getMedia();
   
 }, []); 
-useEffect(() => {
-  getUsers();
-  
-}, []); 
+
   return (
     <div>
       <div>

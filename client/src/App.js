@@ -1,10 +1,9 @@
-import {Home, Library, Admin, Profile, } from './Pages/Index'
-import {useState} from 'react'
+import {Home, Library, Admin, Profile, Cart } from './Pages/Index'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+
 } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +12,7 @@ import './App.css';
 //import Profile from './Pages/Profile';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { LoginModal } from './Components';
+
 
 function App() {
   const currentUser = localStorage.getItem('userId')
@@ -46,9 +45,9 @@ function App() {
          <Library />
          <h1>Library page</h1>
         </Route>
-        {/* <Route path="/Cart">
+        <Route path="/Cart">
           <Cart />
-        </Route> */}
+        </Route>
         <Route path="/Profile">
          <Profile />
          <h1>profile page</h1>

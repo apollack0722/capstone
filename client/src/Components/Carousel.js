@@ -10,16 +10,12 @@ const  DemoCarousel = () =>  {
   })
     .then(response => response.json())
     .then(result => {
-
         setMedia(result)
-       
     })
     .catch(console.error);
   }
-  
   useEffect(() => {
-    getMedia();
-    
+    getMedia();   
   }, []);
       return (
         <Carousel>

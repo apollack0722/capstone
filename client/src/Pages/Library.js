@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+
 //make the posters responsive with class="img-fluid"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Slider } from '../Components';
@@ -19,10 +19,8 @@ const BASE_URL = 'http://localhost:3001';
           })
           .catch(console.error);
           event.preventDefault()
-    
   }
   
-
 const Library = () => {
   
   return (

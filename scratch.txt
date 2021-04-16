@@ -31,3 +31,31 @@ admin panel route issue (not showing in browser)
 
 
       How do i use require admin in my admin file in api
+
+
+      const addToCart = async (event, mediaId, currentUser) => {
+  event.preventDefault();
+  await fetch (`${BASE_URL}/orders/add_to_cart`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: {
+      mediaId: mediaId,
+      currentUser: currentUser 
+    }
+  }).then(response => response.json())
+  .then(result => {
+    console.log(result)
+  })
+  .catch(console.error)
+}
+
+cartMedia.map((media, index) => {
+        <div className ="cart"
+          key = {index}>
+          <h3>{media.title}</h3>
+          <p>Purchase Price: {media.buyPrice}</p>
+          <img src={media.imgUrl} alt= ''/>  
+        </div>
+      })

@@ -1,7 +1,7 @@
 import './slider.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react'
-import { Modal , Button} from 'react-bootstrap';
+
 
 const Slider = () => {
   const [media, setMedia] = useState([])
