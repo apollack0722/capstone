@@ -92,6 +92,18 @@ async function dropTables() {
         { title: "Star Trek V: The Final Frontier", description: "The crew of the Federation starship Enterprise is called to Nimbus III, the Planet of Intergalactic Peace. They are to negotiate in a case of kidnapping only to find out that the kidnapper is a relative of Spock. This man is possessed by his life long search for the planet Shaka-Ri which is supposed to be the source of all life. Together they begin to search for this mysterious planet.", genre: 'Sci-Fi', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'PG-13', 'imgUrl': 'https://xl.movieposterdb.com/11_11/1989/98382/xl_98382_cb4f3ed9.jpg'},
         { title: "28 Days Later", description: "Twenty-eight days after a killer virus was accidentally unleashed from a British research facility, a small group of London survivors are caught in a desperate struggle to protect themselves from the infected. Carried by animals and humans, the virus turns those it infects into homicidal maniacs -- and it's absolutely impossible to contain.", genre: 'Sci-Fi', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'R', 'imgUrl': 'https://xl.movieposterdb.com/15_09/2002/289043/xl_289043_2d0427a3.jpg'},
         { title: 'Knockin on Heavens Door', description: 'Two young men, Martin and Rudi, both suffering from terminal cancer, get to know each other in a hospital room. They drown their desperation in tequila and decide to take one last trip to the sea. Drunk and still in pajamas they steal the first fancy car they find, a 60s Mercedes convertible. The car happens to belong to a bunch of gangsters, which immediately start to chase it, since it contains more than the pistol Martin finds in the glove box.', genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 18.99, rating: 'PG-13', 'imgUrl': 'https://xl.movieposterdb.com/05_08/1997/0119472/xl_46749_0119472_5436b487.jpg'},
+        { title: 'The Lion King', description: "A Lion cub crown prince is tricked by a treacherous uncle into thinking he caused his father's death and flees into exile in despair, only to learn in adulthood his identity and his responsibilities.", genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'G', 'imgUrl': 'https://xl.movieposterdb.com/13_04/1994/110357/xl_110357_273b54a5.jpg'},
+        { title: 'Toy Story', description: "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.", genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'G', 'imgUrl': 'https://xl.movieposterdb.com/15_05/1995/114709/xl_114709_7fcfc0bf.jpg'},
+        { title: 'Frozen', description: "When the newly-crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition.", genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'G', 'imgUrl': 'https://xl.movieposterdb.com/13_07/2013/2294629/xl_2294629_c256bcb8.jpg'},
+        { title: 'Hercules', description: "The son of Zeus and Hera is stripped of his immortality as an infant and must become a true hero in order to reclaim it.", genre: 'Family Friendly', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'G', 'imgUrl': 'https://xl.movieposterdb.com/13_12/1997/119282/xl_119282_5f85f685.jpg'},
+        { title: 'Tropic Thunder', description: "Through a series of freak occurrences, a group of actors shooting a big-budget war movie are forced to become the soldiers they are portraying.", genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'R', 'imgUrl': 'https://xl.movieposterdb.com/08_10/2008/942385/xl_942385_9032cb42.jpg'},
+        { title: 'Pineapple Express', description: "A process server and his marijuana dealer wind up on the run from hitmen and a corrupt police officer after he witnesses his dealer's boss murder a competitor while trying to serve papers on him.", genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'R', 'imgUrl': 'https://xl.movieposterdb.com/08_08/2008/910936/xl_910936_53c4f8a6.jpg'},
+        { title: 'Superbad', description: "Two co-dependent high school seniors are forced to deal with separation anxiety after their plan to stage a booze-soaked party goes awry.", genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'R', 'imgUrl': 'https://xl.movieposterdb.com/09_04/2007/829482/xl_829482_0e9fbfa6.jpg'},
+        { title: 'Step Brothers', description: "Two aimless middle-aged losers still living at home are forced against their will to become roommates when their parents marry.", genre: 'Comedy', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'R', 'imgUrl': 'https://xl.movieposterdb.com/08_03/2008/838283/xl_838283_5ca47411.jpg'},
+        { title: 'X-Men Origins: Wolverine', description: "After seeking to live a normal life, Logan sets out to avenge the death of his girlfriend by undergoing the mutant Weapon X program and becoming Wolverine.", genre: 'Action', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'R', 'imgUrl': 'https://xl.movieposterdb.com/09_01/2009/458525/xl_458525_874b6154.jpg'},
+        { title: 'Avengers: Endgame', description: "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...", genre: 'Action', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'PG-13', 'imgUrl': 'https://xl.movieposterdb.com/20_05/2019/4154796/xl_4154796_2542f70b.jpg'},
+        { title: 'DeadPool', description: "A wisecracking mercenary gets experimented on and becomes immortal but ugly, and sets out to track down the man who ruined his looks", genre: 'Action', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'R', 'imgUrl': 'https://xl.movieposterdb.com/15_08/2014/1431045/xl_1431045_c5e944f9.jpg'},
+        { title: 'Die Hard', description: "An NYPD officer tries to save his wife and several others taken hostage by German terrorists during a Christmas party at the Nakatomi Plaza in Los Angeles.", genre: 'Action', 'rentalPrice': 7.99, 'buyPrice': 29.99, rating: 'R', 'imgUrl': 'https://xl.movieposterdb.com/15_04/1988/95016/xl_95016_989d054a.jpg'},
       ]
       const media = await Promise.all(mediaToCreate.map(createMedia));
       console.log('media created:');
@@ -165,6 +177,20 @@ async function dropTables() {
         {
           userId: 1,
           mediaId: 2,
+          date: Date(),
+          purchased: true,
+          rental: false 
+        },
+        {
+          userId: 1,
+          mediaId: 5,
+          date: Date(),
+          purchased: false,
+          rental: false 
+        },
+        {
+          userId: 1,
+          mediaId: 4,
           date: Date(),
           purchased: false,
           rental: false 

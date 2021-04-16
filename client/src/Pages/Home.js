@@ -1,4 +1,4 @@
-import {RegisterModal, LoginModal, DemoCarousel} from '../Components/index';
+import {RegisterModal, LoginModal, DemoCarousel, NavBar} from '../Components/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const userId = localStorage.getItem('userId')
@@ -11,6 +11,7 @@ const  Home = () => {
     }
   return (
     <div>
+      <NavBar />
       <h1>Home page</h1>
       <div>
         <RegisterModal />

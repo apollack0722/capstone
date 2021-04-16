@@ -1,10 +1,13 @@
 import './slider.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react'
+import { Card , Button, Jumbotron} from 'react-bootstrap';
+const Slider = () => {
 
 
 const Slider = () => {
   const [media, setMedia] = useState([])
+  const [showInfo, setShowInfo] = useState(false)
   const getMedia = async() => {await fetch('http://localhost:3001/api/media', {
     headers: {
         'Content-Type': 'application/json',
@@ -21,12 +24,14 @@ const Slider = () => {
     getMedia();
     
   }, []);
-
+  
   return (
     
     <>
   
     <div className="container">
+     
+        <h2>Comedy</h2>
      { 
            media.map((media, index) => 
             media.genre === "Comedy"?
@@ -34,8 +39,12 @@ const Slider = () => {
                   className ="item"
                   key = {index}>
                     
-                    <img className= 'slider-img'src={media.imgUrl} alt = ''/>
-                   
+                    <input 
+                      type='image'
+                      className= 'slider-img'
+                      src={media.imgUrl} 
+                      alt = ''
+                      onClick={console.log('hello')}/>
                 </div> : ''
              )
          }
@@ -43,6 +52,7 @@ const Slider = () => {
   
   </div>
     <div className="container">
+      <h2>Action</h2>
      { 
            media.map((media, index) => 
             media.genre === "Action"?
@@ -57,6 +67,7 @@ const Slider = () => {
     
   </div>
     <div className="container">
+      <h2>Sci-fi</h2>
      { 
            media.map((media, index) => 
             media.genre === "Sci-Fi"?
@@ -71,6 +82,7 @@ const Slider = () => {
     
   </div>
     <div className="container">
+      <h2>Family-Friendly</h2>
      { 
            media.map((media, index) => 
             media.genre === "Family Friendly"?
@@ -87,3 +99,9 @@ const Slider = () => {
     )
 }
 export default Slider;
+
+
+// need to add a purchase button to each individual movie
+  //Which means the purchase buttton needs to be inside the map to grab the unique id of the movie
+  // maybe an onClick button, we can make a function outside which changes the isPurchased to true?
+  

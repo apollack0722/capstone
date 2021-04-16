@@ -6,3 +6,5 @@ export {default as Admin} from '../Pages/Admin';
 export {default as CreateMediaModal} from './CreateMediaModal';
 export {default as Slider} from './slider';
 export {default as DemoCarousel} from './Carousel';
+export {default as NavBar} from './NavBar';
+export {default as PurchaseMediaButton} from './Purchase';

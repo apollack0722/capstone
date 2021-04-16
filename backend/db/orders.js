@@ -28,21 +28,24 @@ async function getOrdersByUserId(userId) {
       const { rows } = await client.query(`
       SELECT * 
       FROM orders
-      WHERE "userId" = $1 AND "isPurchased" = false;
+      JOIN media
+      ON orders."mediaId" = media.id 
+      WHERE "userId" = $1;
     `,[userId]);
+    console.log(rows)
     return rows;
     } catch (error) {
         throw error;
     }
 }
-async function updateOrder ({userId, mediaId, date, purchased}){
+async function updateOrder ({userId, mediaId}){
   try{
   const {rows: [order]} = await client.query(`
    UPDATE orders
-   SET mediaId = $2, date = $3, purchased = $4
-   WHERE id=$1
-   RETURNING*;   
-  `,[id, name, description]);
+   SET purchased = true
+   WHERE "userId"=$1 AND "mediaId" = $2
+   RETURNING *;   
+  `,[userId, mediaId]);
   return order;
 }catch (error){
   throw error;
@@ -51,5 +54,21 @@ async function updateOrder ({userId, mediaId, date, purchased}){
 module.exports = {
     createOrder,
     getAllOrders,
-    getOrdersByUserId
+    getOrdersByUserId,
+    updateOrder
 }
+
+
+// Join media onto orders where orders.mediaId = media.id
+    //
+
+    // SELECT * 
+    // FROM order
+    // INNER JOIN media
+    // ON media.Id = orders.mediaId
+
+
+    // SELECT * 
+    // FROM media
+    // INNER JOIN orders 
+    // ON media.Id = orders.mediaId

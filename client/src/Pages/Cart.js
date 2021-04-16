@@ -1,36 +1,58 @@
-import { useState} from 'react';
-const BASE_URL = 'https://localhost:3001/api';
-const currentUser = localStorage.getItem("userId")
+import {React, useEffect, useState} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavBar, PurchaseMediaButton } from '../Components';
+const userId = localStorage.getItem('userId');
+const BASE_URL = 'http://localhost:3001';
 
-const Cart =  () => {  //dont forget to re-add async
-  console.log(currentUser)
-  const [cartMedia, setCartMedia] = useState([])
-  fetch(`${BASE_URL}/orders`, {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    }).then(response => response.json())
-      .then(result => setCartMedia(result) )
-      .catch(console.error)
-      const myCart = cartMedia.filter( cartMedia => cartMedia.userId === currentUser && !cartMedia.isPurchased)
-  return (
+const Cart = () => {
+  const [myMedia, setMyMedia] = useState([]);
+   const getMedia = async() => {
+     await fetch(`${BASE_URL}/api/orders/${userId}/cart`, {
+    headers: {
+        'Content-Type': 'application/json',
+    },
+  })
+    .then(response => response.json())
+    .then(result => {
+
+       setMyMedia(result)
+        console.log(result)
+    })
+    .catch(console.error);
+  }
+  useEffect (() => {
+  getMedia();
+   
+  }, []);
+console.log(myMedia)
+  
+  
+  
+  
     
-
+  return (
     <div>
-      <div>
-      "HOWDY"
-        <p>Testing cart</p>
-        <h3>{myCart[0].id}</h3>
-      </div>
+      <NavBar />
+         {
+             myMedia.map((media, index) => 
+                media.purchased === false?
+                <div className ="media-page"
+                      key = {index}>
+                  <h3>{media.title}</h3>
+                  <p>{media.rating}</p>
+                  <p>{media.genre}
+                 </p>
+                 {console.log('userId',media.userId)}
+                 {console.log('mediaId',media.mediaId)}
+                 <PurchaseMediaButton 
+                  userId = {media.userId}
+                  mediaId = {media.mediaId}/>
+                </div> : ''
+             )
+         }
     </div>
+
+    
   )
 }
-
 export default Cart;
-
-
-//looking at a movie. 
-//click button to purchase
-//that button will create a new order that is unpurchased and add that movie to a render of a cart
-//that render comes from a map of my orders with isPurchased===false
