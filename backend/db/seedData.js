@@ -179,6 +179,20 @@ async function dropTables() {
           userId: 1,
           mediaId: 2,
           date: Date(),
+          purchased: true,
+          rental: false 
+        },
+        {
+          userId: 1,
+          mediaId: 5,
+          date: Date(),
+          purchased: false,
+          rental: false 
+        },
+        {
+          userId: 1,
+          mediaId: 4,
+          date: Date(),
           purchased: false,
           rental: false 
         },

@@ -1,84 +1,58 @@
-// import {React, useState} from 'react';
-// const BASE_URL = 'https://localhost:3001';
+import {React, useEffect, useState} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavBar, PurchaseMediaButton } from '../Components';
+const userId = localStorage.getItem('userId');
+const BASE_URL = 'http://localhost:3001';
 
-// const currentUser = localStorage.getItem("userId")
+const Cart = () => {
+  const [myMedia, setMyMedia] = useState([]);
+   const getMedia = async() => {
+     await fetch(`${BASE_URL}/api/orders/${userId}/cart`, {
+    headers: {
+        'Content-Type': 'application/json',
+    },
+  })
+    .then(response => response.json())
+    .then(result => {
 
-// // const ViewCart = async (event) => {
-// //   const [cartMedia, setCartMedia] = useState('')
-// //   event.preventDefault();
-// //   await fetch(`${BASE_URL}/${userId}/cart`, {
-// //       method: "GET",
-// //       headers: {
-// //         'Content-Type': 'application/json'
-// //       },
-// //     }).then(response => response.json())
-// //       .then(result => {
-// //         console.log(result)
-// //       })
-// //       .catch(console.error)
+       setMyMedia(result)
+        console.log(result)
+    })
+    .catch(console.error);
+  }
+  useEffect (() => {
+  getMedia();
+   
+  }, []);
+console.log(myMedia)
+  
+  
+  
+  
+    
+  return (
+    <div>
+      <NavBar />
+         {
+             myMedia.map((media, index) => 
+                media.purchased === false?
+                <div className ="media-page"
+                      key = {index}>
+                  <h3>{media.title}</h3>
+                  <p>{media.rating}</p>
+                  <p>{media.genre}
+                 </p>
+                 {console.log('userId',media.userId)}
+                 {console.log('mediaId',media.mediaId)}
+                 <PurchaseMediaButton 
+                  userId = {media.userId}
+                  mediaId = {media.mediaId}/>
+                </div> : ''
+             )
+         }
+    </div>
 
-// // let pageCart = [];
-// // return (
-// //   <div>
-// //     {
-// //       cartMedia.filter((media) => {
-// //         if(!media.isPurchased){
-// //           pageCart.push(media)
-// //         }
-// //         return pageCart
-// //     }
-// //       )}
-// //       {
-// //       pageCart.map((media, index) => {
-// //         return (
-// //         <div className ="cart"
-// //           key = {index}>
-// //           <h3>{media.title}</h3>
-// //           <p>Purchase Price: {media.buyPrice}</p>
-// //           <img src={media.imgUrl} alt= ''/>  
-// //         </div>)
-// //       })
-// //     }
-// //     <p>Testing cart</p>
-// //   </div>
-// //   )
-// // }
-
-
-// const addToCart = async (event, mediaId, currentUser) => {
-//   event.preventDefault();
-//   await fetch (`${BASE_URL}/orders/add_to_cart`, {
-//     method: "POST",
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: {
-//       mediaId: mediaId,
-//       currentUser: currentUser 
-//     }
-//   }).then(response => response.json())
-//   .then(result => {
-//     console.log(result)
-//   })
-//   .catch(console.error)
-// }
-
-// const Cart = () => {
-//   return (
-//     <div>
-//       <button
-//         onClick={startCart}
-//       >
-//         Add to Cart
-//       </button>
-//     </div>
-//   )
-// }
-
-// export default Cart;
-
-
-// //looking at a movie. 
-// //click button to purchase
-// //that button will create a new order that is unpurchased and add that movie to a render of a cart
-// //that render comes from a map of my orders with isPurchased===false
+    
+  )
+}
+export default Cart;

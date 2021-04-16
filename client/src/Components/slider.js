@@ -1,7 +1,7 @@
 import './slider.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react'
-import { Card , Button, Modal} from 'react-bootstrap';
+import { Card , Button, Jumbotron} from 'react-bootstrap';
 const Slider = () => {
 
   const [media, setMedia] = useState([])
@@ -25,28 +25,7 @@ const Slider = () => {
     getMedia();
     
   }, []);
-  function MyVerticallyCenteredModal(props) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Fill out the form to Login
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-         
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-    }
+  
   return (
     
     <>
@@ -60,9 +39,13 @@ const Slider = () => {
                 <div 
                   className ="item"
                   key = {index}>
-                  
-                    <img className= 'slider-img'src={media.imgUrl} alt = '' />                
                     
+                    <input 
+                      type='image'
+                      className= 'slider-img'
+                      src={media.imgUrl} 
+                      alt = ''
+                      onClick={console.log('hello')}/>
                 </div> : ''
              )
          }
@@ -117,3 +100,9 @@ const Slider = () => {
     )
 }
 export default Slider;
+
+
+// need to add a purchase button to each individual movie
+  //Which means the purchase buttton needs to be inside the map to grab the unique id of the movie
+  // maybe an onClick button, we can make a function outside which changes the isPurchased to true?
+  

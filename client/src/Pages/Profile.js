@@ -36,13 +36,14 @@ console.log(myMedia)
       <NavBar />
          {
              myMedia.map((media, index) => 
+                media.purchased === true?
                 <div className ="media-page"
                       key = {index}>
                   <h3>{media.title}</h3>
                   <p>{media.rating}</p>
                   <p>{media.genre}
                   </p>
-                </div>
+                </div> : ''
              )
          }
     </div>

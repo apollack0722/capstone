@@ -1,6 +1,6 @@
 const express = require("express");
 const ordersRouter = express.Router();
-const { getAllOrders, getOrdersByUserId } = require("../db");
+const { getAllOrders, getOrdersByUserId, updateOrder } = require("../db");
 
 ordersRouter.use((req, res, next) => {
   console.log("A request is being made to /orders");
@@ -39,5 +39,21 @@ ordersRouter.post('/add_to_cart', async (req, res, next) => {
         next ({message});
     }
   });
+  
+  ordersRouter.patch('/:userId/:mediaId', async (req, res, next) => {
+    req.body.id = req.params
+  try {
+      const order = await updateOrder(req.body);
+      console.log('set to true')
+      res.send(order)
+  } catch({name, message}) {
+      next({
+          name: "updateOrder",
+          message: "There was an error updating order"
+      })
+  }
+
+
+})
 
 module.exports = ordersRouter;
