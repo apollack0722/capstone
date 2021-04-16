@@ -41,5 +41,6 @@ adminRouter.patch('/update', async(req, res, next) => {
     next ({message});
   }
 })
+console.log('for the push')
 
 module.exports = adminRouter;
