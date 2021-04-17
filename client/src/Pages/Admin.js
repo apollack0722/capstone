@@ -42,12 +42,12 @@ useEffect(() => {
         <CreateMediaModal />
       </div>
       <div className="adminPanel">
-        {media.map((media) => {
+        {media.map((media) => 
           <p>{media.title}</p>
-        })}
+        )}
       </div>
       <div className="adminPanel">
-        {users.map((user) => {
+        {users.map((user) => 
           <div className="userPanel">
             <p>{user.username}</p>
               {user.isAdmin ?
@@ -63,7 +63,7 @@ useEffect(() => {
                 </button>
               }
           </div>
-        })}
+        )}
       </div>
     </div>
   )
