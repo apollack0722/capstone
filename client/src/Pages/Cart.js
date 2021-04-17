@@ -4,6 +4,7 @@ import { NavBar, PurchaseMediaButton } from '../Components';
 const userId = localStorage.getItem('userId');
 const BASE_URL = 'http://localhost:3001';
 
+
 const Cart = () => {
   const [myMedia, setMyMedia] = useState([]);
    const getMedia = async() => {
@@ -25,10 +26,6 @@ const Cart = () => {
    
   }, []);
 console.log(myMedia)
-  
-  
-  
-  
     
   return (
     <div>
