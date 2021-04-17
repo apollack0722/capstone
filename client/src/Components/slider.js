@@ -1,29 +1,22 @@
 import './slider.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react'
-import Popover from 'react-bootstrap/Popover';
+import Modal from 'react-bootstrap/Modal';
+
 
 const Slider = () => {
  const addDescription = (id) => {
     media.forEach((product) => {
       if(product.id == id){
         // render a module 
-        console.log(product.title, product.description, product.genre, product.buyPrice, product.rating)
-    //  return(
-    //       <Popover id="popover-basic">
-    //         <Popover.Title as="h3">{product.title}</Popover.Title>
-    //         <Popover.Content>
-    //           And here's some <strong>amazing</strong> content. It's very engaging.
-    //           right?
-    //         </Popover.Content>
-    //       </Popover>
-    //  )
+        //console.log(product.title, product.description, product.genre, product.buyPrice, product.rating)
+   
       }
     })
  }
 
   const [media, setMedia] = useState([])
-  const [showInfo, setShowInfo] = useState(false)
+ 
   const getMedia = async() => {await fetch('http://localhost:3001/api/media', {
     headers: {
         'Content-Type': 'application/json',
