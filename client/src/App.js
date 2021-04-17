@@ -1,4 +1,5 @@
 import {Home, Library, Admin, Profile, Cart} from './Pages/Index'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,26 +16,6 @@ function App() {
   return (
     <>
     <Router>
-    <div className="App">
-      <Switch>
-        <Route path="/Library">
-          <Library currentUser={currentUser} />
-        </Route>
-          <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="/">pineApple TV</Navbar.Brand>
-            <Nav className="mr-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/Library">Library</Nav.Link>
-              <Nav.Link href="/Cart">Cart</Nav.Link>
-              <Nav.Link href="/Profile">Profile</Nav.Link>
-              <Nav.Link href="/Admin">Admin</Nav.Link>
-              <Nav.Link href="/Login">Login</Nav.Link>
-            </Nav>
-          </Navbar>
-    </Switch>
-    </div>
-    </Router>
-    <Router>
      <Switch>
         <Route path="/Library">
          <Library />
@@ -49,7 +30,6 @@ function App() {
          <Admin />
         </Route>
         <Route path="/Login">
-
         </Route>
         <Route path="/">
          <Home />

@@ -19,10 +19,8 @@ const BASE_URL = 'http://localhost:3001';
           })
           .catch(console.error);
           event.preventDefault()
-  }
-  
+  } 
 const Library = () => {
-  
   return (
     <div>
         <NavBar />

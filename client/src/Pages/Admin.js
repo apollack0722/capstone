@@ -1,14 +1,11 @@
 import { CreateMediaModal } from '../Components' //should this be exported differently? 
 import {useState, useEffect} from 'react'
-const BASE_URL = 'http://localhost:3001/api/media'
 import { NavBar } from "../Components";
 
-
+const BASE_URL = 'http://localhost:3001/api/media'
 const  Admin = () => {
   const [media, setMedia] = useState([])
   const [users, setUsers] = useState([])
-  let allUsers = users;
-  let allMedia = media;
   const getMedia = async() => {await fetch(BASE_URL, {
     headers: {
         'Content-Type': 'application/json',
