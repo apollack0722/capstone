@@ -1,6 +1,6 @@
 const express = require("express");
 const ordersRouter = express.Router();
-const { getAllOrders, getOrdersByUserId, updateOrder, deleteOrder1} = require("../db");
+const { getAllOrders, getOrdersByUserId, updateOrder, deleteOrder1, createOrder} = require("../db");
 
 ordersRouter.use((req, res, next) => {
   console.log("A request is being made to /orders");
@@ -31,6 +31,7 @@ ordersRouter.get('/:userId/cart', async (req, res, next) => {
 })
 ordersRouter.post('/add_to_cart', async (req, res, next) => {
     try{
+        console.log(req.body)
       const order = await createOrder(req.body)
        console.log(order)
       res.send(order)

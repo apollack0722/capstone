@@ -21,6 +21,7 @@ const Login = () => {
               console.log(result);
               localStorage.setItem('token', result.token)
               localStorage.setItem('isAdmin', result.user.isAdmin)
+              localStorage.setItem('userId', result.user.id)
               console.log(result.user.id)
                 localStorage.setItem('userId', result.user.id)//is this showing their password? user is stored as ap
             })

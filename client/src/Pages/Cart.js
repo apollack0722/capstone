@@ -41,10 +41,8 @@ console.log(myMedia)
                   <h3>{media.title}</h3>
                   <p>{media.rating}</p>
                   <p>{media.genre}
+                  {/* { <img src={media.imgUrl} alt=''></img>}  */}
                  </p>
-                 {console.log('userId',media.userId)}
-                 {console.log('mediaId',media.mediaId)}
-                 {console.log('orderId',media.id)}
                  <PurchaseMediaButton 
                   userId = {media.userId}
                   mediaId = {media.mediaId}/>

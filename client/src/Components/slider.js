@@ -2,6 +2,8 @@ import './slider.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react'
 import { Card , Button, Jumbotron} from 'react-bootstrap';
+import CreateOrderButton from './CreateOrderButton';
+const userId = localStorage.getItem('userId');
 
 const Slider = () => {
   const [media, setMedia] = useState([])
@@ -15,6 +17,7 @@ const Slider = () => {
     .then(result => {
 
         setMedia(result)   
+        console.log(media)
     })
     .catch(console.error);
   }
@@ -39,6 +42,12 @@ const Slider = () => {
                       src={media.imgUrl} 
                       alt = ''
                       onClick={console.log('hello')}/>
+                        <CreateOrderButton 
+                    purchased = {false}
+                    mediaId = {media.id}
+                    date = {Date()}
+                    userId = {userId}
+                      />
                 </div> : ''
              )
          }
@@ -53,6 +62,12 @@ const Slider = () => {
                   key = {index}>
                     
                     <img className= 'slider-img'src={media.imgUrl} alt = ''/>
+                    <CreateOrderButton 
+                    purchased = {false}
+                    mediaId = {media.id}
+                    date = {Date()}
+                    userId = {userId}
+                      />
                 </div> : ''
              )
          }
@@ -67,6 +82,12 @@ const Slider = () => {
                   key = {index}>
                     
                     <img className= 'slider-img'src={media.imgUrl} alt = ''/>
+                    <CreateOrderButton 
+                    purchased = {false}
+                    mediaId = {media.id}
+                    date = {Date()}
+                    userId = {userId}
+                      />
                 </div> : ''
              )
          }
@@ -80,6 +101,12 @@ const Slider = () => {
                   className ="item"
                   key = {index}>
                     <img className= 'slider-img'src={media.imgUrl} alt = ''/>
+                    <CreateOrderButton 
+                    purchased = {false}
+                    mediaId = {media.id}
+                    date = {Date()}
+                    userId = {userId}
+                      />
                 </div> : ''
              )
          }
