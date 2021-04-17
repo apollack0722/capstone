@@ -18,12 +18,12 @@ const Login = () => {
             })
           }).then(response => response.json())
             .then(result => {
-              console.log(result);
               localStorage.setItem('token', result.token)
-              localStorage.setItem('isAdmin', result.user.isAdmin)
               localStorage.setItem('userId', result.user.id)
-              console.log(result.user.id)
-                localStorage.setItem('userId', result.user.id)//is this showing their password? user is stored as ap
+              
+              if (result.user.isAdmin) {
+                return localStorage.setItem('isAdmin', result.user.isAdmin)
+                }
             })
             .catch(console.error);
             event.preventDefault()
