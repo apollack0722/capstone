@@ -1,6 +1,6 @@
 import {React, useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar, PurchaseMediaButton } from '../Components';
+import { DeleteOrderButton, NavBar, PurchaseMediaButton } from '../Components';
 const userId = localStorage.getItem('userId');
 const BASE_URL = 'http://localhost:3001';
 
@@ -44,9 +44,12 @@ console.log(myMedia)
                  </p>
                  {console.log('userId',media.userId)}
                  {console.log('mediaId',media.mediaId)}
+                 {console.log('orderId',media.id)}
                  <PurchaseMediaButton 
                   userId = {media.userId}
                   mediaId = {media.mediaId}/>
+                  <DeleteOrderButton
+                  orderId = {media.id} />
                 </div> : ''
              )
          }

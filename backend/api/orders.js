@@ -1,6 +1,6 @@
 const express = require("express");
 const ordersRouter = express.Router();
-const { getAllOrders, getOrdersByUserId, updateOrder } = require("../db");
+const { getAllOrders, getOrdersByUserId, updateOrder, deleteOrder1} = require("../db");
 
 ordersRouter.use((req, res, next) => {
   console.log("A request is being made to /orders");
@@ -40,10 +40,10 @@ ordersRouter.post('/add_to_cart', async (req, res, next) => {
   });
   
   ordersRouter.patch('/:userId/:mediaId', async (req, res, next) => {
-    req.body.id = req.params
+     
   try {
-      const order = await updateOrder(req.body);
-      console.log('set to true')
+      const order = await updateOrder(req.params);
+      console.log('set to true', req.params)
       res.send(order)
   } catch({name, message}) {
       next({
@@ -53,6 +53,18 @@ ordersRouter.post('/add_to_cart', async (req, res, next) => {
   }
 
 
+})
+ordersRouter.delete('/:ordersId', async (req, res, next) => {
+    try {
+        console.log('delete route',req.params)
+        const deleteOrder = await deleteOrder1((req.params))
+        console.log('got here')
+        res.send(deleteOrder)
+    }catch ({name, message}) {
+        next({
+            name: "deleteOrder",
+            message: "Error deleting order"
+    })}
 })
 
 module.exports = ordersRouter;

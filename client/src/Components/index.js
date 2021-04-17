@@ -8,3 +8,4 @@ export {default as Slider} from './slider';
 export {default as DemoCarousel} from './Carousel';
 export {default as NavBar} from './NavBar';
 export {default as PurchaseMediaButton} from './Purchase';
+export {default as DeleteOrderButton} from './DeleteOrderButton';

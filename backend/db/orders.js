@@ -1,12 +1,12 @@
 const client = require("./client");
 
-async function createOrder({userId, mediaId, date, purchased, rental}){
+async function createOrder({userId, mediaId, date, purchased}){
     try{
         const {rows:[order]} = await client.query(`
-         INSERT INTO orders ("userId", "mediaId", date, purchased, rental)
-         VALUES ($1, $2, $3, $4, $5)
+         INSERT INTO orders ("userId", "mediaId", date, purchased)
+         VALUES ($1, $2, $3, $4)
          RETURNING *;
-        `,[userId, mediaId, date, purchased, rental]);
+        `,[userId, mediaId, date, purchased]);
         return order;
     }catch (error){
         throw error;
@@ -51,12 +51,27 @@ async function updateOrder ({userId, mediaId}){
   throw error;
 }
 }
+
+async function deleteOrder1({ordersId}) {
+  try{
+    await client.query(`
+    DELETE
+    FROM orders
+    WHERE id = $1;
+    `,[ordersId])
+  }catch (error){
+    throw error
+    
+  }
+}
 module.exports = {
     createOrder,
     getAllOrders,
     getOrdersByUserId,
-    updateOrder
+    updateOrder,
+    deleteOrder1
 }
+
 
 
 // Join media onto orders where orders.mediaId = media.id

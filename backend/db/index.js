@@ -19,7 +19,8 @@ const {
     createOrder,
     getAllOrders,
     getOrdersByUserId,
-    updateOrder
+    updateOrder,
+    deleteOrder1
 } = require('./orders')
 
 module.exports = {
@@ -35,5 +36,6 @@ module.exports = {
     getOrdersByUserId,
     getMediaById,
     updateUser,
-    updateOrder
+    updateOrder,
+    deleteOrder1
 };

@@ -1,7 +1,7 @@
 import { CreateMediaModal } from '../Components' //should this be exported differently? 
 import {useState, useEffect} from 'react'
-const BASE_URL = 'http://localhost:3001/api/media'
 import { NavBar } from "../Components";
+const BASE_URL = 'http://localhost:3001/api/media'
 
 
 const  Admin = () => {

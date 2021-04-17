@@ -2,8 +2,6 @@ import './slider.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react'
 import { Card , Button, Jumbotron} from 'react-bootstrap';
-const Slider = () => {
-
 
 const Slider = () => {
   const [media, setMedia] = useState([])
