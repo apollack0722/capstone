@@ -24,7 +24,7 @@ const Library = () => {
   return (
     <div>
         <NavBar />
-        <Slider />
+        <Slider/>
     </div>
   )
 }

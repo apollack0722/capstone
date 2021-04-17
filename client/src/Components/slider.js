@@ -1,9 +1,27 @@
 import './slider.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react'
-import { Card , Button, Jumbotron} from 'react-bootstrap';
+import Popover from 'react-bootstrap/Popover';
 
 const Slider = () => {
+ const addDescription = (id) => {
+    media.forEach((product) => {
+      if(product.id == id){
+        // render a module 
+        console.log(product.title, product.description, product.genre, product.buyPrice, product.rating)
+    //  return(
+    //       <Popover id="popover-basic">
+    //         <Popover.Title as="h3">{product.title}</Popover.Title>
+    //         <Popover.Content>
+    //           And here's some <strong>amazing</strong> content. It's very engaging.
+    //           right?
+    //         </Popover.Content>
+    //       </Popover>
+    //  )
+      }
+    })
+ }
+
   const [media, setMedia] = useState([])
   const [showInfo, setShowInfo] = useState(false)
   const getMedia = async() => {await fetch('http://localhost:3001/api/media', {
@@ -31,14 +49,16 @@ const Slider = () => {
             media.genre === "Comedy"?
                 <div 
                   className ="item"
-                  key = {index}>
-                    
+                  key = {index}
+                  >
+                  
                     <input 
+                      value={Number(media.id)}
                       type='image'
                       className= 'slider-img'
                       src={media.imgUrl} 
                       alt = ''
-                      onClick={console.log('hello')}/>
+                      onClick={(event) => addDescription(event.target.value)}/>
                 </div> : ''
              )
          }
