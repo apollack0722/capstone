@@ -109,6 +109,6 @@ const Slider = () => {
 }
 export default Slider;
 // need to add a purchase button to each individual movie
-  //Which means the purchase buttton needs to be inside the map to grab the unique id of the movie
-  // maybe an onClick button, we can make a function outside which changes the isPurchased to true?
+//Which means the purchase button needs to be inside the map to grab the unique id of the movie
+// maybe an onClick button, we can make a function outside which changes the isPurchased to true?
   
