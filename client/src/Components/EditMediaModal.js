@@ -1,20 +1,21 @@
+
+
 import {Modal, Button, Form} from 'react-bootstrap';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const CreateMedia = () => {
-  
-  const [title, setTitle] = useState('')
+const BASE_URL = 'http://localhost:3001'
+
+const EditMedia = (title) => {
   const [description, setDescription] = useState('')
   const [genre, setGenre] = useState('')
-  const [rentalPrice, setRentalPrice] = useState('')
   const [buyPrice, setBuyPrice] = useState('')
   const [rating, setRating] = useState('')
   const [imgUrl, setImgUrl] = useState('')
 
   const SubmitMedia = async (event) => {   
-    await fetch('http://localhost:3001/api/admin/create', {
-      method: "POST",
+    await fetch(`${BASE_URL}/api/admin/editMedia/${title}`, {
+      method: "PATCH",
         headers: {
           'Content-Type': 'application/json'
         },

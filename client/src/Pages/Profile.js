@@ -4,7 +4,6 @@ import { NavBar } from '../Components';
 const userId = localStorage.getItem('userId');
 const BASE_URL = 'http://localhost:3001';
 
-
 const Profile = () => {
   const [myMedia, setMyMedia] = useState([]);
    const getMedia = async() => {
@@ -26,11 +25,6 @@ const Profile = () => {
    
   }, []);
 console.log(myMedia)
-  
-    
-  
-  
-    
   return (
     <div>
       <NavBar />

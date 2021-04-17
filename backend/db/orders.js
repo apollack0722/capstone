@@ -1,12 +1,12 @@
 const client = require("./client");
 
-async function createOrder({userId, mediaId, date, purchased, rental}){
+async function createOrder({userId, mediaId, date, purchased}){
     try{
         const {rows:[order]} = await client.query(`
-         INSERT INTO orders ("userId", "mediaId", date, purchased, rental)
-         VALUES ($1, $2, $3, $4, $5)
+         INSERT INTO orders ("userId", "mediaId", date, purchased)
+         VALUES ($1, $2, $3, $4)
          RETURNING *;
-        `,[userId, mediaId, date, purchased, rental]);
+        `,[userId, mediaId, date, purchased]);
         return order;
     }catch (error){
         throw error;

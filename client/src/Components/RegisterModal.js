@@ -19,7 +19,7 @@ const Register = () => {
         })
       }).then(response => response.json())
         .then(result => {
-          console.log(result);
+          console.log( " this should be the user response after creating a user: ", result);
           console.log(result.token)
         })
         .catch(console.error);
@@ -70,7 +70,6 @@ const Register = () => {
     </div>
   )
 };
-
 const RegistrationModal = (props) => {
   return (
     <Modal

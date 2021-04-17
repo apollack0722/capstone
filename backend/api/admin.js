@@ -1,5 +1,5 @@
 const express = require("express");
-const { createMedia, getAllMedia } = require("../db");
+const { createMedia, getAllMedia, editMedia, deleteMedia } = require("../db");
 const adminRouter = express.Router();
 const { requireAdmin } = require("./utils")
 const { updateUser } = require("./index")
@@ -41,6 +41,27 @@ adminRouter.patch('/update', async(req, res, next) => {
     next ({message});
   }
 })
-console.log('for the push')
+
+adminRouter.patch('/editMedia/:mediaId', async(req, res, next) => {
+  try{
+    console.log("patch", req.body)
+    const updateMedia = await editMedia(req.body)
+      console.log(updateMedia)
+      res.send(updateMedia)
+  }catch ({message}){
+    next ({message});
+  }
+})
+
+adminRouter.delete('/deleteMedia/:mediaId', async(req, res, next) => {
+  try{
+    console.log("delete", req.body)
+    const deleteMedia = await deleteMedia(req.body)
+      console.log(deleteMedia)
+      res.send(deleteMedia)
+  }catch ({message}){
+    next ({message});
+  }
+})
 
 module.exports = adminRouter;
