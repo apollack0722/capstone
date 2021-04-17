@@ -20,6 +20,7 @@ const Login = () => {
             .then(result => {
               console.log(result);
               localStorage.setItem('token', result.token)
+              localStorage.setItem('isAdmin', result.user.isAdmin)
               console.log(result.user.id)
                 localStorage.setItem('userId', result.user.id)//is this showing their password? user is stored as ap
             })
@@ -27,33 +28,34 @@ const Login = () => {
             event.preventDefault()
         }
     return (
-          <div className="Login">
-            <Form>
-              <Form.Group controlId="Username">
-                <Form.Label>Username</Form.Label>
-                <Form.Control 
-                  type="text" 
-                  placeholder="Username" 
-                  onChange={ (event) => { setUsername(event.target.value) }}
-                />
-              </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control 
-            type="username" 
-            placeholder="Password"
-            onChange={(event)=>setPassword(event.target.value)} />
-        </Form.Group>
-        <Button 
+      <div className="Login">
+        <Form>
+          <Form.Group controlId="Username">
+            <Form.Label>Username</Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Username" 
+                onChange={ (event) => { setUsername(event.target.value) }}
+              />
+            </Form.Group>
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control 
+              type="password" 
+              placeholder="Password"
+              onChange={(event)=>setPassword(event.target.value)} />
+          </Form.Group>
+          <Button 
             variant="primary" 
             type="submit"
-            onClick={LoginUser}> 
-          Submit
-        </Button>
-      </Form>      
-              </div>
-    )
-  };
+            onClick={LoginUser}
+          > 
+            Submit
+          </Button>
+        </Form>      
+      </div>
+  )
+};
 function MyVerticallyCenteredModal(props) {
   return (
     <Modal
@@ -71,7 +73,10 @@ function MyVerticallyCenteredModal(props) {
         <Login />
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button 
+          onClick={props.onHide}
+          >Close
+        </Button>
       </Modal.Footer>
     </Modal>
   );

@@ -19,7 +19,7 @@ async function dropTables() {
         username VARCHAR(255) UNIQUE NOT NULL, 
         password VARCHAR(255) NOT NULL,
         "userEmail" VARCHAR(255) UNIQUE,
-        "isAdmin" BOOLEAN NOT NULL 
+        "isAdmin" BOOLEAN NOT NULL  
       )
     `);
       await client.query(`
@@ -39,13 +39,12 @@ async function dropTables() {
         "userId" INTEGER REFERENCES users(id),
         "mediaId" INTEGER REFERENCES media(id),
         date TEXT,
-        purchased BOOLEAN DEFAULT false,
-        rental BOOLEAN DEFAULT true
-          );
+        purchased BOOLEAN DEFAULT false
+      );
     `)
-    console.log('tables created')
+        console.log("tables created chief")
+    }
 
-     }
     catch(error){
       throw error
     }
@@ -71,7 +70,7 @@ async function dropTables() {
     try {
       console.log('Starting to create media...');
       const mediaToCreate = [
-        { title: 'Teenage Mutant Ninja Turtles', description: '4 lizards adopted by a rat go on a pizza fueled rampage across an innocent city.', genre: 'Family Friendly',  'buyPrice': 29.99, rating: 'PG-13', 'imgUrl': 'https://xl.movieposterdb.com/15_02/1990/100758/xl_100758_e2190eef.jpg'},
+        { title: 'Teenage Mutant Ninja Turtles', description: '4 lizards adopted by a rat go on a pizza fueled rampage across an innocent city.', genre: 'Family Friendly', 'buyPrice': 29.99, rating: 'PG-13', 'imgUrl': 'https://xl.movieposterdb.com/15_02/1990/100758/xl_100758_e2190eef.jpg'},
         { title: 'Spy Kids', description: 'Kids on the street, kids on the beat. Spy Kids.', genre: 'Family Friendly', 'buyPrice': 29.99, rating: 'PG', 'imgUrl': 'https://xl.movieposterdb.com/15_02/2001/227538/xl_227538_0ff5729d.jpg'},
         { title: 'The Boss Baby 2', description: 'The baby is back in business, and this time, he means...business.', genre: 'Family Friendly', 'buyPrice': 15.99, rating: 'PG', 'imgUrl': 'https://xl.movieposterdb.com/20_01/2021/6932874/xl_6932874_045d044e.jpg'},
         { title: 'Mary Poppins', description: 'In turn of the century London, a magical nanny employs music and adventure to help two neglected children become closer to their father.', genre: 'Classic', 'buyPrice': 13.99, rating: 'G', 'imgUrl': 'https://xl.movieposterdb.com/08_12/1964/58331/xl_58331_dfb8a473.jpg'},
@@ -122,19 +121,19 @@ async function dropTables() {
           userId: 3,
           mediaId: 7,
           date: Date(),
-          purchased: true,
+          purchased: true         
         },
         {
           userId: 3,
           mediaId: 1,
           date: Date(),
-          purchased: false     
-       },
+          purchased: false 
+        },
         {
           userId: 1,
           mediaId: 1,
           date: Date(),
-          purchased: false
+          purchased: false 
         },
         {
           userId: 3,
@@ -170,19 +169,19 @@ async function dropTables() {
           userId: 1,
           mediaId: 2,
           date: Date(),
-          purchased: true 
+          purchased: true
         },
         {
           userId: 1,
           mediaId: 5,
           date: Date(),
-          purchased: false 
+          purchased: false
         },
         {
           userId: 1,
           mediaId: 4,
           date: Date(),
-          purchased: false 
+          purchased: false
         },
       ]
       const orders = await Promise.all(ordersToCreate.map(createOrder));

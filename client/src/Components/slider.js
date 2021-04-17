@@ -20,15 +20,11 @@ const Slider = () => {
   }
   useEffect(() => {
     getMedia();
-    
+
   }, []);
-  
   return (
-    
     <>
-  
     <div className="container">
-     
         <h2>Comedy</h2>
      { 
            media.map((media, index) => 
@@ -46,8 +42,6 @@ const Slider = () => {
                 </div> : ''
              )
          }
-          
-  
   </div>
     <div className="container">
       <h2>Action</h2>
@@ -62,7 +56,6 @@ const Slider = () => {
                 </div> : ''
              )
          }
-    
   </div>
     <div className="container">
       <h2>Sci-fi</h2>
@@ -77,7 +70,6 @@ const Slider = () => {
                 </div> : ''
              )
          }
-    
   </div>
     <div className="container">
       <h2>Family-Friendly</h2>
@@ -87,7 +79,6 @@ const Slider = () => {
                 <div 
                   className ="item"
                   key = {index}>
-                    
                     <img className= 'slider-img'src={media.imgUrl} alt = ''/>
                 </div> : ''
              )
@@ -97,8 +88,6 @@ const Slider = () => {
     )
 }
 export default Slider;
-
-
 // need to add a purchase button to each individual movie
   //Which means the purchase buttton needs to be inside the map to grab the unique id of the movie
   // maybe an onClick button, we can make a function outside which changes the isPurchased to true?
