@@ -10,6 +10,8 @@ const NavBar = () => {
   return (
   <Navbar bg="dark" variant="dark">
   <Nav className="mr-auto">
+  <Navbar.Brand></Navbar.Brand>
+  <Nav.Link href="/">Home</Nav.Link>
   <Nav.Link href="/Library">Library</Nav.Link>
   <Nav.Link href="/Cart">Cart</Nav.Link>
   <Nav.Link href="/Profile">My Account</Nav.Link>
