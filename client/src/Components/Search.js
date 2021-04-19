@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Navbar, Nav, FormControl, Button, Form} from 'react-bootstrap';
+
 
 const Search = () => {
   const [media, setMedia] = useState([]);
@@ -44,7 +44,7 @@ const Search = () => {
         )
       }): null}
     </fieldset>
-    <button>SEARCH</button>
+    
   </form>
 
 

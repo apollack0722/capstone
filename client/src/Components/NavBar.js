@@ -1,4 +1,4 @@
-import {Navbar, Nav} from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import Search from './Search';
 import "./slider.css";
 
@@ -14,7 +14,7 @@ const NavBar = () => {
   <Nav.Link href="/Cart">Cart</Nav.Link>
   <Nav.Link href="/Profile">My Account</Nav.Link>
   <Nav.Link href="/Admin">Admin</Nav.Link>
-  <Search/>
+  <Nav.Link href="/Search">Search</Nav.Link>
   </Nav>
   <Navbar.Brand>
     {username? username : ''}
