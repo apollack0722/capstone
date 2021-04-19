@@ -22,10 +22,7 @@ const Search = () => {
   }, []);
 
 
-   return <form id="search" onSubmit={async (event) => {
-   event.preventDefault();
-   console.log('hello')
-  }}>
+   return <form id="search">
     <fieldset>
       <input
         id="keywords"
