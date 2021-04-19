@@ -9,6 +9,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import NavBar from './Components/NavBar';
+import Search from './Components/Search';
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
 <NavBar/>
       <main>
      <Switch>
+     <Route path="/Search">
+            <Search/>
+            </Route>
         <Route path="/Library">
          <Library />
         </Route>
