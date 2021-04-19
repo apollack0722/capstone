@@ -65,7 +65,8 @@ const Slider = () => {
                 alt=""
                 //onClick={(event) => addDescription(event.target.value)}
                 onClick={() => setShow(true)}
-              />
+
+        />
             </div>
           ) : (
             ""

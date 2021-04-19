@@ -38,7 +38,6 @@ useEffect(() => {
 
   return (
     <div>
-      <NavBar />
       <div>
         <CreateMediaModal />
       </div>

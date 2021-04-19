@@ -32,7 +32,6 @@ console.log(myMedia)
     
   return (
     <div>
-      <NavBar />
          {
              myMedia.map((media, index) => 
                 media.purchased === false?

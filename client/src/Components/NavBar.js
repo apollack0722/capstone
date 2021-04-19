@@ -1,7 +1,9 @@
-import {Navbar, Nav, FormControl, Button, Form} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
+import Search from './Search';
+import "./slider.css";
+
 const myToken = localStorage.getItem('myToken')
 const username = localStorage.getItem('username');
-
 
 
 const NavBar = () => {
@@ -12,10 +14,7 @@ const NavBar = () => {
   <Nav.Link href="/Cart">Cart</Nav.Link>
   <Nav.Link href="/Profile">My Account</Nav.Link>
   <Nav.Link href="/Admin">Admin</Nav.Link>
-  <Form inline>
-    <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
-    <Button variant="outline-info">Search</Button>
-  </Form>  
+  <Search/>
   </Nav>
   <Navbar.Brand>
     {username? username : ''}

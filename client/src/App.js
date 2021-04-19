@@ -8,14 +8,16 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-//import Library from './Pages/Library';
-//import Profile from './Pages/Profile';
+import NavBar from './Components/NavBar';
+
 
 function App() {
   const currentUser = localStorage.getItem('userId')
   return (
     <>
     <Router>
+<NavBar/>
+      <main>
      <Switch>
         <Route path="/Library">
          <Library />
@@ -34,8 +36,9 @@ function App() {
         <Route path="/">
          <Home />
         </Route>
-      </Switch>   
-      </Router>  
+      </Switch>
+      </main>
+      </Router>
   </>
   );
 }
