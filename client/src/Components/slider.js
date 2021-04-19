@@ -4,18 +4,20 @@ import { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 
 const Slider = () => {
-  //  const addDescription = (id) => {
-  //     media.forEach((product) => {
-  //       if(product.id == id){
-  //         // render a module
-  //         //console.log(product.title, product.description, product.genre, product.buyPrice, product.rating)
-
-  //       }
-  //     })
-  //  }
-
+  const [clickMedia, setClickMedia] = useState([]);
   const [media, setMedia] = useState([]);
   const [show, setShow] = useState(false);
+   const addDescription = (id) => {
+      media.forEach((product) => {
+        if(product.id == id){
+          // render a module
+          console.log(product.title, product.description, product.genre, product.buyPrice, product.rating)
+         let newMedia = [product.title, product.description, product.genre, product.buyPrice, product.rating];
+         setClickMedia(newMedia)
+         setShow(true)
+        }
+      })
+   }
 
   const getMedia = async () => {
     await fetch("http://localhost:3001/api/media", {
@@ -47,13 +49,13 @@ const Slider = () => {
               >
                 <Modal.Header closeButton>
                   <Modal.Title id="example-custom-modal-styling-title">
-                    {media.title}
+                    {clickMedia[0]}
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <p>{media.buyPrice}</p>
-                  <p>{media.description}</p>
-                  <p>{media.rating}</p>
+                  <p>{clickMedia[3]}</p>
+                  <p>{clickMedia[1]}</p>
+                  <p>{clickMedia[4]}</p>
                 </Modal.Body>
               </Modal>
 
@@ -63,8 +65,8 @@ const Slider = () => {
                 className="slider-img"
                 src={media.imgUrl}
                 alt=""
-                //onClick={(event) => addDescription(event.target.value)}
-                onClick={() => setShow(true)}
+                onClick={(event) => addDescription(event.target.value)}
+                //onClick={() => setShow(true)}
 
         />
             </div>
