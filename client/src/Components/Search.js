@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Card from 'react-bootstrap/Card'
 
 const Search = () => {
   const [media, setMedia] = useState([]);
@@ -35,9 +35,19 @@ const Search = () => {
             return activity;
           } else if (activity.title.toLowerCase().includes(queryString.toLowerCase())) {
             return activity }
-        }).map((activity, index) => {
+        }).map((movie, index) => {
         return (
-          <option key={index}>{activity.title}</option>
+          <Card className="bg-dark text-white" key={index}>
+  <Card.Img src={movie.imgUrl} alt="Card image" />
+  <Card.ImgOverlay>
+    <Card.Title>{movie.title}</Card.Title>
+    <Card.Text>
+      {movie.description}
+    </Card.Text>
+    <Card.Text>{movie.rating}</Card.Text>
+    <Card.Text>{movie.buyPrice}</Card.Text>
+  </Card.ImgOverlay>
+</Card>
         )
       }): null}
     </fieldset>
