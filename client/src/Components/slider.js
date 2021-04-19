@@ -80,7 +80,33 @@ const Slider = () => {
         {media.map((media, index) =>
           media.genre === "Action" ? (
             <div className="item" key={index}>
-              <img className="slider-img" src={media.imgUrl} alt="" />
+              <Modal
+                show={show}
+                onHide={() => setShow(false)}
+                dialogClassName="modal-90w"
+                aria-labelledby="example-custom-modal-styling-title"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id="example-custom-modal-styling-title">
+                    {clickMedia[0]}
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <p>{clickMedia[3]}</p>
+                  <p>{clickMedia[1]}</p>
+                  <p>{clickMedia[4]}</p>
+                </Modal.Body>
+              </Modal>
+
+             
+              <input
+                value={Number(media.id)}
+                type="image"
+                className="slider-img"
+                src={media.imgUrl}
+                alt=""
+                onClick={(event) => addDescription(event.target.value)}
+                />
             </div>
           ) : (
             ""
@@ -92,7 +118,32 @@ const Slider = () => {
         {media.map((media, index) =>
           media.genre === "Sci-Fi" ? (
             <div className="item" key={index}>
-              <img className="slider-img" src={media.imgUrl} alt="" />
+              <Modal
+                show={show}
+                onHide={() => setShow(false)}
+                dialogClassName="modal-90w"
+                aria-labelledby="example-custom-modal-styling-title"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id="example-custom-modal-styling-title">
+                    {clickMedia[0]}
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <p>{clickMedia[3]}</p>
+                  <p>{clickMedia[1]}</p>
+                  <p>{clickMedia[4]}</p>
+                </Modal.Body>
+              </Modal>
+
+              <input
+                value={Number(media.id)}
+                type="image"
+                className="slider-img"
+                src={media.imgUrl}
+                alt=""
+                onClick={(event) => addDescription(event.target.value)}
+                />
             </div>
           ) : (
             ""
@@ -104,7 +155,32 @@ const Slider = () => {
         {media.map((media, index) =>
           media.genre === "Family Friendly" ? (
             <div className="item" key={index}>
-              <img className="slider-img" src={media.imgUrl} alt="" />
+              <Modal
+                show={show}
+                onHide={() => setShow(false)}
+                dialogClassName="modal-90w"
+                aria-labelledby="example-custom-modal-styling-title"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id="example-custom-modal-styling-title">
+                    {clickMedia[0]}
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <p>{clickMedia[3]}</p>
+                  <p>{clickMedia[1]}</p>
+                  <p>{clickMedia[4]}</p>
+                </Modal.Body>
+              </Modal>
+
+              <input
+                value={Number(media.id)}
+                type="image"
+                className="slider-img"
+                src={media.imgUrl}
+                alt=""
+                onClick={(event) => addDescription(event.target.value)}
+                />
             </div>
           ) : (
             ""

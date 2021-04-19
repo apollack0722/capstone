@@ -23,7 +23,7 @@ function App() {
       <main>
      <Switch>
      <Route path="/Search">
-            <Search/>
+       <Search/>
             </Route>
         <Route path="/Library">
          <Library />
