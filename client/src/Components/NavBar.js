@@ -15,8 +15,6 @@ const NavBar = () => {
   return (
   <Navbar bg="dark" variant="dark">
   <Nav className="mr-auto">
-  <Navbar.Brand> {username? username :''}
-  </Navbar.Brand>
   <Nav.Link href="/">Home</Nav.Link>
   <Nav.Link href="/Library">Library</Nav.Link>
   <Nav.Link href="/Cart">Cart</Nav.Link>
@@ -25,6 +23,8 @@ const NavBar = () => {
   <Nav.Link href="/Admin">Admin</Nav.Link> : ''} 
   <Nav.Link href="/Search">Search</Nav.Link>
   </Nav>
+  <Navbar.Brand> {username? username :''}
+  </Navbar.Brand>
   <Navbar.Brand>
     {!userId? <RegisterModal /> : ''}
     </Navbar.Brand>
