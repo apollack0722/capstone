@@ -15,7 +15,7 @@ async function createMedia({title, description, genre, buyPrice, rating, imgUrl}
 async function getAllMedia() {
     try {
         const { rows } = await client.query(`
-          SELECT * 
+          SELECT *
           FROM media;
         `);
         return rows;
