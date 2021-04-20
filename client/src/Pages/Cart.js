@@ -33,27 +33,25 @@ console.log(myMedia)
     
   return (
     <div>
-         {
-             myMedia.map((media, index) => 
-                media.purchased === false?
-                <div className ="media-page"
-                      key = {index}>
-                  <h3>{media.title}</h3>
-                  <p>{media.rating}</p>
-                  <p>{media.genre}
-                  {/* { <img src={media.imgUrl} alt=''></img>}  */}
-                 </p>
-                 <PurchaseMediaButton 
-                  userId = {media.userId}
-                  mediaId = {media.mediaId}/>
-                  <DeleteOrderButton
-                  orderId = {media.id} />
-                </div> : ''
-             )
-         }
+      {myMedia.map((media, index) =>
+        media.purchased === false ? (
+          <div className="media-page" key={index}>
+            <h3>{media.title}</h3>
+            <p>{media.rating}</p>
+            <p>
+              {media.genre}
+            </p>
+            <PurchaseMediaButton
+              userId={media.userId}
+              mediaId={media.mediaId}
+            />
+            <DeleteOrderButton orderId={media.id} />
+          </div>
+        ) : (
+          ""
+        )
+      )}
     </div>
-
-    
-  )
-}
+  );
+};
 export default Cart;

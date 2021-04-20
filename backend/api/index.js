@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require("express");
 const apiRouter = express.Router();
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = process.env;
@@ -6,7 +6,6 @@ const { getUserById } = require("../db/users");
 
 apiRouter.get("/checkIn", async (req, res, next) => {
   try {
-    console.log('checkin in', 'flag1')
     res.send({ message: "All is well." });
   } catch (error) {
     next(error);
@@ -15,7 +14,7 @@ apiRouter.get("/checkIn", async (req, res, next) => {
 
 apiRouter.use(async (req, res, next) => {
   const prefix = "Bearer ";
-  const auth = req.header("Authorization")
+  const auth = req.header("Authorization");
   if (!auth) {
     next();
   } else if (auth.startsWith(prefix)) {

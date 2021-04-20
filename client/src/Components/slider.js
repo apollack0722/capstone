@@ -2,24 +2,28 @@ import "./slider.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
-import {CreateOrderButton} from './index';
-const userId = localStorage.getItem('userId');
+import { CreateOrderButton } from "./index";
+const userId = localStorage.getItem("userId");
 
 const Slider = () => {
   const [clickMedia, setClickMedia] = useState([]);
   const [media, setMedia] = useState([]);
   const [show, setShow] = useState(false);
-   const addDescription = (id) => {
-      media.forEach((product) => {
-        if(product.id == id){
-          // render a module
-          console.log(product.title, product.description, product.genre, product.buyPrice, product.rating)
-         let newMedia = [product.title, product.description, product.genre, product.buyPrice, product.rating];
-         setClickMedia(newMedia)
-         setShow(true)
-        }
-      })
-   }
+  const addDescription = (id) => {
+    media.forEach((product) => {
+      if (product.id == id) {
+        let newMedia = [
+          product.title,
+          product.description,
+          product.genre,
+          product.buyPrice,
+          product.rating,
+        ];
+        setClickMedia(newMedia);
+        setShow(true);
+      }
+    });
+  };
 
   const getMedia = async () => {
     await fetch("http://localhost:3001/api/media", {
@@ -36,7 +40,7 @@ const Slider = () => {
   useEffect(() => {
     getMedia();
   }, []);
-  
+
   return (
     <>
       <div className="container">
@@ -69,13 +73,13 @@ const Slider = () => {
                 src={media.imgUrl}
                 alt=""
                 onClick={(event) => addDescription(event.target.value)}
-               />
-                  <CreateOrderButton 
-                    purchased = {false}
-                    mediaId = {media.id}
-                    date = {Date()}
-                    userId = {userId}
-                      />
+              />
+              <CreateOrderButton
+                purchased={false}
+                mediaId={media.id}
+                date={Date()}
+                userId={userId}
+              />
             </div>
           ) : (
             ""
@@ -105,7 +109,6 @@ const Slider = () => {
                 </Modal.Body>
               </Modal>
 
-             
               <input
                 value={Number(media.id)}
                 type="image"
@@ -113,13 +116,13 @@ const Slider = () => {
                 src={media.imgUrl}
                 alt=""
                 onClick={(event) => addDescription(event.target.value)}
-                />
-                 <CreateOrderButton 
-                    purchased = {false}
-                    mediaId = {media.id}
-                    date = {Date()}
-                    userId = {userId}
-                      />
+              />
+              <CreateOrderButton
+                purchased={false}
+                mediaId={media.id}
+                date={Date()}
+                userId={userId}
+              />
             </div>
           ) : (
             ""
@@ -156,13 +159,13 @@ const Slider = () => {
                 src={media.imgUrl}
                 alt=""
                 onClick={(event) => addDescription(event.target.value)}
-                />
-                 <CreateOrderButton 
-                    purchased = {false}
-                    mediaId = {media.id}
-                    date = {Date()}
-                    userId = {userId}
-                      />
+              />
+              <CreateOrderButton
+                purchased={false}
+                mediaId={media.id}
+                date={Date()}
+                userId={userId}
+              />
             </div>
           ) : (
             ""
@@ -199,13 +202,13 @@ const Slider = () => {
                 src={media.imgUrl}
                 alt=""
                 onClick={(event) => addDescription(event.target.value)}
-                />
-                 <CreateOrderButton 
-                    purchased = {false}
-                    mediaId = {media.id}
-                    date = {Date()}
-                    userId = {userId}
-                      />
+              />
+              <CreateOrderButton
+                purchased={false}
+                mediaId={media.id}
+                date={Date()}
+                userId={userId}
+              />
             </div>
           ) : (
             ""

@@ -1,6 +1,6 @@
-import {Modal, Button, Form} from 'react-bootstrap';
-import {React, useState} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal, Button, Form } from "react-bootstrap";
+import { React, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -28,35 +28,37 @@ const Login = () => {
             })
             .catch(console.error);
             event.preventDefault()
+            setTimeout(window.location.reload.bind(window.location), 250);
         }
-    return (
-      <div className="Login">
-        <Form>
-          <Form.Group controlId="Username">
-            <Form.Label>Username</Form.Label>
-              <Form.Control 
-                type="text" 
-                placeholder="Username" 
-                onChange={ (event) => { setUsername(event.target.value) }}
-              />
-            </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control 
-              type="password" 
-              placeholder="Password"
-              onChange={(event)=>setPassword(event.target.value)} />
-          </Form.Group>
-          <Button 
-            variant="primary" 
-            type="submit"
-            onClick={LoginUser}
-          > 
-            Submit
-          </Button>
-        </Form>      
-      </div>
-  )
+      
+  
+  return (
+    <div className="Login">
+      <Form>
+        <Form.Group controlId="Username">
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Username"
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit" onClick={LoginUser}>
+          Submit
+        </Button>
+      </Form>
+    </div>
+  );
 };
 function MyVerticallyCenteredModal(props) {
   return (
@@ -75,16 +77,13 @@ function MyVerticallyCenteredModal(props) {
         <Login />
       </Modal.Body>
       <Modal.Footer>
-        <Button 
-          onClick={props.onHide}
-          >Close
-        </Button>
+        <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
-  }
+}
 
-  const LoginModal = () => {
+const LoginModal = () => {
   const [modalShow, setModalShow] = useState(false);
   return (
     <>
@@ -97,5 +96,5 @@ function MyVerticallyCenteredModal(props) {
       />
     </>
   );
-}
-  export default LoginModal;
+};
+export default LoginModal;

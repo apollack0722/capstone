@@ -1,4 +1,4 @@
-import {RegisterModal, LoginModal, DemoCarousel, NavBar, SignOutButton} from '../Components/index';
+import {DemoCarousel} from '../Components/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Image} from 'react-bootstrap'
 
@@ -14,6 +14,6 @@ const  Home = () => {
     </div>
       <DemoCarousel />
     </div>
-  )
-}
+  );
+};
 export default Home;

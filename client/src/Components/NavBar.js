@@ -1,12 +1,10 @@
-import { sign } from 'jsonwebtoken';
 import { Navbar, Nav} from 'react-bootstrap';
 import LoginModal from './LoginModal';
 import RegisterModal from './RegisterModal';
 import SignOutButton from './SignOut';
-import Image from './Image'
+
 import "./slider.css";
 
-const myToken = localStorage.getItem('myToken')
 const username = localStorage.getItem('username');
 const Admin = localStorage.getItem('isAdmin')
 const userId = localStorage.getItem('userId')

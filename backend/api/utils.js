@@ -12,13 +12,11 @@ function requireAdmin(req, res, next) {
     next({
       name: "AdminAcessError",
       message: "You must be an admin to access this area",
-    })
+    });
   }
   next();
 }
 module.exports = {
   requireUser,
-  requireAdmin
+  requireAdmin,
 };
-
-

@@ -1,12 +1,16 @@
-import {DeleteOrder} from './DeleteOrder';
+import { DeleteOrder } from "./DeleteOrder";
 
-const DeleteOrderButton = ({orderId}) => {
-  
+const DeleteOrderButton = ({ orderId }) => {
   return (
     <div>
-      <button onClick= {()=> {DeleteOrder(orderId)}}>Remove from Cart</button>
+      <button
+        onClick={() => {
+          DeleteOrder(orderId);
+        }}
+      >
+        Remove from Cart
+      </button>
     </div>
-  ) 
-
-}
+  );
+};
 export default DeleteOrderButton;
