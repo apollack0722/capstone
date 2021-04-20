@@ -1,58 +1,49 @@
-import {React, useEffect, useState} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { DeleteOrderButton, NavBar, PurchaseMediaButton } from '../Components';
-const userId = localStorage.getItem('userId');
-const BASE_URL = 'http://localhost:3001';
+import { React, useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { DeleteOrderButton, PurchaseMediaButton } from "../Components";
+const userId = localStorage.getItem("userId");
+const BASE_URL = "http://localhost:3001";
 
 const Cart = () => {
   const [myMedia, setMyMedia] = useState([]);
-   const getMedia = async() => {
-     await fetch(`${BASE_URL}/api/orders/${userId}/cart`, {
-    headers: {
-        'Content-Type': 'application/json',
-    },
-  })
-    .then(response => response.json())
-    .then(result => {
-
-       setMyMedia(result)
-        console.log(result)
+  const getMedia = async () => {
+    await fetch(`${BASE_URL}/api/orders/${userId}/cart`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-    .catch(console.error);
-  }
-  useEffect (() => {
-  getMedia();
-   
+      .then((response) => response.json())
+      .then((result) => {
+        setMyMedia(result);
+      })
+      .catch(console.error);
+  };
+  useEffect(() => {
+    getMedia();
   }, []);
-console.log(myMedia)
-  
-  
-  
-  
-    
+ 
+
   return (
     <div>
-         {
-             myMedia.map((media, index) => 
-                media.purchased === false?
-                <div className ="media-page"
-                      key = {index}>
-                  <h3>{media.title}</h3>
-                  <p>{media.rating}</p>
-                  <p>{media.genre}
-                  {/* { <img src={media.imgUrl} alt=''></img>}  */}
-                 </p>
-                 <PurchaseMediaButton 
-                  userId = {media.userId}
-                  mediaId = {media.mediaId}/>
-                  <DeleteOrderButton
-                  orderId = {media.id} />
-                </div> : ''
-             )
-         }
+      {myMedia.map((media, index) =>
+        media.purchased === false ? (
+          <div className="media-page" key={index}>
+            <h3>{media.title}</h3>
+            <p>{media.rating}</p>
+            <p>
+              {media.genre}
+            </p>
+            <PurchaseMediaButton
+              userId={media.userId}
+              mediaId={media.mediaId}
+            />
+            <DeleteOrderButton orderId={media.id} />
+          </div>
+        ) : (
+          ""
+        )
+      )}
     </div>
-
-    
-  )
-}
+  );
+};
 export default Cart;

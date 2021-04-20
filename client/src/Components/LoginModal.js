@@ -1,60 +1,60 @@
-import {Modal, Button, Form} from 'react-bootstrap';
-import {React, useState} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal, Button, Form } from "react-bootstrap";
+import { React, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    function LoginUser(event) {
-        fetch('http://localhost:3001/api/users/login', {
-            method: "POST",
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              username: username,
-              password: password
-            })
-          }).then(response => response.json())
-            .then(result => {
-              localStorage.setItem('token', result.token)
-              localStorage.setItem('userId', result.user.id)
-              
-              if (result.user.isAdmin) {
-                return localStorage.setItem('isAdmin', result.user.isAdmin)
-                }
-            })
-            .catch(console.error);
-            event.preventDefault()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  function LoginUser(event) {
+    fetch("http://localhost:3001/api/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        localStorage.setItem("token", result.token);
+        localStorage.setItem("userId", result.user.id);
+
+        if (result.user.isAdmin) {
+          return localStorage.setItem("isAdmin", result.user.isAdmin);
         }
-    return (
-      <div className="Login">
-        <Form>
-          <Form.Group controlId="Username">
-            <Form.Label>Username</Form.Label>
-              <Form.Control 
-                type="text" 
-                placeholder="Username" 
-                onChange={ (event) => { setUsername(event.target.value) }}
-              />
-            </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control 
-              type="password" 
-              placeholder="Password"
-              onChange={(event)=>setPassword(event.target.value)} />
-          </Form.Group>
-          <Button 
-            variant="primary" 
-            type="submit"
-            onClick={LoginUser}
-          > 
-            Submit
-          </Button>
-        </Form>      
-      </div>
-  )
+      })
+      .catch(console.error);
+    event.preventDefault();
+  }
+  return (
+    <div className="Login">
+      <Form>
+        <Form.Group controlId="Username">
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Username"
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit" onClick={LoginUser}>
+          Submit
+        </Button>
+      </Form>
+    </div>
+  );
 };
 function MyVerticallyCenteredModal(props) {
   return (
@@ -73,16 +73,13 @@ function MyVerticallyCenteredModal(props) {
         <Login />
       </Modal.Body>
       <Modal.Footer>
-        <Button 
-          onClick={props.onHide}
-          >Close
-        </Button>
+        <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
-  }
+}
 
-  const LoginModal = () => {
+const LoginModal = () => {
   const [modalShow, setModalShow] = useState(false);
   return (
     <>
@@ -95,5 +92,5 @@ function MyVerticallyCenteredModal(props) {
       />
     </>
   );
-}
-  export default LoginModal;
+};
+export default LoginModal;

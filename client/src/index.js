@@ -1,11 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import $ from 'jquery';
-import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import './index.css';
-import App from './App';
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
-ReactDOM.render(<App />,document.getElementById('root'));
+import "./index.css";
+import App from "./App";
 
+ReactDOM.render(<App />, document.getElementById("root"));
