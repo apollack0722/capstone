@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {Home, Library, Admin, Profile, Cart} from './Pages/Index'
 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,9 +19,11 @@ function App() {
   const currentUser = localStorage.getItem('userId')
   return (
     <>
+
     <Router>
-<NavBar/>
+      <NavBar/>
       <main>
+
      <Switch>
      <Route path="/Search">
        <Search/>

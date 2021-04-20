@@ -18,16 +18,18 @@ const  MainCarousel = () =>  {
     getMedia();   
   }, []);
       return (
-        <Carousel>
-        {media.map((media) => 
-        <Carousel.Item w100>
-          <img className="home-img"
-            src={media.imgUrl}
-            alt="media-slide"
-          />
-        </Carousel.Item>
-        )}
-      </Carousel>
+        <div className="caroselContainer">
+          <Carousel>
+            {media.map((media) => 
+              <Carousel.Item w200>
+                <img className="home-img"
+                  src={media.imgUrl}
+                  alt="media-slide"
+                />
+              </Carousel.Item>
+            )}
+          </Carousel>
+        </div>
       );
   
 };

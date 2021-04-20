@@ -1,4 +1,4 @@
-import { Navbar, Nav} from 'react-bootstrap';
+import { Navbar, Nav, Image} from 'react-bootstrap';
 import "./slider.css";
 
 const username = localStorage.getItem('username');
@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
   <Navbar bg="dark" variant="dark">
   <Nav className="mr-auto">
-  <Navbar.Brand></Navbar.Brand>
+  <Navbar.Brand> <Image src="./pineappleLogosm.png" /> </Navbar.Brand>
   <Nav.Link href="/">Home</Nav.Link>
   <Nav.Link href="/Library">Library</Nav.Link>
   <Nav.Link href="/Cart">Cart</Nav.Link>

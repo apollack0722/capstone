@@ -108,7 +108,7 @@ const CreateMedia = () => {
         </Form.Group>
 
           <Button 
-            variant="primary" 
+            variant="outline-info" 
             type="submit"
             onClick={
               (event) => {!title || !description || !genre || !rentalPrice || !buyPrice || !rating || !imgUrl ? 
@@ -137,7 +137,9 @@ const MediaModal = (props) => {
         <CreateMedia />
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button 
+        variant="outline-info"
+        onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
@@ -147,7 +149,10 @@ const CreateMediaModal = () => {
 
   return (
     <div>
-      <Button variant="outline-success" onClick={() => setModalShow(true)}>
+      <Button 
+        variant="outline-info" 
+        onClick={() => setModalShow(true)}
+        >
         Create Media
       </Button>
       <MediaModal

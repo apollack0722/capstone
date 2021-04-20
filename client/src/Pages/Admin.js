@@ -1,11 +1,12 @@
 import { CreateMediaModal } from '../Components' //should this be exported differently? 
 import {useState, useEffect} from 'react'
-import { NavBar } from "../Components";
-const BASE_URL = 'http://localhost:3001/api/media'
+import {Button} from 'react-bootstrap'
+
+const BASE_URL = 'http://localhost:3001'
 const  Admin = () => {
   const [media, setMedia] = useState([])
   const [users, setUsers] = useState([])
-  const getMedia = async() => {await fetch(BASE_URL, {
+  const getMedia = async() => {await fetch(`${BASE_URL}/api/media`, {
     headers: {
         'Content-Type': 'application/json',
     },
@@ -17,7 +18,7 @@ const  Admin = () => {
     })
     .catch(console.error);
   }
-  const getUsers = async() => {await fetch('http://localhost:3001/api/users', {
+  const getUsers = async() => {await fetch(`${BASE_URL}/api/users`, {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -32,35 +33,42 @@ const  Admin = () => {
 useEffect(() => {
   getUsers()
   getMedia();
-  
 }, []); 
-
   return (
-    <div>
-      <div>
-        <CreateMediaModal />
-      </div>
+    
       <div className="adminContainer">
+        <div>
+          <CreateMediaModal />
+        </div>
         <div className="adminPanel">
           {media.map((media) => 
-            <p>{media.title}</p>
+            <div className="adminMoviePanel">
+             <p>{media.title}</p>
+             <Button variant="outline-info">Remove </Button>
+             <Button variant="outline-info">Edit </Button>
+             
+            </div>
           )}
         </div>
         <div className="adminPanel">
+        <div>
+
           {users.map((user) => 
             <div className="userPanel">
               <p>{user.username}</p>
                 {user.isAdmin ?
-                  <button 
+                  <Button
+                    variant="outline-info" 
                     isAdmin={false}
                     // updateUser={updateUser}  
                   >
                   Remove Admin
-                  </button> : 
-                  <button 
+                  </Button> : 
+                  <Button
+                    variant="outline-info"
                     isAdmin={true}>
                   Make Admin
-                  </button>
+                  </Button>
                 }
             </div>
           )}

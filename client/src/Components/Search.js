@@ -49,15 +49,21 @@ const Search = () => {
               })
               .map((movie, index) => {
                 return (
-                  <Card className="bg-dark text-white" key={index}>
-                    <Card.Img src={movie.imgUrl} alt="Card image" />
-                    <Card.ImgOverlay>
-                      <Card.Title>{movie.title}</Card.Title>
-                      <Card.Text>{movie.description}</Card.Text>
-                      <Card.Text>{movie.rating}</Card.Text>
-                      <Card.Text>{movie.buyPrice}</Card.Text>
-                    </Card.ImgOverlay>
-                  </Card>
+                  <div className="searchContainer" key={index}>
+                    <Card className="bg-dark text-white" >
+                      <div className="imgContainer">
+                        <Card.Img src={movie.imgUrl } alt="Card image" />
+                      </div>
+                        <div className="searchOverlay">
+                        <Card.ImgOverlay>
+                          <Card.Title>{movie.title}</Card.Title>
+                          <Card.Text>{movie.description}</Card.Text>
+                          <Card.Text>{movie.rating}</Card.Text>
+                          <Card.Text>{movie.buyPrice}</Card.Text>
+                        </Card.ImgOverlay>
+                        </div>
+                    </Card>
+                  </div>
                 );
               })
           : null}

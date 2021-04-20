@@ -3,7 +3,6 @@ const mediaRouter = express.Router();
 const jwt = require("jsonwebtoken"); // not sure if needed or not
 const { getAllMedia, getMediaById} = require("../db");
 
-
 mediaRouter.get('/', async (req, res, next) => {
     try { 
         const media = await getAllMedia();

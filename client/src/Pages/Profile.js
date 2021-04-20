@@ -21,16 +21,11 @@ const Profile = () => {
     })
     .catch(console.error);
   }
+  
   useEffect (() => {
-  getMedia();
-   
+  getMedia(); 
   }, []);
-console.log(myMedia)
-  
-    
-  
-  
-    
+
   return (
     <div>
          {
