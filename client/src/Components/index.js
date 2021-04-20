@@ -11,3 +11,5 @@ export {default as DeleteOrderButton} from './DeleteOrderButton';
 export {default as CreateOrderButton} from './CreateOrderButton';
 export {default as Search} from './Search';
 export {default as SignOutButton} from './SignOut';
+export {default as Hero} from './Hero'
+

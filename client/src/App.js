@@ -1,10 +1,14 @@
-import { Home, Library, Admin, Profile, Cart } from "./Pages/Index";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {Home, Library, Admin, Profile, Cart} from './Pages/Index'
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import NavBar from "./Components/NavBar";
-import Search from "./Components/Search";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import NavBar from './Components/NavBar';
+import Search from './Components/Search';
 
 function App() {
   return (

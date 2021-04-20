@@ -11,14 +11,11 @@ const Profile = () => {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
-      .then((result) => {
-        setMyMedia(result);
-      })
-      .catch(console.error);
-  };
-  useEffect(() => {
-    getMedia();
+    .catch(console.error);
+  }
+  
+  useEffect (() => {
+  getMedia(); 
   }, []);
 
   return (

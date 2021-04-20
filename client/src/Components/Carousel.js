@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Carousel } from "react-bootstrap";
+import React, { useState, useEffect } from 'react';
+import {Carousel, Image} from 'react-bootstrap';
 
 const MainCarousel = () => {
   const [media, setMedia] = useState([]);
@@ -18,14 +18,23 @@ const MainCarousel = () => {
   useEffect(() => {
     getMedia();
   }, []);
-  return (
-    <Carousel>
-      {media.map((media) => (
-        <Carousel.Item w100>
-          <img className="home-img" src={media.imgUrl} alt="media-slide" />
-        </Carousel.Item>
-      ))}
-    </Carousel>
-  );
+      return (
+        <div className="caroselContainer">
+          <Carousel>
+            {media.map((media) => 
+              <Carousel.Item >
+                <div className="homeImg">
+                <Image
+
+                    src={media.imgUrl}
+                    alt="media-slide"
+                  rounded />
+                </div>
+              </Carousel.Item>
+            )}
+          </Carousel>
+        </div>
+      );
+  
 };
 export default MainCarousel;
