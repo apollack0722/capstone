@@ -13,6 +13,7 @@ const {
     createMedia,
     getAllMedia,
     getMediaById,
+    updateMedia
 } = require('./media')
 
 const {
@@ -37,5 +38,6 @@ module.exports = {
     getMediaById,
     updateUser,
     updateOrder,
-    deleteOrder1
+    deleteOrder1,
+    updateMedia
 };

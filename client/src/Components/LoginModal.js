@@ -19,10 +19,12 @@ const Login = () => {
             .then(result => {
               localStorage.setItem('token', result.token)
               localStorage.setItem('userId', result.user.id)
-              
+              localStorage.setItem('username', result.user.username)
+              console.log(result.token)
               if (result.user.isAdmin) {
                 return localStorage.setItem('isAdmin', result.user.isAdmin)
                 }
+                
             })
             .catch(console.error);
             event.preventDefault()

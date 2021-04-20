@@ -57,8 +57,8 @@ ordersRouter.post('/add_to_cart', async (req, res, next) => {
 })
 ordersRouter.delete('/:ordersId', async (req, res, next) => {
     try {
-        console.log('delete route',req.params)
-        const deleteOrder = await deleteOrder1((req.params))
+        console.log('delete route',req.params.ordersId)
+        const deleteOrder = await deleteOrder1(req.params.ordersId)
         console.log('got here')
         res.send(deleteOrder)
     }catch ({name, message}) {

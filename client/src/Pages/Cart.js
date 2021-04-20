@@ -1,11 +1,15 @@
 import {React, useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { DeleteOrderButton, NavBar, PurchaseMediaButton } from '../Components';
+import { DeleteOrderButton, PurchaseMediaButton } from '../Components';
 const userId = localStorage.getItem('userId');
 const BASE_URL = 'http://localhost:3001';
 
 const Cart = () => {
   const [myMedia, setMyMedia] = useState([]);
+  useEffect (() => {
+    getMedia();
+     
+    }, []);
    const getMedia = async() => {
      await fetch(`${BASE_URL}/api/orders/${userId}/cart`, {
     headers: {
@@ -20,10 +24,7 @@ const Cart = () => {
     })
     .catch(console.error);
   }
-  useEffect (() => {
-  getMedia();
-   
-  }, []);
+  
 console.log(myMedia)
   
   

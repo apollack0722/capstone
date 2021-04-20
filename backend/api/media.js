@@ -25,6 +25,21 @@ mediaRouter.get("/:mediaId", async (req, res, next) => {
     next({ name, message });
   }
 });
+mediaRouter.patch('/update/:mediaId', async (req, res, next) => {
+     
+  try {
+      const order = await updateMedia(req.params);
+      console.log('update media', req.params)
+      res.send(order)
+  } catch({name, message}) {
+      next({
+          name: "updateOrder",
+          message: "There was an error updating order"
+      })
+  }
+
+
+})
 
 
 

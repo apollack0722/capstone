@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {Home, Library, Admin, Profile, Cart} from './Pages/Index'
 
 import {
@@ -15,7 +14,6 @@ import Search from './Components/Search';
 
 
 function App() {
-  const currentUser = localStorage.getItem('userId')
   return (
     <>
     <Router>

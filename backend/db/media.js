@@ -40,8 +40,26 @@ async function getMediaById(id) {
       throw error;
     }
   }
+
+  async function updateMedia({id, title, description, genre, buyPrice, rating, imgUrl}) {
+
+    try {
+      const {rows: [media] } = await client.query(`
+        UPDATE media 
+        SET title = $1, description = $2, genre = $3, buyPrice = $4, rating = $5, imgUrl = $6
+        WHERE id = $1;
+        RETURNING *;
+      
+      `[id, title,description, genre, buyPrice, rating, imgUrl])
+    
+      return media;
+    } catch (error){
+      throw error;
+    }
+  }
 module.exports = {
     createMedia,
     getAllMedia,
     getMediaById,
+    updateMedia
 }

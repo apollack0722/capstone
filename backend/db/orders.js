@@ -28,11 +28,11 @@ async function getOrdersByUserId(userId) {
       const { rows } = await client.query(`
       SELECT * 
       FROM orders
-      JOIN media
+      INNER JOIN media
       ON orders."mediaId" = media.id 
       WHERE "userId" = $1;
     `,[userId]);
-    console.log(rows)
+    console.log('getOrdersByuserId',rows)
     return rows;
     } catch (error) {
         throw error;
@@ -52,13 +52,15 @@ async function updateOrder ({userId, mediaId}){
 }
 }
 
-async function deleteOrder1({ordersId}) {
+async function deleteOrder1(ordersId) {
+  console.log(ordersId)
   try{
-    await client.query(`
+    const res = await client.query(`
     DELETE
     FROM orders
     WHERE id = $1;
     `,[ordersId])
+    
   }catch (error){
     throw error
     
