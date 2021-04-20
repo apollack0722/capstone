@@ -71,19 +71,3 @@ module.exports = {
     updateOrder,
     deleteOrder1
 }
-
-
-
-// Join media onto orders where orders.mediaId = media.id
-    //
-
-    // SELECT * 
-    // FROM order
-    // INNER JOIN media
-    // ON media.Id = orders.mediaId
-
-
-    // SELECT * 
-    // FROM media
-    // INNER JOIN orders 
-    // ON media.Id = orders.mediaId

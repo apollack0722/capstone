@@ -26,7 +26,7 @@ const logo =  "./tstimg.jpg"
 const Library = () => {
   return (
     <div>
-        <NavBar />
+
     
         <Slider />
     </div>

@@ -1,5 +1,4 @@
 export {default as Home} from '../Pages/Home';
-
 export {default as RegisterModal} from './RegisterModal';
 export {default as LoginModal} from './LoginModal';
 export {default as Admin} from '../Pages/Admin';
@@ -10,3 +9,4 @@ export {default as NavBar} from './NavBar';
 export {default as PurchaseMediaButton} from './Purchase';
 export {default as DeleteOrderButton} from './DeleteOrderButton';
 export {default as CreateOrderButton} from './CreateOrderButton';
+export {default as Search} from './Search';

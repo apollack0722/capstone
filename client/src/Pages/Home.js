@@ -13,7 +13,7 @@ const  Home = () => {
 
   return (
     <div>
-      <NavBar />
+
     <div>
     <Image src="../Components/pineapple.png" fluid/>
     </div>

@@ -8,7 +8,6 @@ export async function DeleteOrder(orderId){
       },
     })
     console.log('deleted', mediaDelete)
-    
   } catch (error) {
     throw error;
   }
