@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar, Slider } from '../Components';
 const userId = localStorage.getItem('userId');
 const BASE_URL = 'http://localhost:3001';
+const logo =  "./tstimg.jpg"
+
+
 
   const AddToCart = async(event) => {
    
@@ -24,6 +27,7 @@ const Library = () => {
   return (
     <div>
         <NavBar />
+    
         <Slider />
     </div>
   )

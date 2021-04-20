@@ -41,29 +41,31 @@ useEffect(() => {
       <div>
         <CreateMediaModal />
       </div>
-      <div className="adminPanel">
-        {media.map((media) => 
-          <p>{media.title}</p>
-        )}
-      </div>
-      <div className="adminPanel">
-        {users.map((user) => 
-          <div className="userPanel">
-            <p>{user.username}</p>
-              {user.isAdmin ?
-                <button 
-                  isAdmin={false}
-                  // updateUser={updateUser}  
-                >
-                Remove Admin
-                </button> : 
-                <button 
-                  isAdmin={true}>
-                Make Admin
-                </button>
-              }
-          </div>
-        )}
+      <div className="adminContainer">
+        <div className="adminPanel">
+          {media.map((media) => 
+            <p>{media.title}</p>
+          )}
+        </div>
+        <div className="adminPanel">
+          {users.map((user) => 
+            <div className="userPanel">
+              <p>{user.username}</p>
+                {user.isAdmin ?
+                  <button 
+                    isAdmin={false}
+                    // updateUser={updateUser}  
+                  >
+                  Remove Admin
+                  </button> : 
+                  <button 
+                    isAdmin={true}>
+                  Make Admin
+                  </button>
+                }
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

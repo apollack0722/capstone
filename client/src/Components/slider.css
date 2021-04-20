@@ -1,29 +1,36 @@
 .container {
   display: flex;
-  padding: 20px 55px;
+  padding: 2em 5em;
   margin-bottom: 10px;
-  overflow: scroll;
-  
+  overflow-y: hidden;
 }
 
 .item {
-  flex: 0 0 19.7%;
+  flex: 0 0 20%;
   text-align: center;
-  margin: 5px 20px;
+  margin: 3em 1.5em;
   transition: transform 300ms ease 100ms;
-  height: 300px;
-
+  height: 18em;
 }
 .container:hover .item {
-  transform: translateX(-25%);
+  transform: translateX(-55%);
 }
 .item:hover ~ .item {
-  transform: translateX(25%);
+  transform: translateX(45%);
 }
 .item:hover {
-  transform: scale(1.5) !important;
+  transform: scale(1.15) !important;
 }
 .slider-img{
   max-width:100%;
   max-height: 100%;
 }
+/* 
+black #343c44
+lght gray #bfc1c7
+lght blue #15a2b9
+med gray #7e8187
+dk gray #565e5e
+
+1D112C
+*/

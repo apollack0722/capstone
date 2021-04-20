@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Carousel} from 'react-bootstrap';
 
-const  DemoCarousel = () =>  {
+const  MainCarousel = () =>  {
   const [media, setMedia] = useState([])
   const getMedia = async() => {await fetch('http://localhost:3001/api/media', {
     headers: {
@@ -19,26 +19,16 @@ const  DemoCarousel = () =>  {
   }, []);
       return (
         <Carousel>
-        <Carousel.Item>
+        {media.map((media) => 
+        <Carousel.Item w100>
           <img className="home-img"
-            src={"https://xl.movieposterdb.com/09_10/1999/137523/xl_137523_436a6642.jpg"}
-            alt="First slide"
+            src={media.imgUrl}
+            alt="media-slide"
           />
         </Carousel.Item>
-        <Carousel.Item>
-          <img className="home-img"
-            src="https://xl.movieposterdb.com/15_02/2001/227538/xl_227538_0ff5729d.jpg"
-            alt="Second slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="home-img"
-            src="https://xl.movieposterdb.com/12_12/1978/193524/xl_193524_b53370a6.jpg"
-            alt="Third slide"
-          />
-        </Carousel.Item>
+        )}
       </Carousel>
       );
   
 };
-export default DemoCarousel;
+export default MainCarousel;

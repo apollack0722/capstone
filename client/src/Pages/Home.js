@@ -1,5 +1,6 @@
 import {RegisterModal, LoginModal, DemoCarousel, NavBar} from '../Components/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Image} from 'react-bootstrap'
 
 
 const  Home = () => {
@@ -9,24 +10,14 @@ const  Home = () => {
       localStorage.removeItem('token')
       localStorage.removeItem('isAdmin')
     }
+
   return (
     <div>
       <NavBar />
-      <h1>Home page</h1>
-      <div>
-        <RegisterModal />
-      </div>
-      <div>
-        <LoginModal />
-      </div>
-      <div>
-        <button
-          onClick= {SignOut}>
-            Sign Out
-        </button>
-      </div>
+    <div>
+    <Image src="../Components/pineapple.png" fluid/>
+    </div>
       <DemoCarousel />
-     
     </div>
   )
 }

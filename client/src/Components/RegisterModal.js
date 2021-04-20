@@ -98,8 +98,8 @@ const RegisterModal = () => {
 
   return (
     <div>
-      <Button variant="danger" onClick={() => setModalShow(true)}>
-        Register
+      <Button variant="outline-info" onClick={() => setModalShow(true)}>
+        Sign Up
       </Button>
       <RegistrationModal
         show={modalShow}

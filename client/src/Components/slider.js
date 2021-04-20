@@ -7,17 +7,14 @@ const userId = localStorage.getItem('userId');
 
 const Slider = () => {
   const [media, setMedia] = useState([])
-  const [showInfo, setShowInfo] = useState(false)
   const getMedia = async() => {await fetch('http://localhost:3001/api/media', {
     headers: {
-        'Content-Type': 'application/json',
+      'Content-Type': 'application/json',
     },
   })
-    .then(response => response.json())
-    .then(result => {
-
-        setMedia(result)   
-        console.log(media)
+  .then(response => response.json())
+  .then(result => {
+    setMedia(result)   
     })
     .catch(console.error);
   }
@@ -25,57 +22,57 @@ const Slider = () => {
     getMedia();
 
   }, []);
+  
   return (
     <>
-    <div className="container">
-        <h2>Comedy</h2>
-     { 
-           media.map((media, index) => 
-            media.genre === "Comedy"?
-                <div 
-                  className ="item"
-                  key = {index}>
-                    
-                    <input 
-                      type='image'
-                      className= 'slider-img'
-                      src={media.imgUrl} 
-                      alt = ''
-                      onClick={console.log('hello')}/>
-                        <CreateOrderButton 
-                    purchased = {false}
-                    mediaId = {media.id}
-                    date = {Date()}
-                    userId = {userId}
-                      />
-                </div> : ''
-             )
-         }
-  </div>
-    <div className="container">
-      <h2>Action</h2>
-     { 
-           media.map((media, index) => 
-            media.genre === "Action"?
-                <div 
-                  className ="item"
-                  key = {index}>
-                    
-                    <img className= 'slider-img'src={media.imgUrl} alt = ''/>
-                    <CreateOrderButton 
-                    purchased = {false}
-                    mediaId = {media.id}
-                    date = {Date()}
-                    userId = {userId}
-                      />
-                </div> : ''
-             )
-         }
-  </div>
-    <div className="container">
-      <h2>Sci-fi</h2>
-     { 
-           media.map((media, index) => 
+      <div className="container">
+        <h2 className="genre-name">Comedy</h2>
+        { 
+        media.map((media, index) => 
+          media.genre === "Comedy"?
+            <div 
+              className ="item"
+              key = {index}>    
+                <input 
+                  type='image'
+                  className= 'slider-img'
+                  src={media.imgUrl} 
+                  alt = ''
+                  onClick={console.log('hello')}
+                />
+                <CreateOrderButton 
+                  purchased = {false}
+                  mediaId = {media.id}
+                  date = {Date()}
+                  userId = {userId}
+                />
+            </div> : ''
+        )
+      }
+      </div>
+      <div className="container">
+        <h2 className="genre-name">Action</h2>
+      { 
+        media.map((media, index) => 
+        media.genre === "Action"?
+          <div 
+            className ="item"
+            key = {index}> 
+              <img className= 'slider-img'src={media.imgUrl} alt = ''/>
+              <CreateOrderButton 
+              purchased = {false}
+              mediaId = {media.id}
+              date = {Date()}
+              userId = {userId}
+              />
+          </div> : ''
+        )
+      }
+      </div>
+      <div className="container">
+        <h2 className="genre-name">Sci-fi</h2>
+        {   
+          media.map((media, index) => 
             media.genre === "Sci-Fi"?
                 <div 
                   className ="item"
@@ -89,30 +86,30 @@ const Slider = () => {
                     userId = {userId}
                       />
                 </div> : ''
-             )
-         }
-  </div>
-    <div className="container">
-      <h2>Family-Friendly</h2>
-     { 
-           media.map((media, index) => 
-            media.genre === "Family Friendly"?
-                <div 
-                  className ="item"
-                  key = {index}>
-                    <img className= 'slider-img'src={media.imgUrl} alt = ''/>
-                    <CreateOrderButton 
-                    purchased = {false}
-                    mediaId = {media.id}
-                    date = {Date()}
-                    userId = {userId}
-                      />
-                </div> : ''
-             )
-         }
-  </div>
-  </>
-    )
+          )
+        }
+      </div>
+      <div className="container">
+        <h2 className="genre-name">Family-Friendly</h2>
+      { 
+          media.map((media, index) => 
+          media.genre === "Family Friendly"?
+            <div 
+              className ="item"
+              key = {index}>
+                <img className= 'slider-img'src={media.imgUrl} alt = ''/>
+                <CreateOrderButton 
+                purchased = {false}
+                mediaId = {media.id}
+                date = {Date()}
+                userId = {userId}
+                  />
+            </div> : ''
+            )
+      }
+        </div>
+    </>
+  )
 }
 export default Slider;
 // need to add a purchase button to each individual movie

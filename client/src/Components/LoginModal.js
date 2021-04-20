@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
     function LoginUser(event) {
         fetch('http://localhost:3001/api/users/login', {
             method: "POST",
@@ -87,8 +86,8 @@ function MyVerticallyCenteredModal(props) {
   const [modalShow, setModalShow] = useState(false);
   return (
     <>
-      <Button variant="success" onClick={() => setModalShow(true)}>
-        Login
+      <Button variant="outline-info" onClick={() => setModalShow(true)}>
+        Sign In
       </Button>
       <MyVerticallyCenteredModal
         show={modalShow}
