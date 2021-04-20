@@ -1,10 +1,15 @@
-import { DemoCarousel } from '../Components/index';
+import { DemoCarousel, Hero } from '../Components/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const  Home = () => {
     
   return (
-    <div>
-      <DemoCarousel />
+    <div className="homeContainer">
+      <div className="heroContainer">
+        <Hero />
+      </div>
+      <div className="caroselContainer">
+        <DemoCarousel />
+      </div>
     </div>
   )
 }

@@ -6,20 +6,23 @@ const Admin = localStorage.getItem('isAdmin')
 
 const NavBar = () => {
   return (
-  <Navbar bg="dark" variant="dark">
-  <Nav className="mr-auto">
-  <Navbar.Brand> <Image src="./pineappleLogosm.png" /> </Navbar.Brand>
-  <Nav.Link href="/">Home</Nav.Link>
-  <Nav.Link href="/Library">Library</Nav.Link>
-  <Nav.Link href="/Cart">Cart</Nav.Link>
-  <Nav.Link href="/Profile">My Account</Nav.Link>
-  { Admin?
-  <Nav.Link href="/Admin">Admin</Nav.Link> : ''} 
-  <Nav.Link href="/Search">Search</Nav.Link>
-  </Nav>
-  <Navbar.Brand>
-    {username? username : ''}
-    </Navbar.Brand>
-  </Navbar>
+  <div className="navbarContainer">
+    <Navbar bg="dark" variant="dark">
+    <Navbar.Brand><Image src="finalAppleLogo.png" w75/> </Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="/Library">Library</Nav.Link>
+      <Nav.Link href="/Cart">Cart</Nav.Link>
+      <Nav.Link href="/Profile">My Account</Nav.Link>
+    { Admin?
+    <Nav.Link href="/Admin">Admin</Nav.Link> : ''} 
+    <Nav.Link href="/Search">Search</Nav.Link>
+    </Nav>
+      <Navbar.Brand>
+        {username? username : ''}
+      </Navbar.Brand>
+    </Navbar>
+     
+  </div>
   )}
   export default NavBar
