@@ -1,6 +1,7 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+const BASE_URL = "http://localhost:3001"
 
 const CreateMedia = () => {
   const [title, setTitle] = useState("");
@@ -13,7 +14,7 @@ const CreateMedia = () => {
 
   const SubmitMedia = async (event) => {
     event.preventDefault();
-    await fetch("http://localhost:3001/api/admin/create", {
+    await fetch(`${BASE_URL}/api/admin/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +110,7 @@ const CreateMedia = () => {
         </Form.Group>
 
         <Button
-          variant="primary"
+          variant="info"
           type="submit"
           onClick={(event) => {
             !title ||
@@ -160,7 +161,7 @@ const CreateMediaModal = () => {
   return (
     <div>
       <Button 
-        variant="outline-info" 
+        variant="info" 
         onClick={() => setModalShow(true)}
         >
         Create Media

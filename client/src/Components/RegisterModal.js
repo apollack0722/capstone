@@ -1,6 +1,8 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+const BASE_URL = "http://localhost:3001"
+
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -8,7 +10,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   function registerUser(event) {
-    fetch("http://localhost:3001/api/users/register", {
+    fetch(`${BASE_URL}/api/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +45,7 @@ const Register = () => {
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            type="text" 
+            type="password" 
             placeholder="Password"
             onChange={(event) => {
               setPassword(event.target.value);
@@ -53,13 +55,13 @@ const Register = () => {
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
-            type="text"
+            type="password"
             placeholder="Password"
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
         </Form.Group>
         <Button
-          variant="primary"
+          variant="outline-info"
           type="submit"
           onClick={(event) => {
             password !== confirmPassword
@@ -91,7 +93,7 @@ const RegistrationModal = (props) => {
         <Register />
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button variant="outline-info" onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {Carousel, Image} from 'react-bootstrap';
+const BASE_URL = "http://localhost:3001"
 
 const MainCarousel = () => {
   const [media, setMedia] = useState([]);
   const getMedia = async () => {
-    await fetch("http://localhost:3001/api/media", {
+    await fetch(`${BASE_URL}/api/media`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -20,15 +21,15 @@ const MainCarousel = () => {
   }, []);
       return (
         <div className="caroselContainer">
-          <Carousel>
+          <Carousel >
             {media.map((media) => 
               <Carousel.Item >
                 <div className="homeImg">
                 <Image
-
-                    src={media.imgUrl}
-                    alt="media-slide"
-                  rounded />
+                  src={media.imgUrl}
+                  alt="media-slide"
+                  rounded 
+                />
                 </div>
               </Carousel.Item>
             )}

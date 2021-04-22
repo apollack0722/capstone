@@ -42,9 +42,9 @@ const Slider = () => {
   }, []);
 
   return (
-    <>
+    <div className="libraryContainer">
       <div className="container">
-        <h2>Comedy</h2>
+        <div className="genreText">Comedy</div>
         {media.map((media, index) =>
           media.genre === "Comedy" ? (
             <div className="item" key={index}>
@@ -60,12 +60,11 @@ const Slider = () => {
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <p>{clickMedia[3]}</p>
-                  <p>{clickMedia[1]}</p>
-                  <p>{clickMedia[4]}</p>
+                  <p className="mediaText">{clickMedia[3]}</p>
+                  <p className="mediaText">{clickMedia[1]}</p>
+                  <p className="mediaText">{clickMedia[4]}</p>
                 </Modal.Body>
               </Modal>
-
               <input
                 value={Number(media.id)}
                 type="image"
@@ -87,7 +86,7 @@ const Slider = () => {
         )}
       </div>
       <div className="container">
-        <h2>Action</h2>
+        <div className="genreText">Action</div>
         {media.map((media, index) =>
           media.genre === "Action" ? (
             <div className="item" key={index}>
@@ -103,12 +102,11 @@ const Slider = () => {
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <p>{clickMedia[3]}</p>
-                  <p>{clickMedia[1]}</p>
-                  <p>{clickMedia[4]}</p>
+                  <p className="mediaText">{clickMedia[3]}</p>
+                  <p className="mediaText">{clickMedia[1]}</p>
+                  <p className="mediaText">{clickMedia[4]}</p>
                 </Modal.Body>
               </Modal>
-
               <input
                 value={Number(media.id)}
                 type="image"
@@ -130,7 +128,7 @@ const Slider = () => {
         )}
       </div>
       <div className="container">
-        <h2>Sci-fi</h2>
+        <div className="genreText">Sci-fi</div>
         {media.map((media, index) =>
           media.genre === "Sci-Fi" ? (
             <div className="item" key={index}>
@@ -146,12 +144,11 @@ const Slider = () => {
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <p>{clickMedia[3]}</p>
-                  <p>{clickMedia[1]}</p>
-                  <p>{clickMedia[4]}</p>
+                  <p className="mediaText">{clickMedia[3]}</p>
+                  <p className="mediaText">{clickMedia[1]}</p>
+                  <p className="mediaText">{clickMedia[4]}</p>
                 </Modal.Body>
               </Modal>
-
               <input
                 value={Number(media.id)}
                 type="image"
@@ -173,7 +170,7 @@ const Slider = () => {
         )}
       </div>
       <div className="container">
-        <h2>Family-Friendly</h2>
+        <div className="genreText">Family-Friendly</div>
         {media.map((media, index) =>
           media.genre === "Family Friendly" ? (
             <div className="item" key={index}>
@@ -189,12 +186,11 @@ const Slider = () => {
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <p>{clickMedia[3]}</p>
-                  <p>{clickMedia[1]}</p>
-                  <p>{clickMedia[4]}</p>
+                  <p className="mediaText">{clickMedia[3]}</p>
+                  <p className="mediaText">{clickMedia[1]}</p>
+                  <p className="mediaText">{clickMedia[4]}</p>
                 </Modal.Body>
               </Modal>
-
               <input
                 value={Number(media.id)}
                 type="image"
@@ -215,7 +211,7 @@ const Slider = () => {
           )
         )}
       </div>
-    </>
+    </div>
   );
 };
 export default Slider;

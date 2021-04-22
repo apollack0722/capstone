@@ -1,4 +1,5 @@
 const BASE_URL = "http://localhost:3001";
+
 export async function CreateOrder(userId, mediaId, date, purchased) {
   try {
     const create = await fetch(`${BASE_URL}/api/orders/add_to_cart`, {

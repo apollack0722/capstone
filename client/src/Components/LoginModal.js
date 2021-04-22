@@ -2,12 +2,14 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { React, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Login = () => {
+const BASE_URL = "http://localhost:3001"
 
+
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     function LoginUser(event) {
-        fetch('http://localhost:3001/api/users/login', {
+        fetch(`${BASE_URL}/api/users/login`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json'

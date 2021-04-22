@@ -8,7 +8,6 @@ const Cart = () => {
   const [myMedia, setMyMedia] = useState([]);
   useEffect (() => {
     getMedia();
-     
     }, []);
    const getMedia = async() => {
      await fetch(`${BASE_URL}/api/orders/${userId}/cart`, {
@@ -23,29 +22,30 @@ const Cart = () => {
         console.log(result)
     })
     .catch(console.error);
-  }
-  
-console.log(myMedia)
-  
-  
-  
-  
-    
+  } 
+console.log(myMedia) 
   return (
-    <div>
+    <div className="altContainer">
       {myMedia.map((media, index) =>
         media.purchased === false ? (
-          <div className="media-page" key={index}>
-            <h3>{media.title}</h3>
-            <p>{media.rating}</p>
-            <p>
-              {media.genre}
-            </p>
-            <PurchaseMediaButton
-              userId={media.userId}
-              mediaId={media.mediaId}
-            />
-            <DeleteOrderButton orderId={media.id} />
+          <div  key={index}>
+            <div className="cartContainer;">
+              <h3 className="cartTitle">{media.title}</h3>
+              <img className="cartImg" src={media.imgUrl}></img>
+              <div className="cartDetails">
+                <p className="cartDetail">RATING/ {media.rating}</p>
+                <p className="cartDetail">
+                  GENRE/ {media.genre}
+                </p>
+              </div>
+              <div className="buttonContainer">
+                <PurchaseMediaButton
+                  userId={media.userId}
+                  mediaId={media.mediaId}
+                />
+                <DeleteOrderButton orderId={media.id} />
+              </div>
+            </div>
           </div>
         ) : (
           ""

@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
+import { useState, useEffect } from "react";
+import {Button} from 'react-bootstrap';
+const BASE_URL = "http://localhost:3001"
+
 
 const Search = () => {
   const [media, setMedia] = useState([]);
   const [queryString, setQueryString] = useState("");
-
   const getMedia = async () => {
-    await fetch("http://localhost:3001/api/media", {
+    await fetch(`${BASE_URL}/api/media`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -17,58 +18,65 @@ const Search = () => {
       })
       .catch(console.error);
   };
-
   useEffect(() => {
     getMedia();
   }, []);
-
-  return (
-    <form id="search">
+  return ( 
+    <div className="searchContainer">
+    
+    <form id="search" className="searchBar">
       <fieldset>
         <input
+          className="searchBar"
           id="keywords"
           type="text"
-          placeholder="enter keywords..."
+          placeholder="title or genre"
           value={queryString}
           onChange={(event) => {
             setQueryString(event.target.value);
           }}
         />
+        <h3 className="powerText">Search for titles or genres</h3>
         {media
           ? media
-              .filter((activity) => {
+              .filter((media) => {
                 if (queryString === "") {
-                  return activity;
+                  return null;
                 } else if (
-                  activity.title
+                  media.title || media.genre
                     .toLowerCase()
                     .includes(queryString.toLowerCase())
                 ) {
-                  return activity;
+                  return media;
                 }
               })
               .map((movie, index) => {
                 return (
+                  <div className="outerContainer">
                   <div className="searchContainer" key={index}>
-                    <Card className="bg-dark text-white" >
                       <div className="imgContainer">
-                        <Card.Img src={movie.imgUrl } alt="Card image" />
+                        <img className="searchImg" src={movie.imgUrl } alt="Card image" />
                       </div>
                         <div className="searchOverlay">
-                        <Card.ImgOverlay>
-                          <Card.Title>{movie.title}</Card.Title>
-                          <Card.Text>{movie.description}</Card.Text>
-                          <Card.Text>{movie.rating}</Card.Text>
-                          <Card.Text>{movie.buyPrice}</Card.Text>
-                        </Card.ImgOverlay>
-                        </div>
-                    </Card>
+                          <div className="cardOverlay">
+                            <h3 className="movieTitle">{movie.title}</h3>
+                            <hr className="hr"/>
+                            <h4 className="movieDescription">{movie.description}</h4>
+                            <div className="details">
+                              <p className="movieDetails">RATING/ {movie.rating}</p>
+                              <p className="movieDetails"> PRICE/ {movie.buyPrice}</p>
+                            </div>
+                            <Button variant="info">Watch Now</Button>
+                          </div>
+                        </div> 
+                  </div>
                   </div>
                 );
               })
           : null}
       </fieldset>
     </form>
+    </div>
   );
 };
 

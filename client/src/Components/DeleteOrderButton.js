@@ -1,15 +1,17 @@
 import { DeleteOrder } from "./DeleteOrder";
+import { Button } from 'react-bootstrap'
 
 const DeleteOrderButton = ({ orderId }) => {
   return (
     <div>
-      <button
+      <Button
+        variant="outline-info"
         onClick={() => {
           DeleteOrder(orderId);
         }}
       >
         Remove from Cart
-      </button>
+      </Button>
     </div>
   );
 };
