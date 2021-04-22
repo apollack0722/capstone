@@ -71,7 +71,7 @@ useEffect(() => {
                   </Button>
                 }
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>
