@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "https://shielded-plateau-06840.herokuapp.com";
 
 export async function CreateOrder(userId, mediaId, date, purchased) {
   try {

@@ -8,7 +8,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   function registerUser(event) {
-    fetch("http://localhost:3001/api/users/register", {
+    fetch("https://shielded-plateau-06840.herokuapp.com/api/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

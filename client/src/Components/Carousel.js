@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Carousel, Image} from 'react-bootstrap';
-const BASE_URL = "http://localhost:3001"
+const BASE_URL = "https://shielded-plateau-06840.herokuapp.com"
 
 const MainCarousel = () => {
   const [media, setMedia] = useState([]);

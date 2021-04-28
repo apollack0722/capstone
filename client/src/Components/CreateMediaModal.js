@@ -1,7 +1,7 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-const BASE_URL = "http://localhost:3001"
+const BASE_URL = "https://shielded-plateau-06840.herokuapp.com"
 
 const CreateMedia = () => {
   const [title, setTitle] = useState("");

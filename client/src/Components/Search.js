@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {Button} from 'react-bootstrap';
-const BASE_URL = "http://localhost:3001"
+const BASE_URL = "https://shielded-plateau-06840.herokuapp.com"
 
 const Search = () => {
   const [media, setMedia] = useState([]);
