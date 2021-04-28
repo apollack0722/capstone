@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
+import { useState, useEffect } from "react";
+import {Button} from 'react-bootstrap';
+const BASE_URL = "http://localhost:3001"
 
 const Search = () => {
   const [media, setMedia] = useState([]);
   const [queryString, setQueryString] = useState("");
 
   const getMedia = async () => {
-    await fetch("http://localhost:3001/api/media", {
+    await fetch(`${BASE_URL}/api/media`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -43,27 +44,35 @@ const Search = () => {
                   activity.title
                     .toLowerCase()
                     .includes(queryString.toLowerCase())
+                    ||
+                  activity.genre
+                    .toLowerCase()
+                    .includes(queryString.toLowerCase())
                 ) {
                   return activity;
                 }
               })
               .map((movie, index) => {
                 return (
-                  <div className="searchContainer" key={index}>
-                    <Card className="bg-dark text-white" >
-                      <div className="imgContainer">
-                        <Card.Img src={movie.imgUrl } alt="Card image" />
-                      </div>
-                        <div className="searchOverlay">
-                        <Card.ImgOverlay>
-                          <Card.Title>{movie.title}</Card.Title>
-                          <Card.Text>{movie.description}</Card.Text>
-                          <Card.Text>{movie.rating}</Card.Text>
-                          <Card.Text>{movie.buyPrice}</Card.Text>
-                        </Card.ImgOverlay>
+                    <div className="outerContainer">
+                    <div className="searchContainer" key={index}>
+                        <div className="imgContainer">
+                          <img className="searchImg" src={movie.imgUrl } alt="" />
                         </div>
-                    </Card>
-                  </div>
+                          <div className="searchOverlay">
+                            <div className="cardOverlay">
+                              <h3 className="movieTitle">{movie.title}</h3>
+                              <hr className="hr"/>
+                              <h4 className="movieDescription">{movie.description}</h4>
+                              <div className="details">
+                                <p className="movieDetails">RATING/ {movie.rating}</p>
+                                <p className="movieDetails"> PRICE/ {movie.buyPrice}</p>
+                              </div>
+                              <Button variant="info">Add To Cart</Button>
+                            </div>
+                          </div> 
+                    </div>
+                    </div>
                 );
               })
           : null}
@@ -73,3 +82,6 @@ const Search = () => {
 };
 
 export default Search;
+
+
+

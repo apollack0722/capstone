@@ -1,3 +1,4 @@
+import {Button} from 'react-bootstrap'
 const SignOutButton = () => {
 
   const SignOut = () => {
@@ -7,14 +8,13 @@ const SignOutButton = () => {
     localStorage.removeItem('isAdmin')
     setTimeout(window.location.reload.bind(window.location), 250);
   }
-
-
   return (
   <>
-    <button
+    <Button
+      variant="outline-info"
       onClick={SignOut}>
       Sign Out
-    </button>
+    </Button>
 
   </>
 )

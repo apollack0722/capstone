@@ -1,5 +1,6 @@
-import { React, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {Button} from 'react-bootstrap'
 const userId = localStorage.getItem("userId");
 const BASE_URL = "http://localhost:3001";
 
@@ -25,10 +26,18 @@ const Profile = () => {
     <div>
       {myMedia.map((media, index) =>
         media.purchased === true ? (
-          <div className="media-page" key={index}>
-            <h3>{media.title}</h3>
-            <p>{media.rating}</p>
-            <p>{media.genre}</p>
+          <div className="container" key={index}>
+          <div className="cartContainer">
+              <h3 className="cartTitle">{media.title}</h3>
+              <img className="cartImg" src={media.imgUrl}></img>
+              <div className="cartDetails">
+                <p className="cartDetail">RATING/ {media.rating}</p>
+                <p className="cartDetail">
+                  GENRE/ {media.genre}
+                </p>
+                <Button variant="outline-info">Watch Now</Button>
+              </div>
+          </div>
           </div>
         ) : (
           ""

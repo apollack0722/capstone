@@ -20,12 +20,11 @@ const Register = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
-        console.log(result.token);
       })
       .catch(console.error);
     event.preventDefault();
-    
+
+
   }
   return (
     <div className="register">
@@ -43,7 +42,7 @@ const Register = () => {
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            type="text" 
+            type="password" 
             placeholder="Password"
             onChange={(event) => {
               setPassword(event.target.value);
@@ -53,7 +52,7 @@ const Register = () => {
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
-            type="text"
+            type="password"
             placeholder="Password"
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
@@ -63,7 +62,7 @@ const Register = () => {
           type="submit"
           onClick={(event) => {
             password !== confirmPassword
-              ? alert("Passwords do not match")
+              ? alert("Thank Your For Registering!")
               : registerUser(event);
           }}
         >

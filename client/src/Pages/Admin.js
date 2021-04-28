@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import {Button} from 'react-bootstrap'
 
 const BASE_URL = 'http://localhost:3001'
+
 const  Admin = () => {
   const [media, setMedia] = useState([])
   const [users, setUsers] = useState([])
@@ -37,15 +38,19 @@ useEffect(() => {
   return (
     
       <div className="adminContainer">
-        <div>
+        <div className="createButton">
+        
           <CreateMediaModal />
         </div>
         <div className="adminPanel">
           {media.map((media) => 
             <div className="adminMoviePanel">
-             <p>{media.title}</p>
-             <Button variant="outline-info">Remove </Button>
-             <Button variant="outline-info">Edit </Button>
+             <p className="movieTitle">{media.title}</p>
+             <img className="adminImg" src={media.imgUrl}></img>
+             <div className="buttonContainer">
+              <Button variant="info">Remove </Button>
+              <Button variant="info">Edit </Button>
+             </div>
              
             </div>
           )}
@@ -58,14 +63,14 @@ useEffect(() => {
               <p>{user.username}</p>
                 {user.isAdmin ?
                   <Button
-                    variant="outline-info" 
+                    variant="info" 
                     isAdmin={false}
                     // updateUser={updateUser}  
                   >
                   Remove Admin
                   </Button> : 
                   <Button
-                    variant="outline-info"
+                    variant="info"
                     isAdmin={true}>
                   Make Admin
                   </Button>
