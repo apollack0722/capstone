@@ -26,7 +26,7 @@ const Slider = () => {
   };
 
   const getMedia = async () => {
-    await fetch("https://shielded-plateau-06840.herokuapp.com/api/media", {
+    await fetch("https://arcane-sands-17213.herokuapp.com/api/media", {
       headers: {
         "Content-Type": "application/json",
       },

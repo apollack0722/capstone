@@ -1,4 +1,4 @@
-const BASE_URL = "https://shielded-plateau-06840.herokuapp.com";
+const BASE_URL = "https://arcane-sands-17213.herokuapp.com";
 
 export async function CreateOrder(userId, mediaId, date, purchased) {
   try {

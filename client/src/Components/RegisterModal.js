@@ -1,7 +1,7 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-const BASE_URL = "https://shielded-plateau-06840.herokuapp.com"
+const BASE_URL = "https://arcane-sands-17213.herokuapp.com"
 
 
 const Register = () => {

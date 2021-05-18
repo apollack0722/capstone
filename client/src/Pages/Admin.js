@@ -2,7 +2,7 @@ import { CreateMediaModal } from '../Components' //should this be exported diffe
 import {useState, useEffect} from 'react'
 import {Button} from 'react-bootstrap'
 
-const BASE_URL = 'https://shielded-plateau-06840.herokuapp.com'
+const BASE_URL = 'https://arcane-sands-17213.herokuapp.com'
 
 const  Admin = () => {
   const [media, setMedia] = useState([])
