@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Button} from 'react-bootstrap'
 const userId = localStorage.getItem("userId");
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "https://shielded-plateau-06840.herokuapp.com";
 
 const Profile = () => {
   const [myMedia, setMyMedia] = useState([]);

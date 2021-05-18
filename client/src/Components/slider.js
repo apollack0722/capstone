@@ -26,7 +26,7 @@ const Slider = () => {
   };
 
   const getMedia = async () => {
-    await fetch("http://localhost:3001/api/media", {
+    await fetch("https://shielded-plateau-06840.herokuapp.com/api/media", {
       headers: {
         "Content-Type": "application/json",
       },
