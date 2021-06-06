@@ -2,7 +2,7 @@ import {React, useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { DeleteOrderButton, PurchaseMediaButton } from '../Components';
 const userId = localStorage.getItem('userId');
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://shielded-plateau-06840.herokuapp.com';
 
 const Cart = () => {
   const [myMedia, setMyMedia] = useState([]);
