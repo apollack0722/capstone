@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = process.env;
 const { getUserById } = require("../db/users");
 
+
+
 apiRouter.get("/checkIn", async (req, res, next) => {
   try {
     res.send({ message: "All is well." });
@@ -38,7 +40,6 @@ apiRouter.use(async (req, res, next) => {
 
 apiRouter.use((req, res, next) => {
   if (req.user) {
-    console.log("User is set:", req.user);
   }
   next();
 });

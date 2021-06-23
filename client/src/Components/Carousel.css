@@ -1,3 +1,5 @@
+/* ***REFACTOR*** handles library carosel sizing, can be integrated elsewhere during refactor */
+
 .carousel {
   max-width: 150px;
   height: auto;

@@ -40,7 +40,7 @@ const Search = () => {
               .filter((activity) => {
                 if (queryString === "") {
                   return activity;
-                } else if (
+                } else return (
                   activity.title
                     .toLowerCase()
                     .includes(queryString.toLowerCase())
@@ -48,14 +48,12 @@ const Search = () => {
                   activity.genre
                     .toLowerCase()
                     .includes(queryString.toLowerCase())
-                ) {
-                  return activity;
-                }
+                )
               })
-              .map((movie, index) => {
+              .map((movie, idx) => {
                 return (
-                    <div className="outerContainer">
-                    <div className="searchContainer" key={index}>
+                    <div className="outerContainer" key={idx}>
+                    <div className="searchContainer" >
                         <div className="imgContainer">
                           <img className="searchImg" src={movie.imgUrl } alt="" />
                         </div>
@@ -68,7 +66,7 @@ const Search = () => {
                                 <p className="movieDetails">RATING/ {movie.rating}</p>
                                 <p className="movieDetails"> PRICE/ {movie.buyPrice}</p>
                               </div>
-                              <Button variant="info">Add To Cart</Button>
+                              <Button variant="info">Add To Favorites</Button>
                             </div>
                           </div> 
                     </div>

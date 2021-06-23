@@ -18,10 +18,10 @@ usersRouter.get("/", async (req, res, next) => {
     const users = await getAllUsers();
     res.send(users);
   } catch (error) {
-    console.log({ error: "error getting user" });
     next(error);
   }
 });
+
 usersRouter.get("/home", async (req, res, next) => {
   try {
     const users = await getAllUsers();
@@ -30,6 +30,7 @@ usersRouter.get("/home", async (req, res, next) => {
     next(error);
   }
 });
+
 usersRouter.post("/register", async (req, res, next) => {
   const { username, password } = req.body;
   const _user = await getUserByUsername(username);
@@ -70,4 +71,5 @@ usersRouter.post("/login", async (req, res, next) => {
     next(error);
   }
 });
+
 module.exports = usersRouter;

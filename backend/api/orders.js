@@ -1,5 +1,7 @@
 const express = require("express");
 const ordersRouter = express.Router();
+
+
 const {
   getAllOrders,
   getOrdersByUserId,
@@ -11,6 +13,7 @@ const {
 ordersRouter.use((req, res, next) => {
   next();
 });
+
 ordersRouter.get("/", async (req, res, next) => {
   try {
     const orders = await getAllOrders();
@@ -22,6 +25,7 @@ ordersRouter.get("/", async (req, res, next) => {
     });
   }
 });
+
 ordersRouter.get("/:userId/cart", async (req, res, next) => {
   const { userId } = req.params;
   try {
@@ -34,6 +38,7 @@ ordersRouter.get("/:userId/cart", async (req, res, next) => {
     });
   }
 });
+
 ordersRouter.post("/add_to_cart", async (req, res, next) => {
   try {
     const order = await createOrder(req.body);
@@ -54,6 +59,7 @@ ordersRouter.patch("/:userId/:mediaId", async (req, res, next) => {
     });
   }
 });
+
 ordersRouter.delete("/:ordersId", async (req, res, next) => {
   try {
     const deleteOrder = await deleteOrder1(req.params);

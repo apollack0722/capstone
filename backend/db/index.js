@@ -7,7 +7,11 @@ const {
   updateUser,
 } = require("./users");
 
-const { createMedia, getAllMedia, getMediaById } = require("./media");
+const { 
+  createMedia, 
+  getAllMedia, 
+  getMediaById 
+} = require("./media");
 
 const {
   createOrder,

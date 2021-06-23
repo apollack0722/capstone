@@ -3,6 +3,8 @@ const { createMedia, getAllMedia } = require("../db");
 const adminRouter = express.Router();
 const { updateUser } = require("./index");
 
+
+
 adminRouter.use((req, res, next) => {
   next();
 });

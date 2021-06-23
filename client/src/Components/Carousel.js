@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {Carousel, Image} from 'react-bootstrap';
 const BASE_URL = "https://shielded-plateau-06840.herokuapp.com"
 
@@ -22,8 +22,8 @@ const MainCarousel = () => {
       return (
         <div className="caroselContainer">
           <Carousel >
-            {media.map((media) => 
-              <Carousel.Item >
+            {media.map((media, idx) => 
+              <Carousel.Item key={idx}>
                 <div className="homeImg">
                 <Image
                   src={media.imgUrl}
@@ -35,7 +35,6 @@ const MainCarousel = () => {
             )}
           </Carousel>
         </div>
-      );
-  
+      );  
 };
 export default MainCarousel;

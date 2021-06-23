@@ -1,5 +1,7 @@
 const client = require("./client");
 
+//media db functionality
+
 async function createMedia({
   title,
   description,

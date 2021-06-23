@@ -1,3 +1,5 @@
+//This file handles functionality for requiring a logged in user or an admin
+
 function requireUser(req, res, next) {
   if (!req.user) {
     next({

@@ -11,7 +11,7 @@ const Slider = () => {
   const [show, setShow] = useState(false);
   const addDescription = (id) => {
     media.forEach((product) => {
-      if (product.id == id) {
+      if (product.id === id) {
         let newMedia = [
           product.title,
           product.description,

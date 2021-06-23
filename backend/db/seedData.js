@@ -1,5 +1,5 @@
-// require in the database adapter functions as you write them (createUser, createActivity...)
-// const { } = require('./');
+
+
 const { createUser } = require("./users");
 const { createMedia } = require("./media");
 const { createOrder } = require("./orders");
@@ -9,7 +9,7 @@ async function dropTables() {
   await client.query(`
         DROP TABLE IF EXISTS users, media, orders;`);
 }
-// syntax err near username line 17
+
 async function createTables() {
   console.log("Starting to build tables...");
   try {

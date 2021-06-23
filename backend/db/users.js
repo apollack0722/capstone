@@ -26,21 +26,21 @@ async function createUser({ username, password, userEmail, isAdmin = false }) {
     const {
       rows: [user],
     } = await client.query(
-      `
-       INSERT INTO users (username, password, "userEmail", "isAdmin")
-       VALUES ($1, $2, $3, $4)
-       ON CONFLICT (username) DO NOTHING
-       RETURNING *;
-      `,
+    `
+      INSERT INTO users (username, password, "userEmail", "isAdmin")
+      VALUES ($1, $2, $3, $4)
+      ON CONFLICT (username) DO NOTHING
+      RETURNING *;
+    `,
       [username, hashedPassword, userEmail, isAdmin]
     );
-    delete user.password;
-    console.log(user);
+    delete user.password;  //remove user pswd from front end visibility before returning
     return user;
   } catch (error) {
     throw error;
   }
 }
+
 async function getUser({ username, password }) {
   try {
     const {
@@ -55,11 +55,9 @@ async function getUser({ username, password }) {
     );
     const isMatch = await bcrypt.compare(password, user.password);
     if (isMatch === true) {
-      console.log("password match!");
       delete user.password;
       return user;
     } else if (isMatch === false) {
-      console.log("incorrect password");
     }
   } catch (error) {
     throw error;
@@ -72,7 +70,7 @@ async function getAllUsers() {
       SELECT *
       FROM users
       `);
-    return rows; //rows?
+    return rows; 
   } catch (error) {
     throw error;
   }

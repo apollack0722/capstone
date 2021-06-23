@@ -6,10 +6,10 @@ async function createOrder({ userId, mediaId, date, purchased }) {
       rows: [order],
     } = await client.query(
       `
-         INSERT INTO orders ("userId", "mediaId", date, purchased)
-         VALUES ($1, $2, $3, $4)
-         RETURNING *;
-        `,
+        INSERT INTO orders ("userId", "mediaId", date, purchased)
+        VALUES ($1, $2, $3, $4)
+        RETURNING *;
+      `,
       [userId, mediaId, date, purchased]
     );
     return order;

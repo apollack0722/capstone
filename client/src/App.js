@@ -1,4 +1,4 @@
-import {Home, Library, Admin, Profile, Cart} from './Pages/Index'
+import {Home, Library, Admin, Profile} from './Pages/Index'
 
 import {
   BrowserRouter as Router,
@@ -22,9 +22,6 @@ function App() {
             </Route>
             <Route path="/Library">
               <Library />
-            </Route>
-            <Route path="/Cart">
-              <Cart />
             </Route>
             <Route path="/Profile">
               <Profile />

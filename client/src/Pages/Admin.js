@@ -2,6 +2,7 @@ import { CreateMediaModal } from '../Components' //should this be exported diffe
 import {useState, useEffect} from 'react'
 import {Button} from 'react-bootstrap'
 
+
 const BASE_URL = 'https://shielded-plateau-06840.herokuapp.com'
 
 const  Admin = () => {
@@ -15,7 +16,6 @@ const  Admin = () => {
     .then(response => response.json())
     .then(result => {
         setMedia(result)
-        console.log('media is', media)   
     })
     .catch(console.error);
   }
@@ -26,8 +26,7 @@ const  Admin = () => {
   })
     .then(response => response.json())
     .then(result => {
-        setUsers(result)
-        console.log('users are', users)   
+        setUsers(result) 
     })
     .catch(console.error);
 }
@@ -43,35 +42,33 @@ useEffect(() => {
           <CreateMediaModal />
         </div>
         <div className="adminPanel">
-          {media.map((media) => 
-            <div className="adminMoviePanel">
-             <p className="movieTitle">{media.title}</p>
-             <img className="adminImg" src={media.imgUrl}></img>
-             <div className="buttonContainer">
+          {media.map((media, idx) => 
+            <div className="adminMoviePanel" key={idx}>
+            <p className="movieTitle">{media.title}</p>
+            <img className="adminImg" src={media.imgUrl} alt="media"></img>
+            <div className="buttonContainer">
               <Button variant="info">Remove </Button>
               <Button variant="info">Edit </Button>
-             </div>
-             
-            </div>
+            </div> 
+        </div>
           )}
         </div>
         <div className="adminPanel">
         <div>
-
-          {users.map((user) => 
-            <div className="userPanel">
+          {users.map((user, idx) => 
+            <div className="userPanel" key={idx}>
               <p>{user.username}</p>
-                {user.isAdmin ?
+                {user.isadmin ?
                   <Button
                     variant="info" 
-                    isAdmin={false}
+                    isadmin={0}
                     // updateUser={updateUser}  
                   >
                   Remove Admin
                   </Button> : 
                   <Button
                     variant="info"
-                    isAdmin={true}>
+                    isadmin={1}>
                   Make Admin
                   </Button>
                 }
